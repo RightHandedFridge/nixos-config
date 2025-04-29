@@ -11,10 +11,11 @@ in {
     };
   };
 
-  config = lib.mkIf cfg.enable {
-    imports = [
+  imports = [
       ./reset.nix
-    ];
+  ];
+
+  config = lib.mkIf cfg.enable {
 
     # /persist is needed for boot when impermanence is enabled
     fileSystems."/persist".neededForBoot = true;
