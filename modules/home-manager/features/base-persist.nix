@@ -1,5 +1,5 @@
-{config, ...}: {
-  home.persistence."/persist/home/${config.vars.user}" = config.modules.impermanence.enable {
+{config, osConfig, lib, ...}: {
+  home.persistence."/persist/home/${config.vars.user}" = lib.mkIf osConfig.modules.system.impermanence.enable {
     directories = [
       ".local/state/wireplumber"
       "Downloads"

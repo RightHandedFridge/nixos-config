@@ -1,5 +1,5 @@
-{config, inputs, ...}: {
-  home.persistence."/persist/home/${config.vars.user}" = config.modules.impermanence.enable {
+{config, inputs, osConfig, lib, ...}: {
+  home.persistence."/persist/home/${config.vars.user}" = lib.mkIf osConfig.modules.system.impermanence.enable {
     directories = [
       ".librewolf"
       /*

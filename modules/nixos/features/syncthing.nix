@@ -47,6 +47,6 @@ in {
         };
       };
     };
-    systemd.services.syncthing.environment.STNODEFAULTFOLDER = lib.mkIf config.modules.syncthing.enable "true";
+    systemd.services.syncthing.environment.STNODEFAULTFOLDER = "true";
   };
 }

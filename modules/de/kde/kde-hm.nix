@@ -168,7 +168,7 @@
       ".config/kwinoutputconfig.json".source = ../../../dotfiles/kde/${config.vars.host}-display.json;
     };
 
-    home.persistence."/persist/home/${config.vars.user}" = lib.mkIf config.modules.impermanence.enable {
+    home.persistence."/persist/home/${config.vars.user}" = lib.mkIf osConfig.modules.system.impermanence.enable {
       directories = [
         ".local/share/kwalletd"
       ];

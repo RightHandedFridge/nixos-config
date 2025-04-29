@@ -1,6 +1,8 @@
 {
   config,
   pkgs,
+  osConfig,
+  lib,
   ...
 }: {
   imports = [
@@ -32,7 +34,7 @@
   programs.librewolf.enable = true;
   programs.alacritty.enable = true;
 
-  home.persistence."/persist/home/${config.vars.user}" = config.modules.impermanence.enable {
+  home.persistence."/persist/home/${config.vars.user}" = lib.mkIf osConfig.modules.system.impermanence.enable {
     directories = [
       ".config/keepassxc"
       ".config/Mullvad VPN"
