@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  cfg = config.modules.modules.system.virtualisation;
+  cfg = config.modules.system.virtualisation;
 in {
   options.modules.system.virtualisation = {
     enable = lib.mkOption {
