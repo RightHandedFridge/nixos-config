@@ -2,9 +2,10 @@
   pkgs,
   lib,
   config,
+  osConfig,
   ...
 }: let
-  cfg = config.modules.de.hyprland;
+  cfg = osConfig.modules.de.hyprland;
 in {
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
