@@ -2,9 +2,10 @@
   config,
   pkgs,
   lib,
+  osConfig,
   ...
 }: {
-  config = lib.mkIf config.modules.de.kde.enable {
+  config = lib.mkIf osConfig.modules.de.kde.enable {
     programs.plasma = {
       enable = true;
       overrideConfig = true;
