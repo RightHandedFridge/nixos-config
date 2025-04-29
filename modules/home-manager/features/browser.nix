@@ -1,11 +1,18 @@
-{config, inputs, osConfig, lib, ...}: {
+{
+  config,
+  inputs,
+  osConfig,
+  lib,
+  ...
+}: {
   home.persistence."/persist/home/${config.vars.user}" = lib.mkIf osConfig.modules.system.impermanence.enable {
     directories = [
-      ".librewolf"
+      ".floorp"
       /*
       ".librewolf/rhf/storage"
       ".librewolf/rhf/extension-store"
-      ".librewolf/rhf/extensions" */
+      ".librewolf/rhf/extensions"
+      */
     ];
     /*
     files = [
@@ -13,25 +20,25 @@
       ".librewolf/rhf/places.sqlite" # bookmarks/history/more
       ".librewolf/rhf/permissions.sqlite" # pageinfo->permissions
       ".librewolf/rhf/formhistory.sqlite" # form history
-      ".librewolf/rhf/storage.sqlite" 
+      ".librewolf/rhf/storage.sqlite"
       ".librewolf/rhf/extensions.json"
       ".librewolf/rhf/addonStartup.json.lz4"
-    ]; */
+    ];
+    */
   };
 
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
-      "text/html" = "librewolf.desktop";
-      "x-scheme-handler/http" = "librewolf.desktop";
-      "x-scheme-handler/https" = "librewolf.desktop";
-      "x-scheme-handler/about" = "librewolf.desktop";
-      "x-scheme-handler/unknown" = "librewolf.desktop";
+      "text/html" = "floorp.desktop";
+      "x-scheme-handler/http" = "floorp.desktop";
+      "x-scheme-handler/https" = "floorp.desktop";
+      "x-scheme-handler/about" = "floorp.desktop";
+      "x-scheme-handler/unknown" = "floorp.desktop";
     };
   };
 
-  #Librewolf
-  programs.librewolf = {
+  programs.floorp = {
     profiles.rhf = {
       name = "rhf";
       search = {
@@ -63,14 +70,14 @@
         "privacy.sanitize.sanitizeOnShutdown" = false;
         "browser.contentblocking.category" = "custom";
       };
-      extensions = with inputs.firefox-addons.packages."x86_64-linux"; [
-        ublock-origin
-        sponsorblock
-        istilldontcareaboutcookies
-      ];
+      extensions = {
+        packages = with inputs.firefox-addons.packages."x86_64-linux"; [
+          ublock-origin
+          sponsorblock
+          istilldontcareaboutcookies
+        ];
+      };
     };
-
-
 
     languagePacks = [
       "en-GB"
