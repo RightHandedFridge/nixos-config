@@ -19,19 +19,19 @@
   };
 
   config = {
-    services.mullvad-vpn = lib.mkIf config.modules.vpn.mullvad.enable {
+    services.mullvad-vpn = lib.mkIf config.modules.system.vpn.mullvad.enable {
       enable = true;
       package = pkgs.mullvad-vpn;
     };
 
-    environment.persistence."/persist/system" = lib.mkIf config.modules.vpn.mullvad.enable {
+    environment.persistence."/persist/system" = lib.mkIf config.modules.system.vpn.mullvad.enable {
       hideMounts = true;
       directories = [
         "/etc/mullvad-vpn/"
       ];
     };
 
-    environment.systemPackages = lib.mkIf config.modules.vpn.proton.enable [
+    environment.systemPackages = lib.mkIf config.modules.system.vpn.proton.enable [
       pkgs.protonvpn-gui
     ];
   };
