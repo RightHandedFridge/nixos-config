@@ -1,0 +1,5 @@
+alsa_input.usb-Logitech_PRO_X_Wireless_Gaming_Headset-00.mono-fallback:analog-input-mic.json
+/home/rhf/.config/easyeffects/autoload/input/
+
+lpxw.json
+/home/rhf/.config/easyeffects/input/

@@ -1,0 +1,5 @@
+{...}: {
+  stylix = {
+    image = ./wallpaper.png;
+  };
+}

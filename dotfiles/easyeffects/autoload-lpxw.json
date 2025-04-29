@@ -1,0 +1,6 @@
+{
+    "device": "alsa_input.usb-Logitech_PRO_X_Wireless_Gaming_Headset-00.mono-fallback",
+    "device-description": "PRO X Wireless Gaming Headset Mono",
+    "device-profile": "analog-input-mic",
+    "preset-name": "lpxw"
+}
