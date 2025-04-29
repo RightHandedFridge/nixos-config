@@ -21,7 +21,7 @@ in {
     home-manager = {
       extraSpecialArgs = {inherit inputs;};
       backupFileExtension = "hbk";
-      sharedModules = lib.mkIf config.options.modules.de.kde.enable [plasmaManagerModule];
+      sharedModules = lib.mkIf config.modules.de.kde.enable [plasmaManagerModule];
       users.${config.vars.user} = {
         imports = [
           (homeNixPath config.vars.host) #Take hosts from global vars
