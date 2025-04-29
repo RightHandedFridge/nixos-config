@@ -19,6 +19,7 @@ in {
       user = config.vars.user;
       group = "users";
       configDir = "/home/${config.vars.user}/.config/syncthing";
+      dataDir = "/home/${config.vars.user}/.config/syncthing";
       settings = {
         devices = {
           "HomeServer" = {
