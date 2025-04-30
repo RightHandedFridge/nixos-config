@@ -31,7 +31,7 @@
     package = pkgs.vscode;
   };
 
-  programs.floorp.enable = true;
+  programs.librewolf.enable = true;
   programs.alacritty.enable = true;
 
   home.persistence."/persist/home/${config.vars.user}" = lib.mkIf osConfig.modules.system.impermanence.enable {

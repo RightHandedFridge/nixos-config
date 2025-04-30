@@ -3,11 +3,12 @@
   inputs,
   osConfig,
   lib,
+  pkgs,
   ...
 }: {
   home.persistence."/persist/home/${config.vars.user}" = lib.mkIf osConfig.modules.system.impermanence.enable {
     directories = [
-      ".floorp"
+      ".librewolf"
       /*
       ".librewolf/rhf/storage"
       ".librewolf/rhf/extension-store"
@@ -30,15 +31,16 @@
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
-      "text/html" = "floorp.desktop";
-      "x-scheme-handler/http" = "floorp.desktop";
-      "x-scheme-handler/https" = "floorp.desktop";
-      "x-scheme-handler/about" = "floorp.desktop";
-      "x-scheme-handler/unknown" = "floorp.desktop";
+      "text/html" = "librewolf.desktop";
+      "x-scheme-handler/http" = "librewolf.desktop";
+      "x-scheme-handler/https" = "librewolf.desktop";
+      "x-scheme-handler/about" = "librewolf.desktop";
+      "x-scheme-handler/unknown" = "librewolf.desktop";
     };
   };
 
-  programs.floorp = {
+  #Librewolf
+  programs.librewolf = {
     profiles.rhf = {
       name = "rhf";
       search = {
@@ -70,7 +72,7 @@
         "privacy.sanitize.sanitizeOnShutdown" = false;
         "browser.contentblocking.category" = "custom";
       };
-      extensions = {
+      extensions.package = {
         packages = with inputs.firefox-addons.packages."x86_64-linux"; [
           ublock-origin
           sponsorblock
