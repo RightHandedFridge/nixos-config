@@ -72,7 +72,7 @@
         "privacy.sanitize.sanitizeOnShutdown" = false;
         "browser.contentblocking.category" = "custom";
       };
-      extensions.package = {
+      extensions = {
         packages = with inputs.firefox-addons.packages."x86_64-linux"; [
           ublock-origin
           sponsorblock
