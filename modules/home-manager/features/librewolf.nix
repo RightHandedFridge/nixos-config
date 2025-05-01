@@ -77,6 +77,7 @@
           ublock-origin
           sponsorblock
           istilldontcareaboutcookies
+          unhook
         ];
       };
     };
