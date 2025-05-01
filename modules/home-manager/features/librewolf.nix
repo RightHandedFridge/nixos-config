@@ -73,7 +73,7 @@
         "browser.contentblocking.category" = "custom";
       };
       extensions = {
-        packages = with inputs.firefox-addons.packages."x86_64-linux"; [
+        packages = with pkgs.nur.repos.rycee.firefox-addons; [
           ublock-origin
           sponsorblock
           istilldontcareaboutcookies

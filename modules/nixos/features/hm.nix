@@ -21,6 +21,7 @@ in {
     home-manager = {
       extraSpecialArgs = {inherit inputs;};
       backupFileExtension = "hbk";
+      useGlobalPkgs = true;
       sharedModules = lib.mkIf config.modules.de.kde.enable [plasmaManagerModule];
       users.${config.vars.user} = {
         imports = [

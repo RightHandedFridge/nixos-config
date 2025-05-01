@@ -1,6 +1,9 @@
-{...}: {
+{inputs, ...}: {
   #Enable Unfree packages
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.overlays = [
+    inputs.nur.overlays.default
+  ];
 
   # Enable networking
   networking.networkmanager.enable = true;
