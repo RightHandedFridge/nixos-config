@@ -77,7 +77,7 @@
           ublock-origin
           sponsorblock
           istilldontcareaboutcookies
-          unhook
+          youtube-recommended-videos #unhook
         ];
       };
     };
