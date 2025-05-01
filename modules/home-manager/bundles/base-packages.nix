@@ -7,7 +7,7 @@
 }: {
   imports = [
     ../features/vscode.nix
-    ../features/browser.nix
+    ../features/librewolf.nix
     ../features/alacritty.nix
     ../features/base-persist.nix
   ];
