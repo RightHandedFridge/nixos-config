@@ -116,10 +116,10 @@
           "Window to Desktop 4" = "Alt+%";
           "Window to Desktop 5" = "Alt+^";
 
-          "Polonium: Focus Left" = "Alt+J";
-          "Polonium: Focus Right" = "Alt+L";
-          "Polonium: Focus Above" = "Alt+I";
-          "Polonium: Focus Below" = "Alt+K";
+          "PoloniumFocusLeft" = "Alt+J";
+          "PoloniumFocusRight" = "Alt+L";
+          "PoloniumFocusAbove" = "Alt+I";
+          "PoloniumFocusBelow" = "Alt+K";
 
         };
         krunner = {
