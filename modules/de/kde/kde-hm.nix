@@ -76,7 +76,7 @@
                 insertionPoint = "right";
               };
 
-              maximizeSingleWindow = true;
+              maximizeSingleWindow = false;
               tilePopups = false;
               
             };
@@ -132,7 +132,6 @@
       spectacle.shortcuts.captureRectangularRegion = "Meta+Shift+S";
 
       window-rules = [
-        /*
         {
           description = "All windows must be maximized";
           match = {
@@ -147,7 +146,6 @@
             maximizevert = true;
           };
         }
-        */
       ]; 
 
       fonts = {
