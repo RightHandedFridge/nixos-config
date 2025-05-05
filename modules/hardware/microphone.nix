@@ -1,7 +1,7 @@
 {...}: {
   #This is a home manager module
   services.easyeffects = {
-    enable = false;
+    enable = true;
     preset = "lpxw";
   };
 
