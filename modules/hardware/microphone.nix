@@ -1,9 +1,8 @@
-{...}: {
+{pkgs, ...}: {
   #This is a home manager module
-  services.easyeffects = {
-    enable = true;
-    preset = "lpxw";
-  };
+  home.packages = with pkgs; [
+    easyeffects
+  ];
 
   home.file = {
     ".config/easyeffects/input/lpxw.json".text = ''
