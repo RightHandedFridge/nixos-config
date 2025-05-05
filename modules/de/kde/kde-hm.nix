@@ -66,6 +66,22 @@
           "maximize"
           "close"
         ];
+
+        scripts = {
+          polonium = {
+            enable = true;
+            settings = {
+              layout = {
+                engine = "binaryTree";
+                insertionPoint = "right";
+              };
+
+              maximizeSingleWindow = true;
+              tilePopups = false;
+              
+            };
+          };
+        };
       };
 
       hotkeys.commands = {
@@ -83,20 +99,28 @@
       };
       shortcuts = {
         kwin = {
-          "Window Maximize" = "Alt+Shift+W";
+          "Window Maximize" = "Meta+PgUp";
           "Window Close" = "Alt+Q";
           "Overview" = "Meta";
           "Kill Window" = "Alt+Shift+Q";
+
           "Switch to Desktop 1" = "Alt+1";
           "Switch to Desktop 2" = "Alt+2";
           "Switch to Desktop 3" = "Alt+3";
           "Switch to Desktop 4" = "Alt+4";
           "Switch to Desktop 5" = "Alt+5";
+
           "Window to Desktop 1" = "Alt+!";
           "Window to Desktop 2" = "Alt+\"";
           "Window to Desktop 3" = "Alt+£";
           "Window to Desktop 4" = "Alt+%";
           "Window to Desktop 5" = "Alt+^";
+
+          "Polonium: Focus Left" = "Alt+J";
+          "Polonium: Focus Right" = "Alt+L";
+          "Polonium: Focus Above" = "Alt+I";
+          "Polonium: Focus Below" = "Alt+K";
+
         };
         krunner = {
           activateWhenTypingOnDesktop = "true";
@@ -108,6 +132,7 @@
       spectacle.shortcuts.captureRectangularRegion = "Meta+Shift+S";
 
       window-rules = [
+        /*
         {
           description = "All windows must be maximized";
           match = {
@@ -122,7 +147,8 @@
             maximizevert = true;
           };
         }
-      ];
+        */
+      ]; 
 
       fonts = {
         general = {
