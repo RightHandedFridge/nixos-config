@@ -12,20 +12,24 @@ in {
       # Make sure you have base-packages imported!
 
       #GUI Apps
-      nautilus
-      gnome-disk-utility
+      kdePackages.dolphin
+      kdePackages.gwenview
+      kdePackages.ark
       file-roller
       vlc
+      kdePackages.spectacle
+
+      #Launcher
+      anyrun
+
 
       #Terminal Apps
       pavucontrol
-      grim
-      slurp
       wl-clipboard
       swappy
     ];
 
-    home.persistence."/persist/home/${config.vars.user}" = config.modules.impermanence.enable {
+    home.persistence."/persist/home/${config.vars.user}" = lib.mkIf osConfig.modules.system.impermanence.enable {
       directories = [
         ".local/share/keyrings"
       ];
@@ -63,6 +67,12 @@ in {
           "$mod, I, movefocus, u"
           "$mod, K, movefocus, d"
 
+          #Move Windows
+          "$mod SHIFT, J, movefocus, l"
+          "$mod SHIFT, L, movefocus, r"
+          "$mod SHIFT, I, movefocus, u"
+          "$mod SHIFT, K, movefocus, d"
+
           # Switch Workspaces
           "$mod, 1, workspace, 1"
           "$mod, 2, workspace, 2"
@@ -84,9 +94,10 @@ in {
           "$mod SHIFT, 8, movetoworkspace, 8"
 
           #Screenshots
-          "$mod SHIFT, S, exec, grim -g \"$(slurp -w 0)\" - | swappy -f -"
+          "$modapp SHIFT, S, exec, spectacle -r -b"
 
           #Recording
+          "$modapp SHIFT, R, exec, spectacle -R r -b"
 
           # Special Keys
           # Volume
@@ -124,7 +135,7 @@ in {
         }
 
         #input {
-          font-family: "Montserrat";
+          font-family: "Inter";
           font-size: 20px;
           color: #DEDEDE;
           background-color: rgba(126, 126, 126, 0.5);
