@@ -22,7 +22,6 @@ in {
       #Launcher
       anyrun
 
-
       #Terminal Apps
       pavucontrol
       wl-clipboard
@@ -396,6 +395,36 @@ in {
     services.mako = {
       enable = true;
       icons = true;
+    };
+
+    gtk = {
+      enable = true;
+      theme = {
+        name = "WhiteSur-Dark";
+        package = pkgs.whitesur-gtk-theme;
+      };
+
+      iconTheme = {
+        name = "WhiteSur-dark";
+        package = pkgs.whitesur-icon-theme;
+      };
+
+      font = {
+        package = pkgs.inter;
+        name = "Inter";
+        size = 10;
+      };
+
+      cursorTheme = {
+        name = "WhiteSur-cursors";
+        package = pkgs.whitesur-cursors;
+        size = 16;
+      };
+    };
+
+    qt = {
+      enable = true;
+      platformTheme.name = "gtk";
     };
   };
 }
