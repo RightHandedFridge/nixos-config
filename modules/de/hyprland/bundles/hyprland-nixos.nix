@@ -46,5 +46,9 @@ in {
       font-awesome
       inter
     ];
+
+    services.displayManager.ly = {
+      enable = true;
+    };
   };
 }
