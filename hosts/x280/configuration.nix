@@ -18,7 +18,7 @@
     ../../modules/nixos/bundles/user-sys-packages.nix
 
     #Desktop Enviroment
-    ../../modules/de/hyprland/hyprland-nixos.nix
+    ../../modules/de/hyprland/bundles/hyprland-nixos.nix
     ../../modules/de/kde/kde-nixos.nix
 
     #Secrets

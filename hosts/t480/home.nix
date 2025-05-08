@@ -10,7 +10,7 @@
     ../../modules/hardware/microphone.nix
     #Desktop Enviroment
     ../../modules/de/kde/kde-hm.nix
-    ../../modules/de/hyprland/hyprland-hm.nix
+    ../../modules/de/hyprland/bundles/hyprland-hm.nix
 
     #Packages
     ../../modules/home-manager/bundles/base-packages.nix

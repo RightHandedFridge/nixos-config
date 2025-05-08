@@ -20,7 +20,7 @@
 
     #Desktop Enviroment
     ../../modules/de/kde/kde-nixos.nix
-    ../../modules/de/hyprland/hyprland-nixos.nix
+    ../../modules/de/hyprland/bundles/hyprland-nixos.nix
 
     #Secrets
     ../../modules/sops/sops.nix
