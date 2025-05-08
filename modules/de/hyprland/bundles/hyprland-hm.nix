@@ -1,6 +1,6 @@
 { ... }:{
   imports = [
-    ../features/hyprland-hm.nix
+    ../features/hyprland.nix
     ../features/mako.nix
     ../features/theme.nix
     ../features/waybar.nix
