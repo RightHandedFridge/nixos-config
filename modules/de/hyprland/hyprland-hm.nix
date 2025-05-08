@@ -424,7 +424,15 @@ in {
 
     qt = {
       enable = true;
-      platformTheme.name = "gtk";
+      style = {
+        name = "kvantum";
+        package = pkgs.whitesur-kde;
+      };
     };
+
+    home.file.".config/Kvantum/kvantum.kvconfig".text = ''
+      [General]
+      theme=WhiteSur-dark
+    '';
   };
 }
