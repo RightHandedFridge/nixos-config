@@ -57,8 +57,4 @@
   # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
-  systemd.services."systemd-user-sessions.service" = {
-    serviceConfig.TimeoutStopSec = "5s"; # Fuck you easy-effects
-  };
 }
