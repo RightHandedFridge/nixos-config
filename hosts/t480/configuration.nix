@@ -61,11 +61,11 @@
 
     de = {
       kde = {
-        enable = true;
+        enable = false;
       };
 
       hyprland = {
-        enable = false;
+        enable = true;
       };
     };
   };
