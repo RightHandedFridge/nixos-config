@@ -15,6 +15,10 @@ in {
     };
   };
 
+  imports = [
+    ../features/theme.nix
+  ];
+
   config = lib.mkIf cfg.enable {
     programs.hyprland = {
       enable = true;
@@ -40,15 +44,12 @@ in {
       brightnessctl
       wev
       hyprpolkitagent
+      whitesur-kde
     ];
 
     fonts.packages = with pkgs; [
       font-awesome
       inter
     ];
-
-    services.displayManager.ly = {
-      enable = true;
-    };
   };
 }

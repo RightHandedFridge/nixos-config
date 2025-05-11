@@ -1,61 +1,79 @@
-{ pkgs, lib, osConfig, ... }: {
-  config = lib.mkIf osConfig.modules.de.hyprland.enable {
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
+  config = lib.mkIf config.modules.de.hyprland.enable {
+    home-manager.users.${config.vars.user} = {
+      # GTK settings for WhiteSur-Dark
+      gtk = {
+        enable = true;
+        theme = {
+          name = "WhiteSur-Dark";
+          package = pkgs.whitesur-gtk-theme;
+        };
 
-    # GTK settings for WhiteSur-Dark
-    gtk = {
-      enable = true;
-      theme = {
-        name = "WhiteSur-Dark";
-        package = pkgs.whitesur-gtk-theme;
+        iconTheme = {
+          name = "WhiteSur-dark";
+          package = pkgs.whitesur-icon-theme;
+        };
+
+        font = {
+          package = pkgs.inter;
+          name = "Inter";
+          size = 10;
+        };
+
+        cursorTheme = {
+          name = "WhiteSur-cursors";
+          package = pkgs.whitesur-cursors;
+          size = 16;
+        };
       };
 
-      iconTheme = {
-        name = "WhiteSur-dark";
-        package = pkgs.whitesur-icon-theme;
-      };
+      xdg.configFile."Kvantum/kvantum.kvconfig".text = ''
+        [General]
+        theme=WhiteSurDark
+      '';
 
-      font = {
-        package = pkgs.inter;
-        name = "Inter";
-        size = 10;
-      };
+      xdg.configFile."qt5ct/qt5ct.conf".text = ''
+        [Appearance]
+        color_scheme_path=/home/rhf/.config/qt5ct/style-colors.conf
+        custom_palette=true
+        icon_theme=WhiteSur-dark
+        standard_dialogs=xdgdesktopportal
+        style=kvantum
 
-      cursorTheme = {
-        name = "WhiteSur-cursors";
-        package = pkgs.whitesur-cursors;
-        size = 16;
-      };
+        [Fonts]
+        fixed="Inter,10,-1,5,50,0,0,0,0,0"
+        general="Inter,10,-1,5,50,0,0,0,0,0"
+
+        [Interface]
+        activate_item_on_single_click=1
+        buttonbox_layout=3
+        cursor_flash_time=1000
+        dialog_buttons_have_icons=1
+        double_click_interval=400
+        gui_effects=@Invalid()
+        keyboard_scheme=2
+        menus_have_icons=true
+        show_shortcuts_in_context_menus=true
+        stylesheets=@Invalid()
+        toolbutton_style=4
+        underline_shortcut=1
+        wheel_scroll_lines=3
+      '';
+
+      home.packages = with pkgs; [
+        whitesur-kde
+      ];
     };
 
-    # Enable Qt applications with styling
     qt = {
       enable = true;
-
-      style = {
-        name = "kvantum";
-        package = with pkgs; [
-          qt6Packages.qtstyleplugin-kvantum
-        ];
-      };
+      style = "kvantum";
+      platformTheme = "gtk2";
     };
-
-    # Ensure we install necessary packages, including Kvantum and the WhiteSur theme
-    home.packages = with pkgs; [
-      kdePackages.qtstyleplugin-kvantum
-      whitesur-kde
-    ];
-
-    # Apply Kvantum config to select the WhiteSur-dark theme
-    xdg.configFile."Kvantum/kvantum.kvconfig".text = ''
-      [General]
-      theme=WhiteSurDark
-    '';
-
-    # Set session variables to use Kvantum for Qt apps
-    home.sessionVariables = {
-      QT_STYLE_OVERRIDE = "kvantum"; # Forces Qt to use Kvantum styling
-      QT_QPA_PLATFORMTHEME = "qt5ct"; # Ensures Qt integrates well with your desktop environment
-    };
-
   };
 }
