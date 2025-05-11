@@ -45,4 +45,12 @@
       ".config/pulse"
     ];
   };
+
+  xdg.configFile."keepassxc/keepassxc.ini".text = ''
+    [General]
+    ConfigVersion=2
+
+    [GUI]
+    ApplicationTheme=dark
+  '';
 }
