@@ -6,4 +6,6 @@
     ../features/wofi.nix
     ../features/hyprpaper.nix
   ];
+
+  programs.bash.enable = true;
 }
