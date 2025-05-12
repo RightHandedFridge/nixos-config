@@ -40,7 +40,10 @@
         };
       };
 
-      home.sessionVariables.GTK_THEME = "WhiteSur-Dark";
+      home.sessionVariables = {
+        GTK_THEME = "WhiteSur-Dark";
+        GTK_ICON_THEME = "WhiteSur-dark";
+      };
 
       xdg.configFile."Kvantum/kvantum.kvconfig".text = ''
         [General]
