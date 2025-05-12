@@ -13,6 +13,7 @@
         name = "WhiteSur-cursors";
         size = 16;
       };
+
       # GTK settings for WhiteSur-Dark
       gtk = {
         enable = true;
@@ -38,6 +39,8 @@
           size = 16;
         };
       };
+
+      home.sessionVariables.GTK_THEME = "WhiteSur-Dark";
 
       xdg.configFile."Kvantum/kvantum.kvconfig".text = ''
         [General]
