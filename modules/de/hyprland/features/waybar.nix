@@ -29,6 +29,14 @@
             "clock"
           ];
 
+          "hyprland/window" = {
+            format = "{}";
+            max-length = 40;
+            separate-outputs = true;
+            offscreen-css = true;
+            offscreen-css-text = "(inactive)";
+          };
+
           "keyboard-state" = {
             numlock = true;
             capslock = true;
@@ -49,33 +57,6 @@
             format-icons = ["" ""];
             tooltip = true;
             tooltip-format = "{app}: {title}";
-          };
-
-          "mpd" = {
-            format = "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ";
-            format-disconnected = "Disconnected ";
-            format-stopped = "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ";
-            unknown-tag = "N/A";
-            interval = 5;
-            consume-icons = {
-              on = " ";
-            };
-            random-icons = {
-              off = "<span color=\"#f53c3c\"></span> ";
-              on = " ";
-            };
-            repeat-icons = {
-              on = " ";
-            };
-            single-icons = {
-              on = "1 ";
-            };
-            state-icons = {
-              paused = "";
-              playing = "";
-            };
-            tooltip-format = "MPD (connected)";
-            tooltip-format-disconnected = "MPD (disconnected)";
           };
 
           "idle_inhibitor" = {
@@ -212,11 +193,187 @@
 
       style = ''
         * {
-          font-family: 
-            "Inter", 
-            "Font Awesome 6 Free";
-          font-size: 12px;
+          font-family:
+          "Inter",
+          "Font Awesome 6 Free";
+          font-size: 14px;
         }
+
+        window#waybar {
+          background-color: rgba(0, 0, 0, 0.6);
+          color: #ffffff;
+          transition-property: background-color;
+          transition-duration: 0.5s;
+        }
+
+        /* This section can be use if you want to separate waybar modules */
+        .modules-left,
+        .modules-center,
+        .modules-right {
+          /* border: 0.5px solid @overlay0; */
+          padding-right: 4px;
+          padding-left: 4px;
+        }
+
+        /* .modules-left, */
+        /* .modules-right { */
+        /*   padding-top: 2px; */
+        /*   padding-bottom: 2px; */
+        /*   padding-right: 4px; */
+        /*   padding-left: 4px; */
+        /* } */
+        #backlight,
+        #backlight-slider,
+        #battery,
+        #bluetooth,
+        #clock,
+        #cpu,
+        #disk,
+        #idle_inhibitor,
+        #keyboard-state,
+        #memory,
+        #mode,
+        #mpris,
+        #network,
+        #pulseaudio,
+        #pulseaudio-slider,
+        #taskbar button,
+        #taskbar,
+        #temperature,
+        #tray,
+        #window,
+        #wireplumber,
+        #workspaces,
+        #custom-backlight,
+        #custom-cycle_wall,
+        #custom-keybinds,
+        #custom-keyboard,
+        #custom-light_dark,
+        #custom-lock,
+        #custom-menu,
+        #custom-power_vertical,
+        #custom-power,
+        #custom-swaync,
+        #custom-updater,
+        #custom-weather,
+        #custom-weather.clearNight,
+        #custom-weather.cloudyFoggyDay,
+        #custom-weather.cloudyFoggyNight,
+        #custom-weather.default,
+        #custom-weather.rainyDay,
+        #custom-weather.rainyNight,
+        #custom-weather.severe,
+        #custom-weather.showyIcyDay,
+        #custom-weather.snowyIcyNight,
+        #custom-weather.sunnyDay {
+          padding-right: 6px;
+          padding-left: 6px;
+        }
+
+        window#waybar.hidden {
+          opacity: 0.1;
+        }
+
+        #window {
+          color: #ffffff;
+          font-weight: bold;
+        }
+
+        #clock,
+        #custom-media,
+        #tray,
+        #mode,
+        #custom-lock,
+        #workspaces,
+        #idle_inhibitor,
+        #custom-power-menu,
+        #battery,
+        #pulseaudio,
+        #network,
+        #language,
+        #custom-bluetooth-status {
+          color: #ffffff;
+          /* margin-top: 2px; */
+          /* margin-bottom: 2px; */
+          /* padding-left: 20px; */
+        }
+
+        #custom-bluetooth-status {
+          padding-right: 8px;
+        }
+
+        #custom-notify {
+          padding-left: 25px;
+        }
+
+        #custom-lock {
+          padding-left: 25px;
+          padding-right: 8px;
+        }
+
+        #custom-fast-control-menu {
+          padding-left: 25px;
+        }
+        #tray {
+          color: #ffffff;
+          /* padding-right: 8px; */
+          margin-top: 5px;
+          margin-bottom: 5px;
+        }
+
+        #tray > .passive {
+          -gtk-icon-effect: dim;
+        }
+
+        #tray > .needs-attention {
+          -gtk-icon-effect: highlight;
+          background-color: #eb4d4b;
+        }
+
+        #custom-bluetooth-status {
+          padding-top: 4px;
+          font: 0.9em sans-serif;
+        }
+
+        #custom-fast-control-menu {
+          font-size: 18px;
+          padding-top: 4px;
+        }
+
+        #pulseaudio,
+        #pulseaudio.muted {
+        }
+
+        #network.disconnected {
+          color: #fff;
+        }
+
+        #battery {
+          /* color: #8fbcbb; */
+        }
+
+        #battery.critical,
+        #battery.warning,
+        #battery.full,
+        #battery.plugged {
+          /* color: #8fbcbb; */
+        }
+
+        @keyframes blink {
+          to {
+            background-color: rgba(30, 34, 42, 0.5);
+            color: #abb2bf;
+          }
+        }
+
+        #battery.warning {
+          color: #ecd3a0;
+        }
+
+        #battery.critical:not(.charging) {
+          color: #fb958b;
+        }
+
       '';
     };
   };
