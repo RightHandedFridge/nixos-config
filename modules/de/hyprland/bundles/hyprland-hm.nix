@@ -4,5 +4,6 @@
     ../features/mako.nix
     ../features/waybar.nix
     ../features/wofi.nix
+    ../features/hyprpaper.nix
   ];
 }
