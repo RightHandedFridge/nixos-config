@@ -6,6 +6,13 @@
 }: {
   config = lib.mkIf config.modules.de.hyprland.enable {
     home-manager.users.${config.vars.user} = {
+
+      home.pointerCursor = {
+        gtk.enable = true;
+        package = pkgs.whitesur-cursors;
+        name = "WhiteSur-cursors";
+        size = 16;
+      };
       # GTK settings for WhiteSur-Dark
       gtk = {
         enable = true;
