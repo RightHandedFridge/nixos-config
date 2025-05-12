@@ -212,7 +212,10 @@
 
       style = ''
         * {
-          font-family: "Inter", "Font Awesome 6 Free", serif;
+          font-family: 
+            "Inter", 
+            "Font Awesome 6 Free";
+          font-size: 12px;
         }
       '';
     };
