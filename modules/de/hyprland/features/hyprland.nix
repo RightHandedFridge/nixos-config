@@ -12,12 +12,10 @@ in {
       # Make sure you have base-packages imported!
 
       #GUI Apps
-      kdePackages.dolphin
-      kdePackages.gwenview
-      kdePackages.ark
+      nautilus
+      eog
       file-roller
       vlc
-      kdePackages.spectacle
       blueman
 
       #Launcher
@@ -27,6 +25,7 @@ in {
       pavucontrol
       wl-clipboard
       swappy
+      hyprshot
     ];
 
     home.persistence."/persist/home/${config.vars.user}" = lib.mkIf osConfig.modules.system.impermanence.enable {
@@ -94,10 +93,7 @@ in {
           "$mod SHIFT, 8, movetoworkspace, 8"
 
           #Screenshots
-          "$modapp SHIFT, S, exec, spectacle -r -b"
-
-          #Recording
-          "$modapp SHIFT, R, exec, spectacle -R r -b"
+          "$mod SHIFT, S, exec, hyprshot -m region --clipboard-only --freeze"
 
           # Special Keys
           # Volume
