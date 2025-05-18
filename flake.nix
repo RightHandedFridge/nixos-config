@@ -3,24 +3,27 @@
 
   inputs = {
     # Nixpkgs channels
-    nixpkgs = {
+    nixpkgs-unstable = {
       url = "github:nixos/nixpkgs/nixos-unstable";
     };
     nixpkgs-alpha = {
       url = "github:nixos/nixpkgs/master";
     };
     nixpkgs-stable = {
-      url = "github:nixos/nixpkgs/nixos-24.11";
+      url = "github:nixos/nixpkgs/release-25.05";
+    };
+    nixpkgs-oldstable = {
+      url = "github:nixos/nixpkgs/release-24.11";
     };
 
     # Configuration managers
     home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/home-manager/release-25.05";
+      inputs.nixpkgs.follows = "nixpkgs-stable";
     };
     plasma-manager = {
       url = "github:nix-community/plasma-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-stable";
       inputs.home-manager.follows = "home-manager";
     };
 
@@ -30,7 +33,7 @@
     };
     nixos-06cb-009a-fingerprint-sensor = {
       url = "github:ahbnr/nixos-06cb-009a-fingerprint-sensor?ref=24.11";
-      inputs.nixpkgs.follows = "nixpkgs-stable";
+      inputs.nixpkgs.follows = "nixpkgs-oldstable";
     };
 
     # Theming
@@ -53,7 +56,7 @@
     };
     disko = {
       url = "github:nix-community/disko";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-stable";
     };
     impermanence = {
       url = "github:nix-community/impermanence";
@@ -68,7 +71,7 @@
 
   outputs = {
     self,
-    nixpkgs,
+    nixpkgs-unstable,
     nixpkgs-stable,
     home-manager,
     nixos-hardware,
@@ -105,13 +108,13 @@
   in {
     nixosConfigurations = {
       qpc = mkSystem {
-        pkgs = nixpkgs;
+        pkgs = nixpkgs-stable;
         configuration = ./hosts/qpc/configuration.nix;
         device = "/dev/nvme0n1";
       };
 
       x280 = mkSystem {
-        pkgs = nixpkgs;
+        pkgs = nixpkgs-stable;
         configuration = ./hosts/x280/configuration.nix;
         device = "/dev/nvme0n1";
         extraModules = [
@@ -121,7 +124,7 @@
       };
 
       t480 = mkSystem {
-        pkgs = nixpkgs;
+        pkgs = nixpkgs-stable;
         configuration = ./hosts/t480/configuration.nix;
         device = "/dev/nvme0n1";
         extraModules = [
