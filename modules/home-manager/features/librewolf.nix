@@ -89,5 +89,8 @@
     ];
   };
 
-  home.file.".librewolf/rhf/search.json.mozlz4".source = lib.mkForce ../../../dotfiles/librewolf/search.json.mozlz4;
+  home.file.".librewolf/rhf/search.json.mozlz4" = {
+    force = true;
+    source = lib.mkForce ../../../dotfiles/librewolf/search.json.mozlz4;
+  };
 }
