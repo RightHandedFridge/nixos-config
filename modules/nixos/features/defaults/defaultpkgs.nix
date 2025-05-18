@@ -15,5 +15,5 @@
   ];
 
   #For nixd
-  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+  nix.nixPath = ["nixpkgs=${inputs.nixpkgs-stable}"];
 }
