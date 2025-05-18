@@ -76,7 +76,7 @@
                 insertionPoint = "right";
               };
 
-              maximizeSingleWindow = false;
+              maximizeSingleWindow = true;
               tilePopups = false;
               
             };
