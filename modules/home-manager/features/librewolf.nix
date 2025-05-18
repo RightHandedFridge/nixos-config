@@ -43,6 +43,7 @@
   programs.librewolf = {
     profiles.rhf = {
       name = "rhf";
+      /*
       search = {
         force = true;
         default = "StartPage";
@@ -60,6 +61,7 @@
           "bing".metaData.hidden = true;
         };
       };
+      */
 
       settings = {
         #Set Default Theme to Dark
