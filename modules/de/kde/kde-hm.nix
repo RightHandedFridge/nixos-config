@@ -78,7 +78,6 @@
 
               maximizeSingleWindow = true;
               tilePopups = false;
-              
             };
           };
         };
@@ -120,7 +119,6 @@
           "PoloniumFocusRight" = "Alt+L";
           "PoloniumFocusAbove" = "Alt+I";
           "PoloniumFocusBelow" = "Alt+K";
-
         };
         krunner = {
           activateWhenTypingOnDesktop = "true";
@@ -146,7 +144,7 @@
             maximizevert = true;
           };
         }
-      ]; 
+      ];
 
       fonts = {
         general = {
@@ -190,6 +188,14 @@
     };
     home.file = {
       ".config/kwinoutputconfig.json".source = ../../../dotfiles/kde/${config.vars.host}-display.json;
+
+      ".config/plasmanotifyrc" = {
+        force = true;
+        text = ''
+          [Notifications]
+          PopupPosition=TopRight
+        '';
+      };
     };
 
     home.persistence."/persist/home/${config.vars.user}" = lib.mkIf osConfig.modules.system.impermanence.enable {
