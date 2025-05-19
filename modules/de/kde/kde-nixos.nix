@@ -35,7 +35,7 @@ in {
       kdePackages.plasma-desktop
       kdePackages.plasma-workspace
       kdePackages.xdg-desktop-portal-kde
-      kdePackges.filelight
+      kdePackages.filelight
       whitesur-kde
       whitesur-icon-theme
       whitesur-cursors
