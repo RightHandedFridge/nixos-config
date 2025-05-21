@@ -8,6 +8,7 @@
 
   imports = [
     ../features/shortcuts.nix
+    ../features/display.nix
   ];
   config = lib.mkIf osConfig.modules.de.kde.enable {
     programs.plasma = {
@@ -161,8 +162,6 @@
       };
     };
     home.file = {
-      ".config/kwinoutputconfig.json".source = ../../../dotfiles/kde/${config.vars.host}-display.json;
-
       ".config/plasmanotifyrc" = {
         force = true;
         text = ''
