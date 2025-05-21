@@ -5,6 +5,10 @@
   osConfig,
   ...
 }: {
+
+  imports = [
+    ../features/shortcuts.nix
+  ];
   config = lib.mkIf osConfig.modules.de.kde.enable {
     programs.plasma = {
       enable = true;
@@ -94,36 +98,6 @@
           name = "Launch Krunner";
           key = "Meta+S";
           command = "krunner";
-        };
-      };
-      shortcuts = {
-        kwin = {
-          "Window Maximize" = "Meta+PgUp";
-          "Window Close" = "Alt+Q";
-          "Overview" = "Meta";
-          "Kill Window" = "Alt+Shift+Q";
-
-          "Switch to Desktop 1" = "Alt+1";
-          "Switch to Desktop 2" = "Alt+2";
-          "Switch to Desktop 3" = "Alt+3";
-          "Switch to Desktop 4" = "Alt+4";
-          "Switch to Desktop 5" = "Alt+5";
-
-          "Window to Desktop 1" = "Alt+!";
-          "Window to Desktop 2" = "Alt+\"";
-          "Window to Desktop 3" = "Alt+£";
-          "Window to Desktop 4" = "Alt+%";
-          "Window to Desktop 5" = "Alt+^";
-
-          "PoloniumFocusLeft" = "Alt+J";
-          "PoloniumFocusRight" = "Alt+L";
-          "PoloniumFocusAbove" = "Alt+I";
-          "PoloniumFocusBelow" = "Alt+K";
-        };
-        krunner = {
-          activateWhenTypingOnDesktop = "true";
-          historyBehaviour = "enableSuggestions";
-          position = "top";
         };
       };
 
