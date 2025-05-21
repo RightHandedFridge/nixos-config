@@ -36,7 +36,6 @@
 
   home.persistence."/persist/home/${config.vars.user}" = lib.mkIf osConfig.modules.system.impermanence.enable {
     directories = [
-      ".config/keepassxc"
       ".config/Mullvad VPN"
       ".local/share/Steam/"
       ".config/discord"
