@@ -13,6 +13,7 @@
     ./hardware-configuration.nix
     ../../modules/hardware/gpu/amd.nix
     ../../modules/hardware/printing.nix
+    ../../modules/hardware/logitech.nix
 
     #Modules
     ../../modules/nixos/bundles/system.nix
