@@ -289,7 +289,7 @@
       switch to previous activity=,,Switch to Previous Activity
       toggle do not disturb=,,Toggle do not disturb
 
-      [services][librewolf.desktop]
+      [services][firefox.desktop]
       _launch=Meta+W
 
       [services][org.kde.spectacle.desktop]
