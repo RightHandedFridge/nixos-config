@@ -57,37 +57,6 @@
         }
       ];
 
-      kwin = {
-        virtualDesktops.names = [
-          "Browser"
-          "Left"
-          "Right"
-          "Comms"
-          "Music"
-        ];
-        virtualDesktops.rows = 1;
-        titlebarButtons.right = [
-          "minimize"
-          "maximize"
-          "close"
-        ];
-
-        scripts = {
-          polonium = {
-            enable = true;
-            settings = {
-              layout = {
-                engine = "binaryTree";
-                insertionPoint = "right";
-              };
-
-              maximizeSingleWindow = true;
-              tilePopups = false;
-            };
-          };
-        };
-      };
-
       hotkeys.commands = {
         "launch-alacritty" = {
           name = "Launch alacritty";
