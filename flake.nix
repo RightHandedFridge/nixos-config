@@ -68,6 +68,11 @@
     nur = {
       url = "github:nix-community/nur";
     };
+
+    arkenfox = {
+      url = "github:arkenfox/user.js";
+      flake = false;
+    };
     
   };
 
