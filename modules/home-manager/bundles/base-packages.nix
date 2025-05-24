@@ -42,6 +42,7 @@
       ".config/vesktop"
       ".config/vencord"
       ".config/pulse"
+      ".config/heroic"
     ];
   };
 
