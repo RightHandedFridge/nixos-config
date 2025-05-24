@@ -39,6 +39,7 @@ in {
       whitesur-kde
       whitesur-icon-theme
       whitesur-cursors
+      polonium
     ];
 
     services.dbus.enable = true;
