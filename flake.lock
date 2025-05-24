@@ -33,6 +33,22 @@
         "type": "github"
       }
     },
+    "arkenfox": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1745247844,
+        "narHash": "sha256-YfgmhyqLH067pjqRSeCpfqFkeaac1nBvsKcrRNkKw7o=",
+        "owner": "arkenfox",
+        "repo": "user.js",
+        "rev": "7f852e94fc80fd0aa19f1c948319974e3301187f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "arkenfox",
+        "repo": "user.js",
+        "type": "github"
+      }
+    },
     "base16": {
       "inputs": {
         "fromYaml": "fromYaml"
@@ -917,6 +933,7 @@
     },
     "root": {
       "inputs": {
+        "arkenfox": "arkenfox",
         "disko": "disko",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
