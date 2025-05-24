@@ -23,7 +23,6 @@
     };
   };
 
-  
   programs.firefox = {
     profiles.rhf = {
       name = "rhf";
@@ -44,18 +43,7 @@
           "bing".metaData.hidden = true;
         };
       };
-
-      settings = {
-        #Set Default Theme to Dark
-        "layout.css.prefers-color-scheme.content-override" = 0;
-        "browser.ctrlTab.sortByRecentlyUsed" = true;
-        "intl.regional_prefs.use_os_locales" = true;
-        "places.history.enabled" = false;
-        "network.trr.mode" = 0;
-        "privacy.resistFingerprinting.autoDeclineNoUserInputCanvasPrompts" = true;
-        "privacy.sanitize.sanitizeOnShutdown" = false;
-        "browser.contentblocking.category" = "custom";
-      };
+      
       extensions = {
         packages = with pkgs.nur.repos.rycee.firefox-addons; [
           ublock-origin
@@ -67,6 +55,12 @@
 
       extraConfig = lib.strings.concatStrings [
         (builtins.readFile "${inputs.arkenfox}/user.js")
+        ''
+        user_pref("browser.shell.checkDefaultBrowser", false);
+        user_pref("extensions.pocket.enabled", false);
+        user_pref("privacy.sanitize.sanitizeOnShutdown", false);
+        user_pref("widget.use-xdg-desktop-portal.file-picker", 1);
+        ''
       ];
     };
 
