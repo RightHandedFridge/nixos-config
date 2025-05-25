@@ -6,7 +6,7 @@
 
     virtualHosts = {
       "ha.home.arpa" = {
-        forceSSL = true;
+        forceSSL = false;
         sslCertificate = "/etc/ssl/certs/home.arpa.pem";
         sslCertificateKey = "/etc/ssl/private/home.arpa-key.pem";
 
