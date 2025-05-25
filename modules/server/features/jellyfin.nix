@@ -4,7 +4,7 @@
     configDir = "/home/${config.vars.user}/dconfig/jellyfin/config";
     dataDir = "/home/${config.vars.user}/dconfig/jellyfin/data";
     cacheDir = "/home/${config.vars.user}/dconfig/jellyfin/cache";
-    openFirewall = true;
+    openFirewall = false;
     user = "${config.vars.user}";
     group = "users";
   };

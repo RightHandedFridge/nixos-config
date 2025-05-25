@@ -1,7 +1,7 @@
 {
   services.adguardhome = {
     enable = true;
-    openFirewall = true;
+    openFirewall = false;
     port = 280;
     settings = {
       filters = [
@@ -90,7 +90,8 @@
   };
 
   networking.firewall = {
-    allowedTCPPorts = [280 53];
-    allowedUDPPorts = [53];
+    allowedTCPPorts = [ 53 ];
+    allowedUDPPorts = [ 53 ];
+    allowedIPRanges = [ "192.168.1.0/24 "];
   };
 }

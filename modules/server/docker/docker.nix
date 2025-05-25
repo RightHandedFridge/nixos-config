@@ -73,6 +73,4 @@
       };
     };
   };
-
-  networking.firewall.allowedTCPPorts = [ 8123 3880 180 ];
 }
