@@ -9,6 +9,7 @@
   imports = [
     ../features/shortcuts.nix
     ../features/display.nix
+    ../features/powerdevil.nix
   ];
   config = lib.mkIf osConfig.modules.de.kde.enable {
     programs.plasma = {
