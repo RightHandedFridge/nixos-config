@@ -4,6 +4,50 @@
     openFirewall = false;
     port = 280;
     settings = {
+      dns = {
+        bind_hosts = [
+          "192.168.1.12"
+        ];
+
+        port = 53;
+
+        upstream_dns = [
+          "https://dns.cloudflare.com/dns-query"
+          "1.1.1.1:853"
+          "1.0.0.1:853"
+        ];
+
+        upstream_mode = "fastest_addr";
+      };
+      filtering = {
+        rewrites = [
+          {
+            domain = "home.arpa";
+            answer = "192.168.1.12";
+          }
+          {
+            domain = "adguard.home.arpa";
+            answer = "192.168.1.12";
+          }
+          {
+            domain = "ha.home.arpa";
+            answer = "192.168.1.12";
+          }
+          {
+            domain = "jellyfin.home.arpa";
+            answer = "192.168.1.12";
+          }
+          {
+            domain = "syncthing.home.arpa";
+            answer = "192.168.1.12";
+          }
+          {
+            domain = "nodered.home.arpa";
+            answer = "192.168.1.12";
+          }
+        ];
+      };
+
       filters = [
         {
           enabled = true;
@@ -90,7 +134,7 @@
   };
 
   networking.firewall = {
-    allowedTCPPorts = [ 53 ];
-    allowedUDPPorts = [ 53 ];
+    allowedTCPPorts = [53];
+    allowedUDPPorts = [53];
   };
 }

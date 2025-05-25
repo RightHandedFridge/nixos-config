@@ -48,6 +48,17 @@
           proxyWebsockets = true;
         };
       };
+
+      "nodered.home.arpa" = {
+        forceSSL = true;
+        sslCertificate = "/etc/ssl/certs/home.arpa.pem";
+        sslCertificateKey = "/etc/ssl/private/home.arpa-key.pem";
+
+        locations."/" = {
+          proxyPass = "http://localhost:1880/";
+          proxyWebsockets = true;
+        };
+      };
     };
   };
 
