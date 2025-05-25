@@ -4,46 +4,52 @@
     recommendedTlsSettings = true;
     recommendedProxySettings = true;
 
-    virtualHosts."home.arpa" = {
-      forceSSL = true;
-      sslCertificate = "/etc/ssl/certs/home.arpa.pem";
-      sslCertificateKey = "/etc/ssl/private/home.arpa-key.pem";
+    virtualHosts = {
+      "ha.home.arpa" = {
+        forceSSL = true;
+        sslCertificate = "/etc/ssl/certs/home.arpa.pem";
+        sslCertificateKey = "/etc/ssl/private/home.arpa-key.pem";
 
-      locations."^~ /adguard/" = {
-        proxyPass = "http://localhost:280/"; # AdGuard Home
-        proxyWebsockets = true;
-        extraConfig = ''
-          rewrite ^/adguard/(.*) /$1 break;
-        '';
+        locations."/" = {
+          proxyPass = "http://localhost:8123/";
+          proxyWebsockets = true;
+        };
       };
 
-      locations."^~ /ha/" = {
-        proxyPass = "http://localhost:8123/"; # Home Assistant
-        proxyWebsockets = true;
-        extraConfig = ''
-          rewrite ^/ha/(.*) /$1 break;
-        '';
+      "adguard.home.arpa" = {
+        forceSSL = true;
+        sslCertificate = "/etc/ssl/certs/home.arpa.pem";
+        sslCertificateKey = "/etc/ssl/private/home.arpa-key.pem";
+
+        locations."/" = {
+          proxyPass = "http://localhost:280/";
+          proxyWebsockets = true;
+        };
       };
 
-      locations."^~ /jellyfin/" = {
-        proxyPass = "http://localhost:8096/"; # Jellyfin
-        proxyWebsockets = true;
-        extraConfig = ''
-          rewrite ^/jellyfin/(.*) /$1 break;
-        '';
+      "jellyfin.home.arpa" = {
+        forceSSL = true;
+        sslCertificate = "/etc/ssl/certs/home.arpa.pem";
+        sslCertificateKey = "/etc/ssl/private/home.arpa-key.pem";
+
+        locations."/" = {
+          proxyPass = "http://localhost:8096/";
+          proxyWebsockets = true;
+        };
       };
 
-      locations."^~ /syncthing/" = {
-        proxyPass = "http://localhost:180/"; # Syncthing
-        proxyWebsockets = true;
-        extraConfig = ''
-          rewrite ^/syncthing/(.*) /$1 break;
-        '';
+      "syncthing.home.arpa" = {
+        forceSSL = true;
+        sslCertificate = "/etc/ssl/certs/home.arpa.pem";
+        sslCertificateKey = "/etc/ssl/private/home.arpa-key.pem";
+
+        locations."/" = {
+          proxyPass = "http://localhost:180/";
+          proxyWebsockets = true;
+        };
       };
     };
   };
 
-  networking.firewall = {
-    allowedTCPPorts = [ 80 443 ];
-  };
+  networking.firewall.allowedTCPPorts = [80 443];
 }
