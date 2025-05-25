@@ -13,6 +13,9 @@
         locations."/" = {
           proxyPass = "http://localhost:8123/";
           proxyWebsockets = true;
+          extraConfig = ''
+            proxy_set_header Host $host;
+          '';
         };
       };
 
