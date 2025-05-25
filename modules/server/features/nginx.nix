@@ -55,7 +55,7 @@
         sslCertificateKey = "/etc/ssl/private/home.arpa-key.pem";
 
         locations."/" = {
-          proxyPass = "http://localhost:1880/";
+          proxyPass = "http://localhost:3880/";
           proxyWebsockets = true;
         };
       };
