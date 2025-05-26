@@ -6,10 +6,7 @@
     nixpkgs-unstable = {
       url = "github:nixos/nixpkgs/nixos-unstable";
     };
-    nixpkgs-alpha = {
-      url = "github:nixos/nixpkgs/master";
-    };
-    
+
     nixpkgs-stable = {
       url = "github:nixos/nixpkgs/nixos-25.05";
     };
