@@ -21,6 +21,9 @@ in {
       configDir = "/home/${config.vars.user}/.config/syncthing";
       dataDir = "/home/${config.vars.user}/.config/syncthing";
       settings = {
+        options = {
+          natEnabled = false;
+        };
         devices = {
           "HomeServer" = {
             id = "LLXW7EH-SGSR6Q7-67YDMSY-BTNDN4U-RI6SBDY-BTYCPRG-HGLWGXA-ZPTHXAB";
