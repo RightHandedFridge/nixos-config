@@ -17,24 +17,6 @@
       overrideConfig = true;
       session.sessionRestore.restoreOpenApplicationsOnLogin = "startWithEmptySession";
 
-      powerdevil = {
-        batteryLevels.criticalAction = "hibernate";
-        AC = {
-          autoSuspend.action = "nothing";
-          dimDisplay.enable = false;
-          powerProfile = "performance";
-          whenLaptopLidClosed = "sleep";
-        };
-        battery = {
-          autoSuspend.action = "sleep";
-          autoSuspend.idleTimeout = 600;
-          dimDisplay.enable = true;
-          dimDisplay.idleTimeout = 300;
-          powerProfile = "balanced";
-          whenLaptopLidClosed = "sleep";
-        };
-      };
-
       workspace = {
         lookAndFeel = "com.github.vinceliuice.WhiteSur-dark";
         theme = "WhiteSur-dark";
@@ -57,22 +39,6 @@
           ];
         }
       ];
-
-      hotkeys.commands = {
-        "launch-alacritty" = {
-          name = "Launch alacritty";
-          key = "Meta+Return";
-          command = "alacritty";
-        };
-
-        "launch-krunner" = {
-          name = "Launch Krunner";
-          key = "Meta+S";
-          command = "krunner";
-        };
-      };
-
-      spectacle.shortcuts.captureRectangularRegion = "Meta+Shift+S";
 
       fonts = {
         general = {
