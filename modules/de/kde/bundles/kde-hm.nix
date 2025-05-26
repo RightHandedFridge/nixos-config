@@ -74,23 +74,6 @@
 
       spectacle.shortcuts.captureRectangularRegion = "Meta+Shift+S";
 
-      window-rules = [
-        {
-          description = "All windows must be maximized";
-          match = {
-            window-class = {
-              type = "regex";
-              value = ".*";
-            };
-            window-types = ["normal"];
-          };
-          apply = {
-            maximizehoriz = true;
-            maximizevert = true;
-          };
-        }
-      ];
-
       fonts = {
         general = {
           family = "Inter";
