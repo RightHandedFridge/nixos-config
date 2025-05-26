@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  osConfig,
   ...
 }: {
   #This is a home manager module
@@ -9,7 +10,7 @@
   ];
 
   home.file.".config/easyeffects/input/lpxw.json" = {
-    source = config.lib.file.mkOutOfStoreSymlink ../../dotfiles/easyeffects/lpxw.json;
+    source = config.lib.file.mkOutOfStoreSymlink "/home/${osConfig.vars.user}/nixos-config/dotfiles/easyeffects/lpxw.json";
     force = true;
   };
 
