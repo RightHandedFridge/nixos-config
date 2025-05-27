@@ -299,9 +299,5 @@ _launch=Meta+S
 RectangularRegionScreenShot=Meta+Shift+S
 _launch=Print
 
-[services][plasma-manager-commands.desktop]
-launch-alacritty=Meta+Return
-launch-krunner=Meta+S
-
 [services][vesktop.desktop]
 _launch=Meta+D
