@@ -21,6 +21,8 @@
       x280pass.neededForUsers = true;
       qpcpass.neededForUsers = true;
       hspass.neededForUsers = true;
+      "t480/syncthing/key" = {};
+      "t480/syncthing/cert" = {};
     };
   };
 }

@@ -13,7 +13,6 @@
       "KeePass"
       ".config/sops/age/"
       "nixos-config"
-      ".config/syncthing"
       ".local/share/Paradox Interactive"
       ".config/fingerprint"
     ];

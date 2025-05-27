@@ -20,6 +20,8 @@ in {
       group = "users";
       configDir = "/home/${config.vars.user}/.config/syncthing";
       dataDir = "/home/${config.vars.user}/.config/syncthing";
+      key = config.sops.secrets."${config.vars.host}/syncthing/key".path;
+      cert = config.sops.secrets."${config.vars.host}/syncthing/cert".path;
       settings = {
         options = {
           natEnabled = false;
