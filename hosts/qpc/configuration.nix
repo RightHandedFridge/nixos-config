@@ -47,7 +47,7 @@
       };
 
       virtualisation = {
-        enable = true;
+        enable = false;
       };
 
       vpn = {
