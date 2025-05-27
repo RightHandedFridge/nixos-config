@@ -10,6 +10,7 @@
     ../features/shortcuts.nix
     ../features/display.nix
     ../features/powerdevil.nix
+    ../features/panels.nix
   ];
   config = lib.mkIf osConfig.modules.de.kde.enable {
     programs.plasma = {
@@ -23,22 +24,6 @@
         iconTheme = "WhiteSur-dark";
         cursor.theme = "WhiteSur-cursors";
       };
-
-      panels = [
-        #System Tray + Clock Panel
-        {
-          alignment = "right";
-          floating = true;
-          height = 44;
-          hiding = "autohide";
-          lengthMode = "fit";
-          location = "top";
-          widgets = [
-            "org.kde.plasma.systemtray"
-            "org.kde.plasma.digitalclock"
-          ];
-        }
-      ];
 
       fonts = {
         general = {
