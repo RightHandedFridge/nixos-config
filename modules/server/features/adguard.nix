@@ -7,9 +7,6 @@
     enable = true;
     openFirewall = false;
     port = 280;
-    extraArgs = [
-      "--work-dir /home/${config.vars.user}/dconfig/adguard"
-    ];
     settings = {
       dns = {
         bind_hosts = [
@@ -141,23 +138,5 @@
   networking.firewall = {
     allowedTCPPorts = [53];
     allowedUDPPorts = [53];
-  };
-
-  systemd.tmpfiles.rules = [
-    "d /home/main/dconfig/adguard 0755 adguardhome adguardhome -"
-  ];
-
-  systemd.services.adguard-chown-recursive = {
-    description = "Recursively chown AdGuard data directory"; 
-
-    unitConfig = {
-      After = ["tmpfiles-setup.service"];
-    };
-
-    serviceConfig = {
-      Type = "oneshot";
-      ExecStart = "${pkgs.coreutils}/bin/chown -R adguardhome:adguardhome /home/${config.vars.user}/dconfig/adguard";
-    };
-    wantedBy = ["multi-user.target"];
   };
 }
