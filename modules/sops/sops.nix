@@ -23,6 +23,8 @@
       hspass.neededForUsers = true;
       "t480/syncthing/key" = {};
       "t480/syncthing/cert" = {};
+      "qpc/syncthing/key" = {};
+      "qpc/syncthing/cert" = {};
     };
   };
 }
