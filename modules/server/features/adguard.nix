@@ -1,4 +1,8 @@
-{config, pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   services.adguardhome = {
     enable = true;
     openFirewall = false;
@@ -144,13 +148,16 @@
   ];
 
   systemd.services.adguard-chown-recursive = {
-    description = "Recursively chown AdGuard data directory";
-    after = ["tmpfiles-setup.service"];
-    wantedBy = ["multi-user.target"];
+    description = "Recursively chown AdGuard data directory"; 
 
-    type = "oneshot";
-    script = ''
-      ${pkgs.coreutils}/bin/chown -R adguardhome:adguardhome /home/${config.vars.user}/dconfig/adguard
-    '';
+    unitConfig = {
+      After = ["tmpfiles-setup.service"];
+    };
+
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "${pkgs.coreutils}/bin/chown -R adguardhome:adguardhome /home/${config.vars.user}/dconfig/adguard";
+    };
+    wantedBy = ["multi-user.target"];
   };
 }
