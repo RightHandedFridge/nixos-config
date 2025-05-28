@@ -1,8 +1,11 @@
-{
+{config, pkgs, ...}: {
   services.adguardhome = {
     enable = true;
     openFirewall = false;
     port = 280;
+    extraArgs = [
+      "--work-dir /home/${config.vars.user}/dconfig/adguard"
+    ];
     settings = {
       dns = {
         bind_hosts = [
@@ -13,8 +16,6 @@
 
         upstream_dns = [
           "https://dns.cloudflare.com/dns-query"
-          "1.1.1.1:853"
-          "1.0.0.1:853"
         ];
 
         upstream_mode = "fastest_addr";
@@ -136,5 +137,26 @@
   networking.firewall = {
     allowedTCPPorts = [53];
     allowedUDPPorts = [53];
+  };
+
+  systemd.tmpfiles.rules = [
+    "d /home/main/dconfig/adguard 0755 adguardhome adguardhome -"
+  ];
+
+  # --- Systemd Service for recursive chown ---
+  systemd.services.adguard-chown-recursive = {
+    description = "Recursively chown AdGuard data directory";
+    # Ensures this service runs AFTER the directory is created by tmpfiles
+    after = ["tmpfiles-setup.service"];
+    wantedBy = ["multi-user.target"];
+
+    type = "oneshot";
+    remainAfterExit = true;
+
+    # The command to execute - no need for explicit mkdir -p or directory existence check
+    # as tmpfiles-setup.service guarantees its creation.
+    script = ''
+      ${pkgs.coreutils}/bin/chown -R adguardhome:adguardhome /home/${config.vars.user}/dconfig/adguard
+    '';
   };
 }
