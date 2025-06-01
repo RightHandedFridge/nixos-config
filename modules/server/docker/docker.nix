@@ -18,8 +18,11 @@
     podman-tui 
     docker-compose 
     podman-compose
-    nvidia-container-toolkit
   ];
+
+  hardware.nvidia-container-toolkit = {
+    enable = true;
+  };
 
   virtualisation.oci-containers = {
     backend = "podman";
