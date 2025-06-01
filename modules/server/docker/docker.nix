@@ -18,6 +18,7 @@
     podman-tui 
     docker-compose 
     podman-compose
+    nvidia-container-toolkit
   ];
 
   virtualisation.oci-containers = {
