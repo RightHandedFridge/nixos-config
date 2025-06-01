@@ -14,6 +14,7 @@
     ../../modules/nixos/bundles/system.nix
     ../../modules/server/ssh.nix
     ../../modules/hardware/bluetooth.nix
+    ../../modules/hardware/gpu/nvidia.nix
     ../../modules/sops/sops.nix
     ../../modules/server/bundles/server-pkgs.nix
   ];
