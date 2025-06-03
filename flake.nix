@@ -136,11 +136,6 @@
           nixos-06cb-009a-fingerprint-sensor.nixosModules."06cb-009a-fingerprint-sensor"
         ];
       };
-
-      homeServer = mkSystem {
-        pkgs = nixpkgs-stable;
-        configuration = ./hosts/home/configuration.nix;
-      };
     };
   };
 }
