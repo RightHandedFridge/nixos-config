@@ -6,7 +6,7 @@
   xdg.configFile."tealdeer/config.toml".text = ''
     [display]
     compact = false
-    use_pager = true
+    use_pager = false
 
     [style.command_name]
     foreground = "purple"
