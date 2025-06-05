@@ -9,6 +9,7 @@
     ../features/vscode.nix
     ../features/firefox.nix
     ../features/alacritty.nix
+    ../features/tealdeer.nix
     ../features/base-persist.nix
   ];
 
