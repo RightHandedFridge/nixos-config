@@ -38,7 +38,7 @@
 
         [NightColor]
         Active=true
-        EveningBeginFixed=1830
+        EveningBeginFixed=1900
         Mode=Times
         MorningBeginFixed=0500
         NightTemperature=1500
