@@ -5,5 +5,6 @@
     ../features/gaming.nix
     ../features/virtualisation.nix
     ../features/hm.nix
+    ../features/android.nix
   ];
 }
