@@ -39,7 +39,7 @@ in {
       whitesur-kde
       whitesur-icon-theme
       whitesur-cursors
-      polonium
+      kdePackages.krohnkite
     ];
 
     services.dbus.enable = true;

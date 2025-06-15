@@ -11,6 +11,7 @@
     ../features/alacritty.nix
     ../features/tealdeer.nix
     ../features/base-persist.nix
+    ../features/vars.nix
   ];
 
   home.packages = with pkgs; [
