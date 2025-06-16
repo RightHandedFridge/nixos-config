@@ -15,6 +15,7 @@
       "nixos-config"
       ".local/share/Paradox Interactive"
       ".config/fingerprint"
+      ".local/share/PrismLauncher"
     ];
 
     files = [
