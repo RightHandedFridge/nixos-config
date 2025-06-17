@@ -24,7 +24,7 @@
       package = pkgs.mullvad-vpn;
     };
 
-    environment.persistence."/persist/system" = lib.mkIf config.modules.system.vpn.mullvad.enable {
+    environment.persistence."/persist/system" = lib.mkIf config.modules.system.impermanence.enable {
       hideMounts = true;
       directories = [
         "/etc/mullvad-vpn/"
