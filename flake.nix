@@ -15,6 +15,10 @@
       url = "github:nixos/nixpkgs/nixos-24.11";
     };
 
+    nix-flatpak = {
+      url = "github:gmodena/nix-flatpak/?ref=latest";
+    };
+
     # Configuration managers
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
@@ -83,6 +87,7 @@
     disko,
     stylix,
     impermanence,
+    nix-flatpak,
     ...
   } @ inputs: let
     commonModules = [
@@ -90,6 +95,7 @@
       stylix.nixosModules.stylix
       disko.nixosModules.default
       impermanence.nixosModules.default
+      nix-flatpak.nixosModules.nix-flatpak
     ];
 
     mkSystem = {

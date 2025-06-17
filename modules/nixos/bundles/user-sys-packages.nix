@@ -6,5 +6,6 @@
     ../features/virtualisation.nix
     ../features/hm.nix
     ../features/android.nix
+    ../features/flatpak.nix
   ];
 }
