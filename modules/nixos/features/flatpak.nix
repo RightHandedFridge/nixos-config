@@ -16,6 +16,7 @@
       home.persistence."/persist/home/${config.vars.user}" = lib.mkIf config.modules.system.impermanence.enable {
         directories = [
           ".local/share/flatpak"
+          ".var/app"
         ];
         allowOther = true;
       };
