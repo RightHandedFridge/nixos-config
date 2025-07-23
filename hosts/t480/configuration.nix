@@ -35,7 +35,7 @@
         enable = true;
       };
       impermanence = {
-        enable = false;
+        enable = true;
       };
       games = {
         enable = false;
