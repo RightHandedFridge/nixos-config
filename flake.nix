@@ -93,8 +93,6 @@
     commonModules = [
       home-manager.nixosModules.default
       stylix.nixosModules.stylix
-      disko.nixosModules.default
-      impermanence.nixosModules.default
       nix-flatpak.nixosModules.nix-flatpak
     ];
 
@@ -121,6 +119,10 @@
         pkgs = nixpkgs-stable;
         configuration = ./hosts/qpc/configuration.nix;
         device = "/dev/nvme0n1";
+        extraModules = [
+          disko.nixosModules.default
+          impermanence.nixosModules.default
+        ];
       };
 
       x280 = mkSystem {
