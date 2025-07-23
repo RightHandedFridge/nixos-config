@@ -12,7 +12,7 @@
     #Hardware
     ./hardware-configuration.nix
     ../../modules/hardware/bluetooth.nix
-    ../../modules/hardware/fingerprint.nix
+    #../../modules/hardware/fingerprint.nix
 
     #Modules
     ../../modules/nixos/bundles/system.nix
