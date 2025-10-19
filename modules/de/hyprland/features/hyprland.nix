@@ -60,7 +60,7 @@ in {
           "$modapp, S, exec, $menu"
           "$modapp, W, exec, $browser"
           "$modapp, E, exec, $files"
-          "$modapp SHIFT, S, alacritty -e pulsemixer"
+          "$modapp SHIFT, S, exec, alacritty -e pulsemixer"
 
           # Focus Shift
           "$mod, J, movefocus, l"
