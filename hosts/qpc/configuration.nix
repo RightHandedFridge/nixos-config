@@ -10,7 +10,7 @@
     ./vars.nix
 
     #Hardware
-    ./hardware-configuration.nix
+    ./"/etc/nixos/hardware-configuration.nix"
     ../../modules/hardware/gpu/amd.nix
     ../../modules/hardware/printing.nix
     ../../modules/hardware/logitech.nix

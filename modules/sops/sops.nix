@@ -15,7 +15,7 @@
   sops = {
     defaultSopsFile = ./secrets/secrets.yaml;
     defaultSopsFormat = "yaml";
-    age.keyFile = "/persist/home/${config.vars.user}/.config/sops/age/keys.txt";
+    age.keyFile = "/home/${config.vars.user}/.config/sops/age/keys.txt";
 
     secrets = {
       x280pass.neededForUsers = true;

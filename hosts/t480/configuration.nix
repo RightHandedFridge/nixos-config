@@ -10,7 +10,7 @@
     ./vars.nix
 
     #Hardware
-    ./hardware-configuration.nix
+    "/etc/nixos/hardware-configuration.nix"
     ../../modules/hardware/bluetooth.nix
     #../../modules/hardware/fingerprint.nix
 
