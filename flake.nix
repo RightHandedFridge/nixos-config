@@ -136,7 +136,6 @@
       t480 = mkSystem {
         pkgs = nixpkgs-stable;
         configuration = ./hosts/t480/configuration.nix;
-        device = "/dev/nvme0n1";
         extraModules = [
           nixos-hardware.nixosModules.lenovo-thinkpad-t480
           nixos-06cb-009a-fingerprint-sensor.nixosModules."06cb-009a-fingerprint-sensor"
