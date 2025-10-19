@@ -26,6 +26,7 @@ in {
       wl-clipboard
       swappy
       hyprshot
+      pulsemixer
     ];
 
     home.persistence."/persist/home/${config.vars.user}" = lib.mkIf osConfig.modules.system.impermanence.enable {
@@ -46,7 +47,7 @@ in {
         "$mod" = "ALT";
         "$modapp" = "SUPER";
         "$menu" = "wofi --show drun";
-        "$browser" = "librewolf";
+        "$browser" = "firefox";
         "$term" = "alacritty";
         "$files" = "nautilus";
         input = {
@@ -59,6 +60,7 @@ in {
           "$modapp, S, exec, $menu"
           "$modapp, W, exec, $browser"
           "$modapp, E, exec, $files"
+          "$modapp SHIFT, S, alacritty -e pulsemixer"
 
           # Focus Shift
           "$mod, J, movefocus, l"
