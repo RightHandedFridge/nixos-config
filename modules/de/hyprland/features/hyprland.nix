@@ -40,7 +40,7 @@ in {
       settings = {
         exec-once = [
           "nm-applet &"
-          "blueman-applet"
+          "blueman-tray"
         ];
 
         "monitor" = ",preferred,auto,1";
