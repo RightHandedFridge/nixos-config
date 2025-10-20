@@ -10,7 +10,7 @@
         [Desktop Entry]
         Name=Hyprland
         Comment=Hyprland Wayland Compositor
-        Exec=${pkgs.greetd.hyprland}/bin/Hyprland
+        Exec=${pkgs.hyprland}/bin/Hyprland
         Type=Application
       '')
       .overrideAttrs
