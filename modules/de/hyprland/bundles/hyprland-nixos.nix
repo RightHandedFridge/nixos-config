@@ -17,7 +17,6 @@ in {
 
   imports = [
     ../features/theme.nix
-    ../features/ly.nix
   ];
 
   config = lib.mkIf cfg.enable {
