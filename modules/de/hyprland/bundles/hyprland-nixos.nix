@@ -24,6 +24,7 @@ in {
     programs.hyprland = {
       enable = true;
       package = inputs.hyprland.packages."${pkgs.system}".hyprland;
+      portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     };
 
     services = {
@@ -32,11 +33,13 @@ in {
       dbus.enable = true;
     };
 
+    /*
     xdg.portal = {
       enable = true;
       extraPortals = [pkgs.xdg-desktop-portal-gtk];
       config.common.default = "*";
     };
+    */
 
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
