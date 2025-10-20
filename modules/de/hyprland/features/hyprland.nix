@@ -22,7 +22,6 @@ in {
       anyrun
 
       #Terminal Apps
-      pavucontrol
       wl-clipboard
       swappy
       hyprshot
