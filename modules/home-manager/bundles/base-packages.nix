@@ -12,6 +12,7 @@
     ../features/tealdeer.nix
     ../features/base-persist.nix
     ../features/vars.nix
+    ../features/neovim.nix
   ];
 
   home.packages = with pkgs; [
