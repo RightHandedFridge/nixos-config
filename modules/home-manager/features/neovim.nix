@@ -68,7 +68,7 @@
 
     # --- Lua Configuration ---
     # This is where all the plugins are set up
-    extraConfig = ''
+    extraLuaConfig = ''
       vim.g.mapleader = ' '
       vim.g.maplocalleader = ' '
 
