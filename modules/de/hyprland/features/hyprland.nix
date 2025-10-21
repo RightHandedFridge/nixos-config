@@ -6,22 +6,31 @@
   ...
 }: let
   cfg = osConfig.modules.de.hyprland;
+
+  # Define zoom shell commands as strings
+  zoomInCommand = ''
+    hyprctl keyword cursor:zoom_factor $(awk "BEGIN {print $(hyprctl getoption cursor:zoom_factor | grep 'float:' | awk '{print \$2}') + 0.5}")
+  '';
+
+  zoomOutCommand = ''
+    hyprctl keyword cursor:zoom_factor $(awk "BEGIN {print $(hyprctl getoption cursor:zoom_factor | grep 'float:' | awk '{print \$2}') - 0.5}")
+  '';
 in {
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
       # Make sure you have base-packages imported!
 
-      #GUI Apps
+      # GUI Apps
       nautilus
       eog
       file-roller
       vlc
       blueman
 
-      #Launcher
+      # Launcher
       anyrun
 
-      #Terminal Apps
+      # Terminal Apps
       wl-clipboard
       swappy
       hyprshot
@@ -49,9 +58,11 @@ in {
         "$browser" = "firefox";
         "$term" = "alacritty";
         "$files" = "nautilus";
+
         input = {
           "kb_layout" = "gb";
         };
+
         bind = [
           # Programs
           "$modapp, Return, exec, $term"
@@ -67,7 +78,7 @@ in {
           "$mod, I, movefocus, u"
           "$mod, K, movefocus, d"
 
-          #Move Windows
+          # Move Windows
           "$mod SHIFT, J, movefocus, l"
           "$mod SHIFT, L, movefocus, r"
           "$mod SHIFT, I, movefocus, u"
@@ -83,7 +94,7 @@ in {
           "$mod, 7, workspace, 7"
           "$mod, 8, workspace, 8"
 
-          # Move Windows Workspaces
+          # Move Windows to Workspaces
           "$mod SHIFT, 1, movetoworkspace, 1"
           "$mod SHIFT, 2, movetoworkspace, 2"
           "$mod SHIFT, 3, movetoworkspace, 3"
@@ -93,7 +104,7 @@ in {
           "$mod SHIFT, 7, movetoworkspace, 7"
           "$mod SHIFT, 8, movetoworkspace, 8"
 
-          #Screenshots
+          # Screenshots
           "$mod SHIFT, S, exec, hyprshot -m region --clipboard-only --freeze"
 
           # Special Keys
@@ -102,18 +113,16 @@ in {
           ", XF86AudioLowerVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ -5%"
           ", XF86AudioMute, exec, pactl set-sink-mute @DEFAULT_SINK@ toggle"
 
-          #Brightness
+          # Brightness
           ", XF86MonBrightnessUp, exec, brightnessctl set +5%"
           ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
 
-          #Microphone
+          # Microphone
           ", XF86AudioMicMute, exec, pactl set-source-mute @DEFAULT_SOURCE@ toggle"
 
-          # Zoom In (SHIFT + Mod + mouse down)
-          "CTRL $mod, mouse_down, exec, hyprctl keyword cursor:zoom_factor $(awk \\\"BEGIN {print \\\$(hyprctl getoption cursor:zoom_factor | grep 'float:' | awk '{print \\\$2}') + 0.5}\\\")"
-
-          # Zoom Out (SHIFT + Mod + mouse up)
-          "CTRL $mod, mouse_up, exec, hyprctl keyword cursor:zoom_factor $(awk \\\"BEGIN {print \\\$(hyprctl getoption cursor:zoom_factor | grep 'float:' | awk '{print \\\$2}') - 0.5}\\\")"
+          # Cursor Zoom In/Out
+          "CTRL $mod, mouse_down, exec, ${zoomInCommand}"
+          "CTRL $mod, mouse_up, exec, ${zoomOutCommand}"
         ];
 
         general = {
