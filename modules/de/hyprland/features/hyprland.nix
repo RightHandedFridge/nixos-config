@@ -9,11 +9,11 @@
 
   # Define zoom shell commands as strings
   zoomInCommand = ''
-    hyprctl keyword cursor:zoom_factor $(awk "BEGIN {print $(hyprctl getoption cursor:zoom_factor | grep 'float:' | awk '{print \$2}') + 0.5}")
+    hyprctl keyword cursor:zoom_factor $(awk "BEGIN {print $(hyprctl getoption cursor:zoom_factor | grep 'float:' | awk '{print $2}') + 0.5}")
   '';
 
   zoomOutCommand = ''
-    hyprctl keyword cursor:zoom_factor $(awk "BEGIN {print $(hyprctl getoption cursor:zoom_factor | grep 'float:' | awk '{print \$2}') - 0.5}")
+    hyprctl keyword cursor:zoom_factor $(awk "BEGIN {print $(hyprctl getoption cursor:zoom_factor | grep 'float:' | awk '{print $2}') - 0.5}")
   '';
 in {
   config = lib.mkIf cfg.enable {
@@ -121,8 +121,8 @@ in {
           ", XF86AudioMicMute, exec, pactl set-source-mute @DEFAULT_SOURCE@ toggle"
 
           # Cursor Zoom In/Out
-          "CTRL $mod, mouse_down, exec, ${zoomInCommand}"
-          "CTRL $mod, mouse_up, exec, ${zoomOutCommand}"
+          "CTRL $mod, =, exec, ${zoomInCommand}"
+          "CTRL $mod, -, exec, ${zoomOutCommand}"
         ];
 
         general = {
