@@ -109,9 +109,11 @@ in {
           #Microphone
           ", XF86AudioMicMute, exec, pactl set-source-mute @DEFAULT_SOURCE@ toggle"
 
-          # Mouse Zoom In/Out
-          "CTRL $mod, mouse_down, exec, hyprctl keyword cursor:zoom_factor $(awk \"BEGIN {print $(hyprctl getoption cursor:zoom_factor | grep 'float:' | awk '{print \$2}') + 0.5}\")"
-          "CTRL $mod, mouse_up, exec, hyprctl keyword cursor:zoom_factor $(awk \"BEGIN {print $(hyprctl getoption cursor:zoom_factor | grep 'float:' | awk '{print \$2}') - 0.5}\")"
+          # Zoom In (SHIFT + Mod + mouse down)
+          "CTRL $mod, mouse_down, exec, hyprctl keyword cursor:zoom_factor $(awk \\\"BEGIN {print \\\$(hyprctl getoption cursor:zoom_factor | grep 'float:' | awk '{print \\\$2}') + 0.5}\\\")"
+
+          # Zoom Out (SHIFT + Mod + mouse up)
+          "CTRL $mod, mouse_up, exec, hyprctl keyword cursor:zoom_factor $(awk \\\"BEGIN {print \\\$(hyprctl getoption cursor:zoom_factor | grep 'float:' | awk '{print \\\$2}') - 0.5}\\\")"
         ];
 
         general = {
