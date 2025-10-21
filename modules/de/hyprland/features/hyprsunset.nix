@@ -1,5 +1,5 @@
-{ ... }:{
-  services.hyprsunset = {
+{ lib, osConfig, ... }:{
+  services.hyprsunset = lib.mkIf osConfig.modules.de.hyprland.enable {
     enable = true;
     transitions = {
       sunrise = {

@@ -53,7 +53,7 @@
       rust-analyzer # Rust
 
       # Systems
-      clangd # C/C++
+      clang-tools # C/C++
 
       # DevOps / Shell
       bash-language-server
@@ -124,8 +124,8 @@
         options = {
           icons_enabled = true,
           theme = 'tokyonight',
-          section_separators = '',
-          component_separators = '',
+          section_separators = "",
+          component_separators = "",
         },
       }
 
