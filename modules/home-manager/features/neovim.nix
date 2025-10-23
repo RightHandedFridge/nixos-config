@@ -145,7 +145,7 @@
       end
 
       local servers = {
-        'tsserver',
+        'ts_ls',
         'html',
         'cssls',
         'jsonls',
