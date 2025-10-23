@@ -27,9 +27,6 @@ in {
       vlc
       blueman
 
-      # Launcher
-      anyrun
-
       # Terminal Apps
       wl-clipboard
       swappy
@@ -49,6 +46,7 @@ in {
         exec-once = [
           "nm-applet &"
           "blueman-tray"
+          "dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY"
         ];
 
         "monitor" = ",preferred,auto,1";
