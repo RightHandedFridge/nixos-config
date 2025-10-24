@@ -5,7 +5,11 @@
       sunrise = {
         calendar = "*-*-* 06:00:00";
         requests = [
-          [ "identity" ]
+          [ 
+            "temperature"
+            "6500"
+            "identity"
+          ]
         ];
       };
 
