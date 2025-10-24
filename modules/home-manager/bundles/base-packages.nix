@@ -16,7 +16,6 @@
   ];
 
   home.packages = with pkgs; [
-    vesktop
     libreoffice-qt6-fresh
     keepassxc
     nixd
