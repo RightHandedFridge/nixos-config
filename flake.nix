@@ -123,16 +123,6 @@
         device = "/dev/nvme0n1";
       };
 
-      x280 = mkSystem {
-        pkgs = nixpkgs-stable;
-        configuration = ./hosts/x280/configuration.nix;
-        device = "/dev/nvme0n1";
-        extraModules = [
-          nixos-hardware.nixosModules.lenovo-thinkpad-x280
-          nixos-06cb-009a-fingerprint-sensor.nixosModules."06cb-009a-fingerprint-sensor"
-        ];
-      };
-
       t480 = mkSystem {
         pkgs = nixpkgs-stable;
         configuration = ./hosts/t480/configuration.nix;
