@@ -119,8 +119,8 @@ in {
           ", XF86AudioMicMute, exec, pactl set-source-mute @DEFAULT_SOURCE@ toggle"
 
           # Cursor Zoom In/Out
-          "CTRL $mod, =, exec, ${zoomInCommand}"
-          "CTRL $mod, -, exec, ${zoomOutCommand}"
+          ''SUPER,equal, exec, hyprctl keyword cursor:zoom_factor "$(hyprctl getoption cursor:zoom_factor | grep float | awk '{print $2 + 0.5}')"''
+          ''SUPER,minus, exec, hyprctl keyword cursor:zoom_factor "$(hyprctl getoption cursor:zoom_factor | grep float | awk '{print $2 - 0.5}')"''
         ];
 
         general = {
