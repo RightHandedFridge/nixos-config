@@ -69,12 +69,6 @@ in {
           "$mod, B, exec, $browser"
           "$mod, E, exec, $files"
 
-          # Focus Shift
-          "$mod, J, movefocus, l"
-          "$mod, L, movefocus, r"
-          "$mod, I, movefocus, u"
-          "$mod, K, movefocus, d"
-
           # Screenshots
           "$mod SHIFT, S, exec, hyprshot -m region --clipboard-only --freeze"
 
@@ -102,11 +96,11 @@ in {
           "$mod, Q, killactive" # Quit Focus
           "$mod SHIFT, Q, exec, hyprctl activewindow | grep pid | tr -d 'pid:' | xargs kill" # Quit all instances
           
-          # Move Windows
-          "$mod, h, movefocus, l"
-          "$mod, l, movefocus, r"
-          "$mod, k, movefocus, u"
-          "$mod, j, movefocus, d"
+          # Focus Shift
+          "$mod, H, movefocus, l"
+          "$mod, L, movefocus, r"
+          "$mod, K, movefocus, u"
+          "$mod, J, movefocus, d"
 
           # Switch Workspaces
           "$mod, 1, workspace, 1"
@@ -132,7 +126,7 @@ in {
           "$mod, F, fullscreen, 0" # Set Window to true fullscreen (above everything)
           "$mod, T, togglefloating"
           "$mod SHIFT, T, workspaceopt, allfloat"
-          "$mod, J, togglesplit" # Switch between types of split (horizontal/vertical)
+          "$mod, U, togglesplit" # Switch between types of split (horizontal/vertical)
 
           # Resize active window with arrow keys
           "$mod SHIFT, h, resizeactive, -100 0"
@@ -141,7 +135,7 @@ in {
           "$mod SHIFT, j, resizeactive, 0 100"
 
           # Splits
-          "$mod, K, swapsplit" # Swap window positions easy peasy
+          "$mod, I, swapsplit" # Swap window positions easy peasy
 
           "$mod ALT, h, swapwindow, l"
           "$mod ALT, l, swapwindow, r"
