@@ -110,13 +110,14 @@ in {
           # Volume
           ", XF86AudioRaiseVolume, exec, ${swayosd-client} --output-volume +5 --max-volume 100"
           ", XF86AudioLowerVolume, exec, ${swayosd-client} --output-volume -5 --max-volume 100"
+          ", XF86AudioMute, exec, ${swayosd-client} --output-volume mute-toggle"
 
           # Brightness
           ", XF86MonBrightnessUp, exec, ${swayosd-client} --brightness +5"
           ", XF86MonBrightnessDown, exec, ${swayosd-client} --brightness -5"
 
           # Microphone
-          ", XF86AudioMicMute, exec, pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+          ", XF86AudioMicMute, exec, ${swayosd-client} --input-volume mute-toggle"
 
           # Cursor Zoom In/Out
           ''SUPER,equal, exec, hyprctl keyword cursor:zoom_factor "$(hyprctl getoption cursor:zoom_factor | grep float | awk '{print $2 + 0.5}')"''
