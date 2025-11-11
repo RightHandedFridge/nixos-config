@@ -106,13 +106,12 @@ in {
 
           # Special Keys
           # Volume
-          ", XF86AudioRaiseVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ +5%"
-          ", XF86AudioLowerVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ -5%"
-          ", XF86AudioMute, exec, pactl set-sink-mute @DEFAULT_SINK@ toggle"
+          ", XF86AudioRaiseVolume, exec, ${swayosd-client} --output-volume +5 --max-volume 100"
+          ", XF86AudioLowerVolume, exec, ${swayosd-client} --output-volume -5 --max-volume 100"
 
           # Brightness
-          ", XF86MonBrightnessUp, exec, brightnessctl set +5%"
-          ", XF86MonBrightnessDown, exec, brightnessctl set 5%-"
+          ", XF86MonBrightnessUp, exec, ${swayosd-client} --brightness +5"
+          ", XF86MonBrightnessDown, exec, ${swayosd-client} --brightness -5"
 
           # Microphone
           ", XF86AudioMicMute, exec, pactl set-source-mute @DEFAULT_SOURCE@ toggle"
@@ -120,6 +119,10 @@ in {
           # Cursor Zoom In/Out
           ''SUPER,equal, exec, hyprctl keyword cursor:zoom_factor "$(hyprctl getoption cursor:zoom_factor | grep float | awk '{print $2 + 0.5}')"''
           ''SUPER,minus, exec, hyprctl keyword cursor:zoom_factor "$(hyprctl getoption cursor:zoom_factor | grep float | awk '{print $2 - 0.5}')"''
+        ];
+
+        bindn = [
+          ", Caps_Lock, exec, ${swayosd-client} --caps-lock"
         ];
 
         general = {
