@@ -77,10 +77,10 @@ in {
           "$mod, K, movefocus, d"
 
           # Move Windows
-          "$mod SHIFT, J, movefocus, l"
-          "$mod SHIFT, L, movefocus, r"
-          "$mod SHIFT, I, movefocus, u"
-          "$mod SHIFT, K, movefocus, d"
+          "$mod, h, movefocus, l"
+          "$mod, l, movefocus, r"
+          "$mod, k, movefocus, u"
+          "$mod, j, movefocus, d"
 
           # Switch Workspaces
           "$mod, 1, workspace, 1"
