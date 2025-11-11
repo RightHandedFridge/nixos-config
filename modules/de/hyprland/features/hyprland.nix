@@ -52,8 +52,7 @@ in {
         ];
 
         "monitor" = ",preferred,auto,1";
-        "$mod" = "ALT";
-        "$modapp" = "SUPER";
+        "$mod" = "SUPER";
         "$menu" = "wofi --show drun";
         "$browser" = "firefox";
         "$term" = "alacritty";
@@ -65,11 +64,10 @@ in {
 
         bind = [
           # Programs
-          "$modapp, Return, exec, $term"
-          "$mod, Q, killactive"
-          "$modapp, S, exec, $menu"
-          "$modapp, W, exec, $browser"
-          "$modapp, E, exec, $files"
+          "$mod, Return, exec, $term"
+          "$mod, SPACE, exec, $menu"
+          "$mod, B, exec, $browser"
+          "$mod, E, exec, $files"
 
           # Focus Shift
           "$mod, J, movefocus, l"
@@ -77,6 +75,33 @@ in {
           "$mod, I, movefocus, u"
           "$mod, K, movefocus, d"
 
+          # Screenshots
+          "$mod SHIFT, S, exec, hyprshot -m region --clipboard-only --freeze"
+
+          # Special Keys
+          # Volume
+          ", XF86AudioRaiseVolume, exec, ${swayosd-client} --output-volume +5 --max-volume 100"
+          ", XF86AudioLowerVolume, exec, ${swayosd-client} --output-volume -5 --max-volume 100"
+          ", XF86AudioMute, exec, ${swayosd-client} --output-volume mute-toggle"
+
+          # Brightness
+          ", XF86MonBrightnessUp, exec, ${swayosd-client} --brightness +5"
+          ", XF86MonBrightnessDown, exec, ${swayosd-client} --brightness -5"
+
+          # Microphone
+          ", XF86AudioMicMute, exec, ${swayosd-client} --input-volume mute-toggle"
+
+          # Cursor Zoom In/Out
+          ''$mod, mouse_down, exec, hyprctl keyword cursor:zoom_factor "$(hyprctl getoption cursor:zoom_factor | grep float | awk '{print $2 + 0.5}')"''
+          ''$mod, mouse_up, exec, hyprctl keyword cursor:zoom_factor "$(hyprctl getoption cursor:zoom_factor | grep float | awk '{print $2 - 0.5}')"''
+          ''$mod SHIFT, Z, exec, hyprctl keyword cursor:zoom_factor 1'' #Reset Zoom
+
+          ## Windows
+
+          # Quit
+          "$mod, Q, killactive" # Quit Focus
+          "$mod SHIFT, Q, exec, hyprctl activewindow | grep pid | tr -d 'pid:' | xargs kill" # Quit all instances
+          
           # Move Windows
           "$mod, h, movefocus, l"
           "$mod, l, movefocus, r"
@@ -103,29 +128,43 @@ in {
           "$mod SHIFT, 7, movetoworkspace, 7"
           "$mod SHIFT, 8, movetoworkspace, 8"
 
-          # Screenshots
-          "$mod SHIFT, S, exec, hyprshot -m region --clipboard-only --freeze"
+          # Window Attributes
+          "$mod, F, fullscreen, 0" # Set Window to true fullscreen (above everything)
+          "$mod, T, togglefloating"
+          "$mod SHIFT, T, workspaceopt, allfloat"
+          "$mod, J, togglesplit" # Switch between types of split (horizontal/vertical)
 
-          # Special Keys
-          # Volume
-          ", XF86AudioRaiseVolume, exec, ${swayosd-client} --output-volume +5 --max-volume 100"
-          ", XF86AudioLowerVolume, exec, ${swayosd-client} --output-volume -5 --max-volume 100"
-          ", XF86AudioMute, exec, ${swayosd-client} --output-volume mute-toggle"
+          # Resize active window with arrow keys
+          "$mod SHIFT, h, resizeactive, -100 0"
+          "$mod SHIFT, l, resizeactive, 100 0"
+          "$mod SHIFT, k, resizeactive, 0 -100"
+          "$mod SHIFT, j, resizeactive, 0 100"
 
-          # Brightness
-          ", XF86MonBrightnessUp, exec, ${swayosd-client} --brightness +5"
-          ", XF86MonBrightnessDown, exec, ${swayosd-client} --brightness -5"
+          # Splits
+          "$mod, K, swapsplit" # Swap window positions easy peasy
 
-          # Microphone
-          ", XF86AudioMicMute, exec, ${swayosd-client} --input-volume mute-toggle"
+          "$mod ALT, h, swapwindow, l"
+          "$mod ALT, l, swapwindow, r"
+          "$mod ALT, k, swapwindow, u"
+          "$mod ALT, j, swapwindow, d"  
 
-          # Cursor Zoom In/Out
-          ''SUPER,equal, exec, hyprctl keyword cursor:zoom_factor "$(hyprctl getoption cursor:zoom_factor | grep float | awk '{print $2 + 0.5}')"''
-          ''SUPER,minus, exec, hyprctl keyword cursor:zoom_factor "$(hyprctl getoption cursor:zoom_factor | grep float | awk '{print $2 - 0.5}')"''
+
+
+
         ];
 
         bindn = [
           ", Caps_Lock, exec, ${swayosd-client} --caps-lock"
+        ];
+
+        bindm = [
+          "$mod, mouse:272, movewindow" # Move active window with LMB + Drag
+          "$mod, mouse:273, resizewindow" # Resize active window with RMB + Drag 
+        ];
+
+        binde = [
+          "ALT,Tab,cyclenext" # Cycle between windows
+          "ALT,Tab,bringactivetotop" # Bring active window to the top after we cycled to it
         ];
 
         general = {
