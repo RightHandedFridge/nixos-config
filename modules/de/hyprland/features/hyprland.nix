@@ -15,6 +15,8 @@
   zoomOutCommand = ''
     hyprctl keyword cursor:zoom_factor $(awk "BEGIN {print $(hyprctl getoption cursor:zoom_factor | grep 'float:' | awk '{print $2}') - 0.5}")
   '';
+
+  swayosd-client = "${pkgs.swayosd}/bin/swayosd-client";
 in {
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
