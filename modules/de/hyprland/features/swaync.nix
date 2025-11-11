@@ -10,6 +10,8 @@
         positionX = "right";
         positionY = "top";
         layer = "overlay";
+        cssPriority = "application";
+        image-visibility = "when-available";
       };
     };
   };
