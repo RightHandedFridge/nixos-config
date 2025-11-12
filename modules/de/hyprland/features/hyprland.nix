@@ -58,7 +58,7 @@ in {
 
         "monitor" = ",preferred,auto,1";
         "$mod" = "SUPER";
-        "$menu" = "wofi --show drun";
+        "$menu" = "rofi --show drun";
         "$browser" = "firefox";
         "$term" = "alacritty";
         "$files" = "nautilus";

@@ -8,6 +8,7 @@
     ../features/hyprpaper.nix
     ../features/hyprsunset.nix
     ../../stylix/stylix-hm.nix
+    ../features/rofi.nix
   ];
 
   programs.bash.enable = true;
