@@ -6,6 +6,10 @@
   ...
 }: {
   config = lib.mkIf osConfig.modules.de.hyprland.enable {
+    home.packages = with pkgs; [
+      rofi-bluetooth
+      rofi-network-manager
+    ];
     programs.rofi = {
       enable = true;
       font = lib.mkForce "Inter 14";
@@ -13,9 +17,7 @@
       plugins = with pkgs; [
         rofi-calc
         rofi-emoji
-        rofi-bluetooth
         rofi-power-menu
-        rofi-network-manager
       ];
 
       extraConfig = {
@@ -25,6 +27,8 @@
         disable-history = true;
         matching = "fuzzy";
         case-sensitive = false;
+        icon-theme = "WhiteSur-dark";
+        show-icons = true;
       };
 
       theme = let
@@ -70,7 +74,7 @@
         };
 
         "icon-search, entry, element-icon, element-text" = {
-          vertical-align = 0.5;
+          vertical-align = mkLiteral "0.5";
         };
 
         "entry" = {
@@ -117,7 +121,7 @@
         };
 
         "element-icon" = {
-          size = mkLiteral "1em";
+          size = mkLiteral "2em";
         };
 
         "element-text" = {
