@@ -2,6 +2,7 @@
   lib,
   osConfig,
   pkgs,
+  config,
   ...
 }: {
   config = lib.mkIf osConfig.modules.de.hyprland.enable {
