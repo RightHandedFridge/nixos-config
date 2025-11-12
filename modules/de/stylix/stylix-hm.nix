@@ -62,6 +62,10 @@
       firefox = {
         profileNames = [ "rhf" ];
       };
+
+      rofi = {
+        enable = false;
+      };
     };
 
     iconTheme = {
