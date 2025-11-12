@@ -7,6 +7,7 @@
     ../features/wofi.nix
     ../features/hyprpaper.nix
     ../features/hyprsunset.nix
+    ../../stylix/stylix-hm.nix
   ];
 
   programs.bash.enable = true;

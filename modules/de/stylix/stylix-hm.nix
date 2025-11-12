@@ -13,7 +13,7 @@
       name = "WhiteSur-cursors";
     };
 
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/bright.yaml";
 
     polarity = "dark";
 
@@ -48,7 +48,6 @@
 
     targets = {
       qt = {
-        enable = true;
         platform = "qtct";
       };
 
@@ -57,6 +56,10 @@
       };
 
       librewolf = {
+        profileNames = [ "rhf" ];
+      };
+
+      firefox = {
         profileNames = [ "rhf" ];
       };
     };

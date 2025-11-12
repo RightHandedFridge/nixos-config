@@ -16,7 +16,8 @@ in {
   };
 
   imports = [
-    ../features/theme.nix
+    #../features/theme.nix
+    ../../stylix/stylix-nixos.nix
   ];
 
   config = lib.mkIf cfg.enable {

@@ -42,6 +42,7 @@
     # Theming
     stylix = {
       url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs-stable";
     };
 
     # Window manager
