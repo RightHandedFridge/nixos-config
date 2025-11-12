@@ -33,13 +33,23 @@ in {
       dbus.enable = true;
     };
 
-    /*
     xdg.portal = {
       enable = true;
-      extraPortals = [pkgs.xdg-desktop-portal-gtk];
+      xdgOpenUsePortal = false;
+
       config.common.default = "*";
+
+      extraPortals = with pkgs; [
+        xdg-desktop-portal
+      ];
+      
+      wlr.enable = false;
     };
-    */
+
+    systemd.user.services.xdg-desktop-portal = {
+      after = [ "xdg-desktop-portal-hyprland.service" ];
+      requires = [ "xdg-desktop-portal-hyprland.service" ];
+    };
 
     environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
