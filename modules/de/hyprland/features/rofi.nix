@@ -31,7 +31,7 @@
         show-icons = true;
       };
 
-      theme = let
+     theme = let
         inherit (config.lib.formats.rasi) mkLiteral;
       in {
         "*" = {
@@ -56,8 +56,15 @@
         "window" = {
           background-color = mkLiteral "@bg0";
           location = mkLiteral "center";
-          width = 640;
+          width = mkLiteral "50%";
+          dynamic = true;
           border-radius = 8;
+          padding = mkLiteral "8px";
+        };
+
+        "mainbox" = {
+          padding = mkLiteral "8px";
+          spacing = mkLiteral "8px";
         };
 
         "inputbar" = {
@@ -94,11 +101,13 @@
         };
 
         "listview" = {
-          lines = 10;
+          dynamic = true;
+          lines = 5;
           columns = 1;
           fixed-height = false;
           border = mkLiteral "1px 0 0";
           border-color = mkLiteral "@bg1";
+          scrollbar = mkLiteral "true";
         };
 
         "element" = {
