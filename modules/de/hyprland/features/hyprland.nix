@@ -44,6 +44,11 @@ in {
 
     wayland.windowManager.hyprland = {
       enable = true;
+      systemd = {
+        enable = true;
+        variables = [ "--all" ];
+      };
+
       settings = {
         exec-once = [
           "nm-applet &"
