@@ -71,8 +71,10 @@ in {
           # Programs
           "$mod, Return, exec, $term"
           "$mod, SPACE, exec, $menu"
-          "$mod, B, exec, $browser"
+          "$mod, W, exec, $browser"
           "$mod, E, exec, $files"
+          "$mod ALT, B, exec, rofi-bluetooth"
+          "$mod ALT, N, exec, rofi-network-manager"
 
           # Screenshots
           "$mod SHIFT, S, exec, hyprshot -m region --clipboard-only --freeze"
