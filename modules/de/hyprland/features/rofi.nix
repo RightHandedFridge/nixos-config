@@ -6,10 +6,6 @@
   ...
 }: {
   config = lib.mkIf osConfig.modules.de.hyprland.enable {
-    home.packages = with pkgs; [
-      rofi-bluetooth
-      rofi-network-manager
-    ];
     programs.rofi = {
       enable = true;
 

@@ -28,12 +28,12 @@ in {
       file-roller
       vlc
       blueman
+      pavucontrol
 
       # Terminal Apps
       wl-clipboard
       swappy
       hyprshot
-      pulsemixer
     ];
 
     home.persistence."/persist/home/${config.vars.user}" = lib.mkIf osConfig.modules.system.impermanence.enable {
@@ -52,8 +52,7 @@ in {
       settings = {
         exec-once = [
           "nm-applet &"
-          "blueman-tray"
-          "dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY"
+          "blueman-applet &"
         ];
 
         "monitor" = ",preferred,auto,1";
@@ -73,8 +72,9 @@ in {
           "$mod, SPACE, exec, $menu"
           "$mod, W, exec, $browser"
           "$mod, E, exec, $files"
-          "$mod ALT, B, exec, rofi-bluetooth"
-          "$mod ALT, N, exec, rofi-network-manager"
+          "$mod ALT, B, exec, blueman-manager"
+          "$mod ALT, N, exec, nm-connection-editor"
+          "$mod ALT, S, exec, pavucontrol"
 
           # Screenshots
           "$mod SHIFT, S, exec, hyprshot -m region --clipboard-only --freeze"

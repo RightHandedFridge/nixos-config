@@ -150,7 +150,7 @@
               car = "";
               default = ["" "" ""];
             };
-            on-click = "alacritty -e pulsemixer";
+            on-click = "pavucontrol";
             ignored-sinks = ["Easy Effects Sink"];
           };
 
