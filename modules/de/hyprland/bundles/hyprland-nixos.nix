@@ -64,6 +64,7 @@ in {
     fonts.packages = with pkgs; [
       font-awesome
       inter
+      nerd-fonts.jetbrains-mono
     ];
   };
 }
