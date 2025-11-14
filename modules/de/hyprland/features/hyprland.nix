@@ -185,6 +185,12 @@ in {
           "bordersize 0, floating:0, onworkspace:f[1]"
           "rounding 0, floating:0, onworkspace:f[1]"
         ];
+
+        animations = {
+          animation = [
+            "windows,     1,    1,   linear,     popin 10%"
+          ];
+        };
       };
     };
   };
