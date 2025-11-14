@@ -69,12 +69,15 @@ in {
         bind = [
           # Programs
           "$mod, Return, exec, $term"
-          "$mod, SPACE, exec, $menu"
           "$mod, W, exec, $browser"
           "$mod, E, exec, $files"
-          "$mod ALT, B, exec, blueman-manager"
-          "$mod ALT, N, exec, nm-connection-editor"
-          "$mod ALT, S, exec, pavucontrol"
+
+          # Launcher
+          "$mod, SPACE, exec, $menu"
+          "$mod ALT, B, exec, rofi-bluetooth"
+          "$mod ALT, N, exec, rofi-network-manager"
+          "$mod ALT, S, exec, rofi-pulse-select sink"
+          "$mod ALT, P, exec, rofi -show power-menu -modi power-menu:rofi-power-menu"
 
           # Screenshots
           "$mod SHIFT, S, exec, hyprshot -m region --clipboard-only --freeze"
