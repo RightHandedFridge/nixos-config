@@ -72,6 +72,7 @@ in {
           "$mod, W, exec, $browser"
           "$mod, E, exec, $files"
           "$mod SHIFT, L, exec, hyprlock"
+          "$mod SHIFT, N, exec, swaync-client -t"
 
           # Launcher
           "$mod, SPACE, exec, $menu"
