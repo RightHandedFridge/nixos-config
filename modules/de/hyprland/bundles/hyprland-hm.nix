@@ -4,7 +4,6 @@
     ../features/swaync.nix
     ../features/swayosd.nix
     ../features/waybar.nix
-    ../features/wofi.nix
     ../features/hyprpaper.nix
     ../features/hyprsunset.nix
     ../../stylix/stylix-hm.nix
