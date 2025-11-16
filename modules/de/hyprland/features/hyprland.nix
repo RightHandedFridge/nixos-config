@@ -71,6 +71,7 @@ in {
           "$mod, Return, exec, $term"
           "$mod, W, exec, $browser"
           "$mod, E, exec, $files"
+          "$mod SHIFT, L, exec, hyprlock"
 
           # Launcher
           "$mod, SPACE, exec, $menu"

@@ -9,6 +9,7 @@
     ../features/hyprsunset.nix
     ../../stylix/stylix-hm.nix
     ../features/rofi.nix
+    ../features/hyprlock.nix
   ];
 
   programs.bash.enable = true;
