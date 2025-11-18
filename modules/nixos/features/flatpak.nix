@@ -8,7 +8,6 @@
       enable = true;
       packages = [
         "org.vinegarhq.Sober"
-        "dev.vencord.Vesktop"
       ];
       update.onActivation = true;
     };

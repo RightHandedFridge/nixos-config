@@ -25,6 +25,7 @@
     networkmanagerapplet
     mullvad-browser
     vlc
+    vesktop
   ];
 
   services.arrpc.enable = true; #required for Vesktop to detect games
