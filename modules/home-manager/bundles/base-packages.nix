@@ -13,6 +13,7 @@
     ../features/base-persist.nix
     ../features/vars.nix
     ../features/neovim.nix
+    ../features/solaar.nix
   ];
 
   home.packages = with pkgs; [
