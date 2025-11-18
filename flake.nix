@@ -121,7 +121,6 @@
       qpc = mkSystem {
         pkgs = nixpkgs-stable;
         configuration = ./hosts/qpc/configuration.nix;
-        device = "/dev/nvme0n1";
       };
 
       t480 = mkSystem {
