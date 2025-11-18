@@ -192,9 +192,7 @@ in {
         ];
 
         animations = {
-          animation = [
-            "windows,     1,    1,   linear,     popin 10%"
-          ];
+          enabled = 0;
         };
       };
     };
