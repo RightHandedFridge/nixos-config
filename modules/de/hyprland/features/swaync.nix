@@ -9,7 +9,7 @@
       settings = {
         positionX = "right";
         positionY = "top";
-        layer = "overlay";
+        layer = "top";
         cssPriority = "application";
         image-visibility = "when-available";
       };
