@@ -22,8 +22,8 @@
       After = ["graphical-session-pre.target" "pipewire.service"];
     };
     Service = {
-      Type = "oneshot";
-      ExecStart = "${pkgs.easyeffects}/bin/easyeffects --load-preset lpxw";
+      Type = "simple";
+      ExecStart = "${pkgs.easyeffects}/bin/easyeffects --gapplication-service -l lpxw";
     };
   };
 }
