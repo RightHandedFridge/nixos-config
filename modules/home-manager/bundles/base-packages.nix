@@ -12,8 +12,9 @@
     ../features/tealdeer.nix
     ../features/base-persist.nix
     ../features/vars.nix
-    ../features/neovim.nix
+    #../features/neovim.nix
     ../features/solaar.nix
+    ../features/helix.nix
   ];
 
   home.packages = with pkgs; [
