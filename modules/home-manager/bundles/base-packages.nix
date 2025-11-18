@@ -20,8 +20,6 @@
   home.packages = with pkgs; [
     libreoffice-qt6-fresh
     keepassxc
-    nixd
-    alejandra
     kdePackages.qt6ct
     libsForQt5.qt5ct
     networkmanagerapplet
