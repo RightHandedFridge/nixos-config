@@ -11,10 +11,6 @@
       url = "github:nixos/nixpkgs/nixos-25.05-small";
     };
 
-    nixpkgs-oldstable = {
-      url = "github:nixos/nixpkgs/nixos-24.11";
-    };
-
     nix-flatpak = {
       url = "github:gmodena/nix-flatpak/?ref=latest";
     };
@@ -36,7 +32,7 @@
     };
     nixos-06cb-009a-fingerprint-sensor = {
       url = "github:ahbnr/nixos-06cb-009a-fingerprint-sensor?ref=24.11";
-      inputs.nixpkgs.follows = "nixpkgs-oldstable";
+      inputs.nixpkgs.follows = "nixpkgs-stable";
     };
 
     # Theming
@@ -75,7 +71,6 @@
       url = "github:arkenfox/user.js";
       flake = false;
     };
-    
   };
 
   outputs = {
@@ -106,16 +101,14 @@
       extraModules ? [],
     }:
       pkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
-        modules =
-          pkgs.lib.concatLists [
-            [ configuration ]
-            (pkgs.lib.optional (device != null) (import modules/nixos/features/impermanence/disko.nix { inherit device; }))
-            commonModules
-            extraModules
-          ];
+        specialArgs = {inherit inputs;};
+        modules = pkgs.lib.concatLists [
+          [configuration]
+          (pkgs.lib.optional (device != null) (import modules/nixos/features/impermanence/disko.nix {inherit device;}))
+          commonModules
+          extraModules
+        ];
       };
-
   in {
     nixosConfigurations = {
       qpc = mkSystem {
