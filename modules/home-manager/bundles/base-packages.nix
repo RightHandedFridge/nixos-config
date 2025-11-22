@@ -22,9 +22,9 @@
     kdePackages.qt6ct
     libsForQt5.qt5ct
     networkmanagerapplet
-    mullvad-browser
     vlc
     vesktop
+    tor-browser
   ];
 
   services.arrpc.enable = true; #required for Vesktop to detect games
