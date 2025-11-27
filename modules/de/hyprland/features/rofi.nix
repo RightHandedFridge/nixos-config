@@ -6,7 +6,6 @@
   ...
 }: {
   config = lib.mkIf osConfig.modules.de.hyprland.enable {
-
     home.packages = with pkgs; [
       rofi-bluetooth
       rofi-network-manager
@@ -15,7 +14,7 @@
     ];
     programs.rofi = {
       enable = true;
-      package = pkgs.rofi-wayland; #TODO: When 25.11 comes out, remove this line.
+      package = pkgs.rofi;
 
       plugins = with pkgs; [
         rofi-calc

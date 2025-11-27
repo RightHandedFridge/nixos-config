@@ -252,18 +252,20 @@
     "gnome-shell": {
       "flake": false,
       "locked": {
-        "lastModified": 1744584021,
-        "narHash": "sha256-0RJ4mJzf+klKF4Fuoc8VN8dpQQtZnKksFmR2jhWE1Ew=",
+        "host": "gitlab.gnome.org",
+        "lastModified": 1763992410,
+        "narHash": "sha256-m2eZvxpH1ne9OU5x8beHxDq2eDMYzGlsPjl52eYAams=",
         "owner": "GNOME",
         "repo": "gnome-shell",
-        "rev": "52c517c8f6c199a1d6f5118fae500ef69ea845ae",
-        "type": "github"
+        "rev": "7324473f80529da82962b4459ea2e7367c7e43a2",
+        "type": "gitlab"
       },
       "original": {
+        "host": "gitlab.gnome.org",
         "owner": "GNOME",
-        "ref": "48.1",
+        "ref": "gnome-49",
         "repo": "gnome-shell",
-        "type": "github"
+        "type": "gitlab"
       }
     },
     "home-manager": {
@@ -273,16 +275,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1763992789,
-        "narHash": "sha256-WHkdBlw6oyxXIra/vQPYLtqY+3G8dUVZM8bEXk0t8x4=",
+        "lastModified": 1764177491,
+        "narHash": "sha256-dhX2abFWxeXab3Aad4Pg1xGtn9W84/qetNXfmYUwktw=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "44831a7eaba4360fb81f2acc5ea6de5fde90aaa3",
+        "rev": "2217780c39169a9c77915200137550c2ef0fa974",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
-        "ref": "release-25.05",
+        "ref": "release-25.11",
         "repo": "home-manager",
         "type": "github"
       }
@@ -644,16 +646,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1734692513,
-        "narHash": "sha256-3QEzFFrkXLj/JgZGoLaxq/pPkflSXfBOP10bXL8/Niw=",
+        "lastModified": 1748793996,
+        "narHash": "sha256-DVOoP3ZH6f1EAg5YyqOvzFnDWbzyYNeYUiZX4Lrmm4g=",
         "owner": "ahbnr",
         "repo": "nixos-06cb-009a-fingerprint-sensor",
-        "rev": "3678b193efa1e06aab86058aecee18ddaa8878d2",
+        "rev": "86e1f4d73c56464be715007d65ec5063391b433a",
         "type": "github"
       },
       "original": {
         "owner": "ahbnr",
-        "ref": "24.11",
+        "ref": "25.05",
         "repo": "nixos-06cb-009a-fingerprint-sensor",
         "type": "github"
       }
@@ -903,16 +905,16 @@
         "tinted-zed": "tinted-zed"
       },
       "locked": {
-        "lastModified": 1763845106,
-        "narHash": "sha256-S3HH655nydKoLTuqX8qcJidZH0PiWGB/YcoPomH1DaQ=",
+        "lastModified": 1764193603,
+        "narHash": "sha256-guX30TWe8HRG2qPFiM9893F2uTw4B8D/xkE6Mq7MiYg=",
         "owner": "danth",
         "repo": "stylix",
-        "rev": "b9b8173a6e31c6d06f328307ddbdf7d6af82b7ad",
+        "rev": "9bf8725a3d65b3ff0ba68ce13779657f5095e36b",
         "type": "github"
       },
       "original": {
         "owner": "danth",
-        "ref": "release-25.05",
+        "ref": "release-25.11",
         "repo": "stylix",
         "type": "github"
       }

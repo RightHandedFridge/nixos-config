@@ -34,7 +34,7 @@
       };
 
       emoji = {
-        package = pkgs.noto-fonts-emoji;
+        package = pkgs.noto-fonts-color-emoji;
         name = "Noto Color Emoji";
       };
 
@@ -52,15 +52,15 @@
       };
 
       vscode = {
-        profileNames = [ "default" ];
+        profileNames = ["default"];
       };
 
       librewolf = {
-        profileNames = [ "rhf" ];
+        profileNames = ["rhf"];
       };
 
       firefox = {
-        profileNames = [ "rhf" ];
+        profileNames = ["rhf"];
       };
 
       rofi = {
@@ -81,6 +81,4 @@
     GTK_USE_PORTAL = "1";
     GTK_CSD = "0";
   };
-
-  
 }
