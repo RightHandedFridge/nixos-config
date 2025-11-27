@@ -8,7 +8,7 @@
     };
 
     nixpkgs-stable = {
-      url = "github:nixos/nixpkgs/nixos-25.05-small";
+      url = "github:nixos/nixpkgs/nixos-25.11";
     };
 
     nix-flatpak = {
@@ -17,7 +17,7 @@
 
     # Configuration managers
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
     plasma-manager = {
@@ -31,13 +31,13 @@
       url = "github:nixos/nixos-hardware/master";
     };
     nixos-06cb-009a-fingerprint-sensor = {
-      url = "github:ahbnr/nixos-06cb-009a-fingerprint-sensor?ref=24.11";
+      url = "github:ahbnr/nixos-06cb-009a-fingerprint-sensor?ref=25.05";
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
 
     # Theming
     stylix = {
-      url = "github:danth/stylix/release-25.05";
+      url = "github:danth/stylix/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
 
