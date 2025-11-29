@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    pinta
+    krita
     obs-studio
     kdePackages.kdenlive
     qbittorrent
