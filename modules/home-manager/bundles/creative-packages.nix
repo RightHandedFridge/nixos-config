@@ -5,5 +5,6 @@
     kdePackages.kdenlive
     qbittorrent
     filezilla
+    logseq
   ];
 }
