@@ -4,6 +4,7 @@
   nixpkgs.overlays = [
     inputs.nur.overlays.default
     (import ../overlays/solaar.nix)
+    (import ../overlays/vencord.nix)
   ];
 
   nix.settings = {
