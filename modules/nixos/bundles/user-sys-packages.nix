@@ -7,5 +7,6 @@
     ../features/hm.nix
     ../features/android.nix
     ../features/flatpak.nix
+    ../features/distrobox.nix
   ];
 }
