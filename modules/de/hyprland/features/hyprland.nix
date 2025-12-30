@@ -46,7 +46,7 @@ in {
       enable = true;
       systemd = {
         enable = true;
-        variables = [ "--all" ];
+        variables = ["--all"];
       };
 
       settings = {
@@ -55,7 +55,7 @@ in {
           "blueman-applet &"
         ];
 
-        "monitor" = ",preferred,auto,1";
+        "monitor" = ",highrr,auto,1";
         "$mod" = "SUPER";
         "$menu" = "rofi -show drun";
         "$browser" = "firefox";
@@ -107,7 +107,7 @@ in {
           # Quit
           "$mod, Q, killactive" # Quit Focus
           "$mod SHIFT, Q, exec, hyprctl activewindow | grep pid | tr -d 'pid:' | xargs kill" # Quit all instances
-          
+
           # Focus Shift
           "$mod, H, movefocus, l"
           "$mod, L, movefocus, r"
@@ -152,11 +152,7 @@ in {
           "$mod ALT, h, swapwindow, l"
           "$mod ALT, l, swapwindow, r"
           "$mod ALT, k, swapwindow, u"
-          "$mod ALT, j, swapwindow, d"  
-
-
-
-
+          "$mod ALT, j, swapwindow, d"
         ];
 
         bindn = [
@@ -165,7 +161,7 @@ in {
 
         bindm = [
           "$mod, mouse:272, movewindow" # Move active window with LMB + Drag
-          "$mod, mouse:273, resizewindow" # Resize active window with RMB + Drag 
+          "$mod, mouse:273, resizewindow" # Resize active window with RMB + Drag
         ];
 
         binde = [
