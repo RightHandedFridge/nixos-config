@@ -14,6 +14,7 @@
     ../../modules/hardware/gpu/amd.nix
     ../../modules/hardware/printing.nix
     ../../modules/hardware/logitech.nix
+    ../../modules/hardware/bluetooth.nix
 
     #Modules
     ../../modules/nixos/bundles/system.nix

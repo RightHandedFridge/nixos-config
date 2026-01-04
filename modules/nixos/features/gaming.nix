@@ -24,6 +24,7 @@ in {
       enable = true;
       gamescopeSession.enable = true;
     };
+    hardware.steam-hardware.enable = true;
 
     programs.gamemode = {
       enable = true;
