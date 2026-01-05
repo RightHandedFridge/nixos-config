@@ -184,6 +184,10 @@ in {
         animations = {
           enabled = 0;
         };
+
+        misc = {
+          vrr = 1;
+        };
       };
     };
   };
