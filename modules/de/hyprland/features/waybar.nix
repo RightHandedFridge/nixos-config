@@ -82,7 +82,7 @@
 
           clock = {
             interval = 1;
-            timezone = "Europe/Rome";
+            timezone = "Europe/London";
             format = "{:%H:%M}";
             tooltip = true;
             tooltip-format = "{:L%A %d/%m/%Y}";
