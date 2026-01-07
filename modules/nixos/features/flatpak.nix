@@ -6,10 +6,6 @@
   config = lib.mkIf config.modules.system.hm.enable {
     services.flatpak = {
       enable = true;
-      packages = [
-        "org.vinegarhq.Sober"
-      ];
-      update.onActivation = true;
     };
 
     home-manager.users.${config.vars.user} = {
