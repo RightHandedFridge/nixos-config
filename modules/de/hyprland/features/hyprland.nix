@@ -40,11 +40,6 @@ in {
       };
 
       settings = {
-        exec-once = [
-          "nm-applet &"
-          "blueman-applet &"
-        ];
-
         "monitor" = ",highrr,auto,1";
         "$mod" = "SUPER";
         "$menu" = "rofi -show drun";
