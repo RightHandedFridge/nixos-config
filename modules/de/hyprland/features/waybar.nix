@@ -12,6 +12,7 @@
         waybar = {
           height = 30;
           spacing = 4;
+          position = "bottom";
           modules-left = [
             "hyprland/workspaces"
           ];
@@ -200,7 +201,7 @@
         }
 
         window#waybar {
-          background-color: rgba(0, 0, 0, 0.6);
+          background-color: rgba(0, 0, 0, 1);
           color: #ffffff;
           transition-property: background-color;
           transition-duration: 0.5s;
