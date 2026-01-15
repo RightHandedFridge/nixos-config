@@ -11,6 +11,7 @@
   config = lib.mkIf osConfig.modules.de.niri.enable {
     programs.noctalia-shell = lib.mkForce {
       enable = true;
+      systemd.enable = true;
       settings = {
         settingsVersion = 0;
         bar = {
