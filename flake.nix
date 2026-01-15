@@ -46,6 +46,13 @@
       inputs.hyprland.follows = "hyprland";
     };
 
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      #https://docs.noctalia.dev/getting-started/nixos/#nix-flakes
+      #Noctalia requires unstable since it depends on the latest quickshell
+    }
+
     # Secrets and filesystem
     sops-nix = {
       url = "github:Mic92/sops-nix";

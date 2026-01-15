@@ -23,5 +23,9 @@ in {
       enable = true;
       package = pkgs.niri;
     };
+
+    environment.systemPackages = [
+      inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+    ];
   };
 }
