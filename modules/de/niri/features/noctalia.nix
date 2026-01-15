@@ -8,8 +8,8 @@
   imports = [
     inputs.noctalia.homeModules.default
   ];
-  config = lib.mkIf osConfig.modules.de.niri {
-    programs.noctalia-shell = {
+  config = lib.mkIf osConfig.modules.de.niri.enable {
+    programs.noctalia-shell = lib.mkForce {
       enable = true;
       settings = {
         settingsVersion = 0;
@@ -19,8 +19,8 @@
           density = "default";
           showOutline = false;
           showCapsule = true;
-          capsuleOpacity = 1;
-          backgroundOpacity = 0.93;
+          capsuleOpacity = 1.0;
+          backgroundOpacity = 1.0;
           useSeparateOpacity = false;
           floating = false;
           marginVertical = 4;

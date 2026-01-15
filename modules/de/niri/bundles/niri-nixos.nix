@@ -16,6 +16,7 @@ in {
   };
 
   imports = [
+    inputs.noctalia.nixosModules.default
   ];
 
   config = lib.mkIf cfg.enable {
@@ -27,5 +28,7 @@ in {
     environment.systemPackages = [
       inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
+
+    services.noctalia-shell.enable = true;
   };
 }

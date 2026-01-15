@@ -21,8 +21,7 @@
     ../../modules/nixos/bundles/user-sys-packages.nix
 
     #Desktop Enviroment
-    ../../modules/de/kde/bundles/kde-nixos.nix
-    ../../modules/de/hyprland/bundles/hyprland-nixos.nix
+    ../../modules/de/default-nixos.nix
 
     #Secrets
     ../../modules/sops/sops.nix
@@ -68,6 +67,10 @@
 
       hyprland = {
         enable = true;
+      };
+
+      niri = {
+        enable = false;
       };
     };
   };
