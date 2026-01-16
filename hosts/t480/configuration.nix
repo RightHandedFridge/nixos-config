@@ -19,7 +19,7 @@
     ../../modules/nixos/bundles/user-sys-packages.nix
 
     #Desktop Enviroment
-    ../../modules/de/default-hm.nix
+    ../../modules/de/default-nixos.nix
 
     #Secrets
     ../../modules/sops/sops.nix
