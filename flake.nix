@@ -95,6 +95,7 @@
       impermanence.nixosModules.default
     ];
 
+    #Function that takes pkgs, configuration, device, and extraModules as inputs
     mkSystem = {
       pkgs,
       configuration,
@@ -102,7 +103,11 @@
       extraModules ? [],
     }:
       pkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
+        specialArgs = {
+          inherit inputs;
+          pkgs-stable = nixpkgs-stable.legacyPackages.${pkgs.system};
+          pkgs-unstable = nixpkgs-unstable. legacyPackages.${pkgs.system};
+        };
         modules = pkgs.lib.concatLists [
           [configuration]
           (pkgs.lib.optional (device != null) (import modules/nixos/features/impermanence/disko.nix {inherit device;}))
