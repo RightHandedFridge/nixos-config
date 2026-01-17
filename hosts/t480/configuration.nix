@@ -50,7 +50,7 @@
 
       vpn = {
         mullvad = {
-          enable = false;
+          enable = true;
         };
         proton = {
           enable = true;
