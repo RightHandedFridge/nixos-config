@@ -9,6 +9,7 @@
     ../../stylix/stylix-hm.nix
     ../features/rofi.nix
     ../features/hyprlock.nix
+    ../../shells/noctalia-hm.nix
   ];
 
   programs.bash.enable = true;

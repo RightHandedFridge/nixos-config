@@ -18,6 +18,7 @@ in {
   imports = [
     #../features/theme.nix
     ../../stylix/stylix-nixos.nix
+    ../../shells/noctalia/noctalia-nixos.nix
   ];
 
   config = lib.mkIf cfg.enable {

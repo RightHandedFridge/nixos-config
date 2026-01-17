@@ -24,6 +24,7 @@ in {
       wl-clipboard
       swappy
       hyprshot
+      gpu-screen-recorder
     ];
 
     home.persistence."/persist/home/${config.vars.user}" = lib.mkIf osConfig.modules.system.impermanence.enable {
@@ -40,6 +41,9 @@ in {
       };
 
       settings = {
+        exec-once = [
+          "noctalia-shell"
+        ];
         "monitor" = ",highrr,auto,1";
         "$mod" = "SUPER";
         "$menu" = "rofi -show drun";
@@ -56,31 +60,32 @@ in {
           "$mod, Return, exec, $term"
           "$mod, W, exec, $browser"
           "$mod, E, exec, $files"
-          "$mod SHIFT, L, exec, hyprlock"
-          "$mod SHIFT, N, exec, swaync-client -t"
+          "$mod SHIFT, L, exec, noctalia-shell ipc call lockScreen lock"
+          "$mod SHIFT, N, exec, noctalia-shell ipc call notifications toggleHistory"
 
           # Launcher
-          "$mod, SPACE, exec, $menu"
-          "$mod ALT, B, exec, rofi-bluetooth"
-          "$mod ALT, N, exec, rofi-network-manager"
-          "$mod ALT, S, exec, rofi-pulse-select sink"
+          "$mod, SPACE, exec, noctalia-shell ipc call launcher toggle"
+          "$mod ALT, B, exec, noctalia-shell ipc call bluetooth togglePanel"
+          "$mod ALT, N, exec, noctalia-shell ipc call wifi togglePanel"
+          "$mod ALT, S, exec, noctalia-shell ipc call volume togglePanel"
           "$mod ALT, P, exec, rofi -show power-menu -modi power-menu:rofi-power-menu"
 
           # Screenshots
           "$mod SHIFT, S, exec, hyprshot -m region --clipboard-only --freeze"
+          "$mod SHIFT, R, exec, gpu-screen-recorder -w portal -o /tmp/clip.mp4 && wl-copy < /tmp/clip.mp4"
 
           # Special Keys
           # Volume
-          ", XF86AudioRaiseVolume, exec, ${swayosd-client} --output-volume +5 --max-volume 100"
-          ", XF86AudioLowerVolume, exec, ${swayosd-client} --output-volume -5 --max-volume 100"
-          ", XF86AudioMute, exec, ${swayosd-client} --output-volume mute-toggle"
+          ", XF86AudioRaiseVolume, exec, noctalia-shell ipc call volume increase"
+          ", XF86AudioLowerVolume, exec, noctalia-shell ipc call volume decrease"
+          ", XF86AudioMute, exec, noctalia-shell ipc call volume muteOutput"
 
           # Brightness
-          ", XF86MonBrightnessUp, exec, ${swayosd-client} --brightness +5"
-          ", XF86MonBrightnessDown, exec, ${swayosd-client} --brightness -5"
+          ", XF86MonBrightnessUp, exec, noctalia-shell ipc call brightness increase"
+          ", XF86MonBrightnessDown, exec, noctalia-shell ipc call brightness decrease"
 
           # Microphone
-          ", XF86AudioMicMute, exec, ${swayosd-client} --input-volume mute-toggle"
+          ", XF86AudioMicMute, exec, noctalia-shell ipc call volume muteInput"
 
           # Cursor Zoom In/Out
           ''$mod, mouse_down, exec, hyprctl keyword cursor:zoom_factor "$(hyprctl getoption cursor:zoom_factor | grep float | awk '{print $2 + 0.5}')"''
@@ -142,10 +147,6 @@ in {
           "$mod ALT, l, swapwindow, r"
           "$mod ALT, k, swapwindow, u"
           "$mod ALT, j, swapwindow, d"
-        ];
-
-        bindn = [
-          ", Caps_Lock, exec, ${swayosd-client} --caps-lock"
         ];
 
         bindm = [

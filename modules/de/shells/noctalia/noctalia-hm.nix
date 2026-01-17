@@ -8,7 +8,11 @@
   imports = [
     inputs.noctalia.homeModules.default
   ];
-  config = lib.mkIf osConfig.modules.de.niri.enable {
+  config = lib.mkIf (osConfig.modules.de.niri.enable || osConfig.modules.de.hyprland) {
+    home.packages = with pkgs; [
+      hyprshot
+      gpu-screen-recorder
+    ];
     programs.noctalia-shell = lib.mkForce {
       enable = true;
       systemd.enable = true;
@@ -446,6 +450,27 @@
           enabled = false;
           gridSnap = false;
           monitorWidgets = [];
+        };
+      };
+
+      plugins = {
+        sources = [
+          {
+            enable = true;
+            name = "Official Noctalia Plugins";
+            url = "https://github.com/noctalia-dev/noctalia-plugins";
+          }
+        ];
+        states = {
+          screenshot = {
+            enable = true;
+            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+          };
+
+          screen-recorder = {
+            enable = true;
+            sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
+          };
         };
       };
     };
