@@ -15,8 +15,6 @@
     ../../modules/home-manager/bundles/base-packages.nix
     ../../modules/home-manager/bundles/work-packages.nix
     ../../modules/home-manager/bundles/creative-packages.nix
-
-    inputs.impermanence.nixosModules.home-manager.impermanence
   ];
 
   nixpkgs.config.allowUnfree = true;
