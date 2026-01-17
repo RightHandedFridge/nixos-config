@@ -7,7 +7,7 @@
 }: {
   imports = [
     ../features/niri.nix
-    ../../shells/noctalia.nix
+    ../../shells/noctalia/noctalia-hm.nix
   ];
   config =
     lib.mkIf osConfig.modules.de.niri.enable {

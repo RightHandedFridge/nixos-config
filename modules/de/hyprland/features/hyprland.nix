@@ -41,9 +41,6 @@ in {
       };
 
       settings = {
-        exec-once = [
-          "noctalia-shell"
-        ];
         "monitor" = ",highrr,auto,1";
         "$mod" = "SUPER";
         "$menu" = "rofi -show drun";

@@ -8,7 +8,7 @@
   imports = [
     inputs.noctalia.homeModules.default
   ];
-  config = lib.mkIf (osConfig.modules.de.niri.enable || osConfig.modules.de.hyprland) {
+  config = lib.mkIf (osConfig.modules.de.niri.enable || osConfig.modules.de.hyprland.enable) {
     home.packages = with pkgs; [
       hyprshot
       gpu-screen-recorder
@@ -28,8 +28,8 @@
           backgroundOpacity = 1.0;
           useSeparateOpacity = false;
           floating = false;
-          marginVertical = 4;
-          marginHorizontal = 4;
+          marginVertical = 0;
+          marginHorizontal = 0;
           outerCorners = true;
           exclusive = true;
           hideOnOverview = false;
@@ -120,11 +120,11 @@
         };
         location = {
           name = "Tokyo";
-          weatherEnabled = true;
-          weatherShowEffects = true;
+          weatherEnabled = false;
+          weatherShowEffects = false;
           useFahrenheit = false;
           use12hourFormat = false;
-          showWeekNumberInCalendar = false;
+          showWeekNumberInCalendar = true;
           showCalendarEvents = true;
           showCalendarWeather = true;
           analogClockInCalendar = false;
