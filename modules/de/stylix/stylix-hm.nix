@@ -13,7 +13,7 @@
       name = "WhiteSur-cursors";
     };
 
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/nocturnal-winter.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/hardcore.yaml";
 
     polarity = "dark";
 
