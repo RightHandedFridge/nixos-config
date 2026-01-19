@@ -16,6 +16,7 @@ in {
   };
 
   imports = [
+    ../../shells/noctalia/noctalia-nixos.nix
   ];
 
   config = lib.mkIf cfg.enable {

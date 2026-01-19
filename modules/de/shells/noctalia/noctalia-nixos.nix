@@ -3,11 +3,12 @@
   pkgs,
   lib,
   config,
+  pkgs-unstable,
   ...
 }: {
   config = lib.mkIf (config.modules.de.niri.enable || config.modules.de.hyprland.enable) {
     environment.systemPackages = [
-      inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+      pkgs-unstable.noctalia-shell
     ];
   };
 }
