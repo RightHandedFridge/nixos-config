@@ -97,6 +97,7 @@
 
     #Function that takes pkgs, configuration, device, and extraModules as inputs
     mkSystem = {
+      system,
       pkgs,
       configuration,
       device ? null,
@@ -105,8 +106,8 @@
       pkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs;
-          pkgs-stable = nixpkgs-stable.legacyPackages.${pkgs.system};
-          pkgs-unstable = nixpkgs-unstable. legacyPackages.${pkgs.system};
+          pkgs-stable = nixpkgs-stable.legacyPackages.${system};
+          pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
         };
         modules = pkgs.lib.concatLists [
           [configuration]
@@ -118,11 +119,13 @@
   in {
     nixosConfigurations = {
       qpc = mkSystem {
+        system = "x86_64-linux";
         pkgs = nixpkgs-stable;
         configuration = ./hosts/qpc/configuration.nix;
       };
 
       t480 = mkSystem {
+        system = "x86_64-linux";
         pkgs = nixpkgs-stable;
         configuration = ./hosts/t480/configuration.nix;
         extraModules = [
