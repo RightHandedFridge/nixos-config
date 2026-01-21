@@ -13,6 +13,7 @@
     "/etc/nixos/hardware-configuration.nix"
     ../../modules/hardware/bluetooth.nix
     #../../modules/hardware/fingerprint.nix
+    ../../modules/hardware/battery.nix
 
     #Modules
     ../../modules/nixos/bundles/system.nix
