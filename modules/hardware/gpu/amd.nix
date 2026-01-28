@@ -5,7 +5,11 @@
     enable32Bit = true;
   };
 
-  environment.systemPackages = with pkgs; [
-    btop-rocm
+  nixpkgs.overlays = [
+    (final: prev: {
+      btop = prev.btop.override {
+        rocmSupport = true;
+      };
+    })
   ];
 }
