@@ -5,7 +5,7 @@
     enable32Bit = true;
   };
 
-  nixpkgs.config = {
-    rocmSupport = true;
-  };
+  environment.systemPackages = with pkgs; [
+    btop-rocm
+  ];
 }
