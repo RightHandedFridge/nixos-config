@@ -28,7 +28,7 @@ in {
         };
         devices = {
           "HomeServer" = {
-            id = "LLXW7EH-SGSR6Q7-67YDMSY-BTNDN4U-RI6SBDY-BTYCPRG-HGLWGXA-ZPTHXAB";
+            id = "SFS3MRC-FADS62R-3UCULXM-3K76X3D-CC7NNA6-SKS3WLP-SRGMZN7-RNTRMA3";
           };
         };
 
