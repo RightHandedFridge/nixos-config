@@ -6,5 +6,6 @@
     qbittorrent
     filezilla
     logseq
+    imagemagick
   ];
 }
