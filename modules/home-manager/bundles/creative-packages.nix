@@ -7,5 +7,6 @@
     filezilla
     logseq
     imagemagick
+    kid3
   ];
 }

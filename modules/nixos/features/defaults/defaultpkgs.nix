@@ -12,6 +12,8 @@
     killall
     util-linux
     usbutils
+    dig
+    tree
   ];
 
   #For nixd
