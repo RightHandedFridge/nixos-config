@@ -6,6 +6,8 @@
     (import ../overlays/solaar.nix)
   ];
 
+  documentation.enable = false;
+
   nix.settings = {
     substituters = ["https://hyprland.cachix.org"];
     trusted-public-keys = [
