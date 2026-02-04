@@ -189,7 +189,7 @@
           pinnedApps = [];
           useApp2Unit = false;
           sortByMostUsed = true;
-          terminalCommand = "xterm -e";
+          terminalCommand = "alacritty -e";
           customLaunchPrefixEnabled = false;
           customLaunchPrefix = "";
           viewMode = "list";
