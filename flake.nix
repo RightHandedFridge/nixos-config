@@ -86,6 +86,7 @@
     disko,
     stylix,
     impermanence,
+    sops-nix,
     ...
   } @ inputs: let
     commonModules = [
@@ -93,6 +94,7 @@
       stylix.nixosModules.stylix
       disko.nixosModules.default
       impermanence.nixosModules.default
+      sops-nix.nixosModules.sops
     ];
 
     #Function that takes pkgs, configuration, device, and extraModules as inputs
