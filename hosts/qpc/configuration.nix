@@ -15,6 +15,7 @@
     ../../modules/hardware/printing.nix
     ../../modules/hardware/logitech.nix
     ../../modules/hardware/bluetooth.nix
+    ../../modules/hardware/display.nix
 
     #Modules
     ../../modules/nixos/bundles/system.nix
