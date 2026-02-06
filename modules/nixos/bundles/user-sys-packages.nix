@@ -8,5 +8,6 @@
     ../features/android.nix
     ../features/flatpak.nix
     ../features/distrobox.nix
+    ../features/nfs.nix
   ];
 }
