@@ -8,16 +8,20 @@
   imports = [
     inputs.noctalia.homeModules.default
   ];
+
   config = lib.mkIf (osConfig.modules.de.niri.enable || osConfig.modules.de.hyprland.enable) {
     home.packages = with pkgs; [
       hyprshot
       gpu-screen-recorder
     ];
+
     programs.noctalia-shell = lib.mkForce {
       enable = true;
       systemd.enable = true;
+
       settings = {
         settingsVersion = 0;
+
         bar = {
           position = "top";
           monitors = [];
@@ -33,51 +37,29 @@
           outerCorners = true;
           exclusive = true;
           hideOnOverview = false;
+
           widgets = {
             left = [
-              {
-                id = "Launcher";
-              }
-              {
-                id = "Clock";
-              }
-              {
-                id = "SystemMonitor";
-              }
-              {
-                id = "ActiveWindow";
-              }
-              {
-                id = "MediaMini";
-              }
+              {id = "Launcher";}
+              {id = "Clock";}
+              {id = "SystemMonitor";}
+              {id = "ActiveWindow";}
+              {id = "MediaMini";}
             ];
             center = [
-              {
-                id = "Workspace";
-              }
+              {id = "Workspace";}
             ];
             right = [
-              {
-                id = "Tray";
-              }
-              {
-                id = "NotificationHistory";
-              }
-              {
-                id = "Battery";
-              }
-              {
-                id = "Volume";
-              }
-              {
-                id = "Brightness";
-              }
-              {
-                id = "ControlCenter";
-              }
+              {id = "Tray";}
+              {id = "NotificationHistory";}
+              {id = "Battery";}
+              {id = "Volume";}
+              {id = "Brightness";}
+              {id = "ControlCenter";}
             ];
           };
         };
+
         general = {
           avatarImage = "";
           dimmerOpacity = 0.2;
@@ -103,6 +85,7 @@
           showChangelogOnStartup = true;
           telemetryEnabled = true;
         };
+
         ui = {
           fontDefault = "";
           fontFixed = "";
@@ -118,6 +101,7 @@
           bluetoothHideUnnamedDevices = false;
           boxBorderEnabled = false;
         };
+
         location = {
           name = "Tokyo";
           weatherEnabled = false;
@@ -132,6 +116,7 @@
           hideWeatherTimezone = false;
           hideWeatherCityName = false;
         };
+
         calendar = {
           cards = [
             {
@@ -148,6 +133,7 @@
             }
           ];
         };
+
         wallpaper = {
           enabled = true;
           overviewEnabled = false;
@@ -180,6 +166,7 @@
           wallhavenResolutionWidth = "";
           wallhavenResolutionHeight = "";
         };
+
         appLauncher = {
           enableClipboardHistory = false;
           autoPasteClipboard = false;
@@ -199,34 +186,21 @@
           ignoreMouseInput = false;
           screenshotAnnotationTool = "";
         };
+
         controlCenter = {
           position = "close_to_bar_button";
           diskPath = "/";
           shortcuts = {
             left = [
-              {
-                id = "Network";
-              }
-              {
-                id = "Bluetooth";
-              }
-              {
-                id = "WallpaperSelector";
-              }
+              {id = "Network";}
+              {id = "Bluetooth";}
+              {id = "WallpaperSelector";}
             ];
             right = [
-              {
-                id = "Notifications";
-              }
-              {
-                id = "PowerProfile";
-              }
-              {
-                id = "KeepAwake";
-              }
-              {
-                id = "NightLight";
-              }
+              {id = "Notifications";}
+              {id = "PowerProfile";}
+              {id = "KeepAwake";}
+              {id = "NightLight";}
             ];
           };
           cards = [
@@ -256,6 +230,7 @@
             }
           ];
         };
+
         systemMonitor = {
           cpuWarningThreshold = 80;
           cpuCriticalThreshold = 90;
@@ -280,6 +255,7 @@
           criticalColor = "";
           externalMonitor = "resources || missioncenter || jdsystemmonitor || corestats || system-monitoring-center || gnome-system-monitor || plasma-systemmonitor || mate-system-monitor || ukui-system-monitor || deepin-system-monitor || pantheon-system-monitor";
         };
+
         dock = {
           enabled = true;
           position = "bottom";
@@ -296,6 +272,7 @@
           deadOpacity = 0.6;
           animationSpeed = 1;
         };
+
         network = {
           wifiEnabled = true;
           bluetoothRssiPollingEnabled = false;
@@ -304,6 +281,7 @@
           bluetoothDetailsViewMode = "grid";
           bluetoothHideUnnamedDevices = false;
         };
+
         sessionMenu = {
           enableCountdown = true;
           countdownDuration = 10000;
@@ -339,6 +317,7 @@
             }
           ];
         };
+
         notifications = {
           enabled = true;
           monitors = [];
@@ -365,19 +344,17 @@
             excludedApps = "discord,firefox,chrome,chromium,edge";
           };
         };
+
         osd = {
           enabled = true;
           location = "top_right";
           autoHideMs = 2000;
           overlayLayer = true;
           backgroundOpacity = 1;
-          enabledTypes = [
-            0
-            1
-            2
-          ];
+          enabledTypes = [0 1 2];
           monitors = [];
         };
+
         audio = {
           volumeStep = 5;
           volumeOverdrive = false;
@@ -386,11 +363,13 @@
           mprisBlacklist = [];
           preferredPlayer = "";
         };
+
         brightness = {
           brightnessStep = 5;
           enforceMinimum = true;
           enableDdcSupport = true;
         };
+
         colorSchemes = {
           useWallpaperColors = false;
           predefinedScheme = "Noctalia (default)";
@@ -400,6 +379,7 @@
           manualSunset = "18:30";
           matugenSchemeType = "scheme-fruit-salad";
         };
+
         templates = {
           gtk = false;
           qt = false;
@@ -428,6 +408,7 @@
           zenBrowser = false;
           enableUserTemplates = false;
         };
+
         nightLight = {
           enabled = false;
           forced = false;
@@ -437,6 +418,7 @@
           manualSunrise = "06:30";
           manualSunset = "18:30";
         };
+
         hooks = {
           enabled = false;
           wallpaperChange = "";
@@ -446,6 +428,7 @@
           performanceModeEnabled = "";
           performanceModeDisabled = "";
         };
+
         desktopWidgets = {
           enabled = false;
           gridSnap = false;
@@ -454,21 +437,24 @@
       };
 
       plugins = {
+        version = 2;
+
         sources = [
           {
-            enable = true;
+            enabled = true;
             name = "Official Noctalia Plugins";
             url = "https://github.com/noctalia-dev/noctalia-plugins";
           }
         ];
+
         states = {
-          screenshot = {
-            enable = true;
+          screen-recorder = {
+            enabled = true;
             sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
           };
 
-          screen-recorder = {
-            enable = true;
+          clipper = {
+            enabled = true;
             sourceUrl = "https://github.com/noctalia-dev/noctalia-plugins";
           };
         };

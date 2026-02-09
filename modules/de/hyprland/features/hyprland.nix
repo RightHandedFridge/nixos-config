@@ -69,7 +69,7 @@ in {
 
           # Screenshots
           "$mod SHIFT, S, exec, hyprshot -m region --clipboard-only --freeze"
-          "$mod SHIFT, R, exec, gpu-screen-recorder -w portal -o /tmp/clip.mp4 && wl-copy < /tmp/clip.mp4"
+          "$mod SHIFT, R, exec, noctalia-shell ipc call plugin:screen-recorder toggle"
 
           # Special Keys
           # Volume
