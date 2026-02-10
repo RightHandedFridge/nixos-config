@@ -17,7 +17,7 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-  systemd.network.wait-online.enable = false;
+  systemd.services.NetworkManager-wait-online.enable = false;
 
   # Set your time zone.
   time.timeZone = "Europe/London";
