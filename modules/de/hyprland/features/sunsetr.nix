@@ -1,8 +1,7 @@
-{
-  lib,
-  osConfig,
-  pkgs,
-  ...
+{ lib
+, osConfig
+, pkgs
+, ...
 }: {
   config = lib.mkIf osConfig.modules.de.hyprland.enable {
     home.packages = with pkgs; [
@@ -40,8 +39,8 @@
     systemd.user.services.sunsetr = {
       Unit = {
         Description = "Sunsetr blue-light filtering";
-        After = ["graphical-session.target"];
-        PartOf = ["graphical-session.target"];
+        After = [ "graphical-session.target" ];
+        PartOf = [ "graphical-session.target" ];
       };
 
       Service = {
@@ -52,7 +51,7 @@
       };
 
       Install = {
-        WantedBy = ["graphical-session.target"];
+        WantedBy = [ "graphical-session.target" ];
       };
     };
   };

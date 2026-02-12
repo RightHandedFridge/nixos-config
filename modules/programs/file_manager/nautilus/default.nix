@@ -1,4 +1,4 @@
-{ lib, ... }:{
+{ lib, ... }: {
   options.programs.filemanager.nautilus = {
     enable = lib.mkEnableOption "Enable Nautilus file manager";
   };

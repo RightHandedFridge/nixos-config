@@ -1,7 +1,6 @@
-{
-  pkgs,
-  config,
-  ...
+{ pkgs
+, config
+, ...
 }: {
   environment.systemPackages = with pkgs; [
     ddcutil
@@ -15,5 +14,5 @@
     '';
   };
 
-  users.users.${config.vars.user}.extraGroups = ["i2c"];
+  users.users.${config.vars.user}.extraGroups = [ "i2c" ];
 }

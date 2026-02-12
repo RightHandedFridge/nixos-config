@@ -1,8 +1,7 @@
-{
-  lib,
-  pkgs,
-  inputs,
-  ...
+{ lib
+, pkgs
+, inputs
+, ...
 }: {
   stylix = {
     enable = true;
@@ -52,15 +51,15 @@
       };
 
       vscode = {
-        profileNames = ["default"];
+        profileNames = [ "default" ];
       };
 
       librewolf = {
-        profileNames = ["rhf"];
+        profileNames = [ "rhf" ];
       };
 
       firefox = {
-        profileNames = ["rhf"];
+        profileNames = [ "rhf" ];
       };
 
       rofi = {

@@ -1,9 +1,8 @@
-{
-  pkgs,
-  inputs,
-  lib,
-  osConfig,
-  ...
+{ pkgs
+, inputs
+, lib
+, osConfig
+, ...
 }: {
   imports = [
     inputs.noctalia.homeModules.default
@@ -24,7 +23,7 @@
 
         bar = {
           position = "top";
-          monitors = [];
+          monitors = [ ];
           density = "default";
           showOutline = false;
           showCapsule = true;
@@ -40,22 +39,22 @@
 
           widgets = {
             left = [
-              {id = "Launcher";}
-              {id = "Clock";}
-              {id = "SystemMonitor";}
-              {id = "ActiveWindow";}
-              {id = "MediaMini";}
+              { id = "Launcher"; }
+              { id = "Clock"; }
+              { id = "SystemMonitor"; }
+              { id = "ActiveWindow"; }
+              { id = "MediaMini"; }
             ];
             center = [
-              {id = "Workspace";}
+              { id = "Workspace"; }
             ];
             right = [
-              {id = "Tray";}
-              {id = "NotificationHistory";}
-              {id = "Battery";}
-              {id = "Volume";}
-              {id = "Brightness";}
-              {id = "ControlCenter";}
+              { id = "Tray"; }
+              { id = "NotificationHistory"; }
+              { id = "Battery"; }
+              { id = "Volume"; }
+              { id = "Brightness"; }
+              { id = "ControlCenter"; }
             ];
           };
         };
@@ -138,7 +137,7 @@
           enabled = true;
           overviewEnabled = false;
           directory = "";
-          monitorDirectories = [];
+          monitorDirectories = [ ];
           enableMultiMonitorDirectories = false;
           recursiveSearch = false;
           setWallpaperOnAllMonitors = true;
@@ -173,7 +172,7 @@
           enableClipPreview = true;
           clipboardWrapText = true;
           position = "center";
-          pinnedApps = [];
+          pinnedApps = [ ];
           useApp2Unit = false;
           sortByMostUsed = true;
           terminalCommand = "alacritty -e";
@@ -192,15 +191,15 @@
           diskPath = "/";
           shortcuts = {
             left = [
-              {id = "Network";}
-              {id = "Bluetooth";}
-              {id = "WallpaperSelector";}
+              { id = "Network"; }
+              { id = "Bluetooth"; }
+              { id = "WallpaperSelector"; }
             ];
             right = [
-              {id = "Notifications";}
-              {id = "PowerProfile";}
-              {id = "KeepAwake";}
-              {id = "NightLight";}
+              { id = "Notifications"; }
+              { id = "PowerProfile"; }
+              { id = "KeepAwake"; }
+              { id = "NightLight"; }
             ];
           };
           cards = [
@@ -264,8 +263,8 @@
           floatingRatio = 1;
           size = 1;
           onlySameOutput = true;
-          monitors = [];
-          pinnedApps = [];
+          monitors = [ ];
+          pinnedApps = [ ];
           colorizeIcons = false;
           pinnedStatic = false;
           inactiveIndicators = false;
@@ -320,7 +319,7 @@
 
         notifications = {
           enabled = true;
-          monitors = [];
+          monitors = [ ];
           location = "top_right";
           overlayLayer = true;
           backgroundOpacity = 1;
@@ -351,8 +350,8 @@
           autoHideMs = 2000;
           overlayLayer = true;
           backgroundOpacity = 1;
-          enabledTypes = [0 1 2];
-          monitors = [];
+          enabledTypes = [ 0 1 2 ];
+          monitors = [ ];
         };
 
         audio = {
@@ -360,7 +359,7 @@
           volumeOverdrive = false;
           cavaFrameRate = 30;
           visualizerType = "linear";
-          mprisBlacklist = [];
+          mprisBlacklist = [ ];
           preferredPlayer = "";
         };
 
@@ -432,7 +431,7 @@
         desktopWidgets = {
           enabled = false;
           gridSnap = false;
-          monitorWidgets = [];
+          monitorWidgets = [ ];
         };
       };
 

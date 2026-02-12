@@ -1,7 +1,6 @@
-{
-  lib,
-  osConfig,
-  ...
+{ lib
+, osConfig
+, ...
 }: {
   config = lib.mkIf osConfig.modules.de.hyprland.enable {
     programs.waybar = {
@@ -14,9 +13,9 @@
           height = 30;
           spacing = 4;
 
-          modules-left = ["hyprland/workspaces"];
-          modules-center = ["hyprland/window"];
-          modules-right = ["tray" "pulseaudio" "network" "bluetooth" "battery" "clock"];
+          modules-left = [ "hyprland/workspaces" ];
+          modules-center = [ "hyprland/window" ];
+          modules-right = [ "tray" "pulseaudio" "network" "bluetooth" "battery" "clock" ];
 
           "hyprland/workspaces" = {
             disable-scroll = false;
@@ -55,7 +54,7 @@
             format = "<span color='#28CD41'> {icon}  </span>{capacity}% ";
             format-charging = " 󱐋 {capacity}% ";
             interval = 1;
-            format-icons = ["" "" "" "" ""];
+            format-icons = [ "" "" "" "" "" ];
             tooltip = true;
           };
 
@@ -73,7 +72,7 @@
               phone = "";
               portable = "";
               car = "";
-              default = ["" "" ""];
+              default = [ "" "" "" ];
             };
             on-click-right = "pavucontrol";
             on-click = "pactl -- set-sink-mute 0 toggle";

@@ -1,11 +1,12 @@
-{
-  pkgs,
-  lib,
-  config,
-  ...
-}: let
+{ pkgs
+, lib
+, config
+, ...
+}:
+let
   cfg = config.modules.de.kde;
-in {
+in
+{
   options.modules.de.kde = {
     enable = lib.mkOption {
       type = lib.types.bool;
@@ -46,7 +47,7 @@ in {
 
     xdg.portal = {
       enable = true;
-      extraPortals = [pkgs.kdePackages.xdg-desktop-portal-kde];
+      extraPortals = [ pkgs.kdePackages.xdg-desktop-portal-kde ];
     };
 
     fonts.packages = with pkgs; [

@@ -1,7 +1,6 @@
-{
-  pkgs,
-  inputs,
-  ...
+{ pkgs
+, inputs
+, ...
 }: {
   environment.systemPackages = with pkgs; [
     tealdeer
@@ -17,5 +16,5 @@
   ];
 
   #For nixd
-  nix.nixPath = ["nixpkgs=${inputs.nixpkgs-stable}"];
+  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs-stable}" ];
 }

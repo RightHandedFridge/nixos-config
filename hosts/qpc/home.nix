@@ -1,7 +1,6 @@
-{
-  config,
-  inputs,
-  ...
+{ config
+, inputs
+, ...
 }: {
   imports = [
     ./vars.nix

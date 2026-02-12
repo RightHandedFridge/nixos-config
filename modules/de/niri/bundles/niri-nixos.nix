@@ -1,12 +1,13 @@
-{
-  config,
-  pkgs,
-  lib,
-  inputs,
-  ...
-}: let
+{ config
+, pkgs
+, lib
+, inputs
+, ...
+}:
+let
   cfg = config.modules.de.niri;
-in {
+in
+{
   options.modules.de.niri = {
     enable = lib.mkOption {
       type = lib.types.bool;

@@ -76,65 +76,68 @@
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs-unstable,
-    nixpkgs-stable,
-    home-manager,
-    nixos-hardware,
-    nixos-06cb-009a-fingerprint-sensor,
-    disko,
-    stylix,
-    impermanence,
-    sops-nix,
-    ...
-  } @ inputs: let
-    commonModules = [
-      home-manager.nixosModules.default
-      stylix.nixosModules.stylix
-      disko.nixosModules.default
-      impermanence.nixosModules.default
-      sops-nix.nixosModules.sops
-    ];
+  outputs =
+    { self
+    , nixpkgs-unstable
+    , nixpkgs-stable
+    , home-manager
+    , nixos-hardware
+    , nixos-06cb-009a-fingerprint-sensor
+    , disko
+    , stylix
+    , impermanence
+    , sops-nix
+    , ...
+    } @ inputs:
+    let
+      commonModules = [
+        home-manager.nixosModules.default
+        stylix.nixosModules.stylix
+        disko.nixosModules.default
+        impermanence.nixosModules.default
+        sops-nix.nixosModules.sops
+      ];
 
-    #Function that takes pkgs, configuration, device, and extraModules as inputs
-    mkSystem = {
-      system,
-      pkgs,
-      configuration,
-      device ? null,
-      extraModules ? [],
-    }:
-      pkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs;
-          pkgs-stable = nixpkgs-stable.legacyPackages.${system};
-          pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
+      #Function that takes pkgs, configuration, device, and extraModules as inputs
+      mkSystem =
+        { system
+        , pkgs
+        , configuration
+        , device ? null
+        , extraModules ? [ ]
+        ,
+        }:
+        pkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs;
+            pkgs-stable = nixpkgs-stable.legacyPackages.${system};
+            pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
+          };
+          modules = pkgs.lib.concatLists [
+            [ configuration ]
+            (pkgs.lib.optional (device != null) (import modules/nixos/features/impermanence/disko.nix { inherit device; }))
+            commonModules
+            extraModules
+          ];
         };
-        modules = pkgs.lib.concatLists [
-          [configuration]
-          (pkgs.lib.optional (device != null) (import modules/nixos/features/impermanence/disko.nix {inherit device;}))
-          commonModules
-          extraModules
-        ];
-      };
-  in {
-    nixosConfigurations = {
-      qpc = mkSystem {
-        system = "x86_64-linux";
-        pkgs = nixpkgs-stable;
-        configuration = ./hosts/qpc/configuration.nix;
-      };
+    in
+    {
+      nixosConfigurations = {
+        qpc = mkSystem {
+          system = "x86_64-linux";
+          pkgs = nixpkgs-stable;
+          configuration = ./hosts/qpc/configuration.nix;
+        };
 
-      t480 = mkSystem {
-        system = "x86_64-linux";
-        pkgs = nixpkgs-stable;
-        configuration = ./hosts/t480/configuration.nix;
-        extraModules = [
-          nixos-hardware.nixosModules.lenovo-thinkpad-t480
-          nixos-06cb-009a-fingerprint-sensor.nixosModules."06cb-009a-fingerprint-sensor"
-        ];
+        t480 = mkSystem {
+          system = "x86_64-linux";
+          pkgs = nixpkgs-stable;
+          configuration = ./hosts/t480/configuration.nix;
+          extraModules = [
+            nixos-hardware.nixosModules.lenovo-thinkpad-t480
+            nixos-06cb-009a-fingerprint-sensor.nixosModules."06cb-009a-fingerprint-sensor"
+          ];
+        };
       };
     };
-  };
 }

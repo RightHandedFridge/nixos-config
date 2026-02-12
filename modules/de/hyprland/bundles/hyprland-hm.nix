@@ -1,4 +1,4 @@
-{...}: {
+{ ... }: {
   imports = [
     ../features/hyprland.nix
     ../features/sunsetr.nix

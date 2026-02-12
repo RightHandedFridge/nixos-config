@@ -1,7 +1,6 @@
-{
-  lib,
-  osConfig,
-  ...
+{ lib
+, osConfig
+, ...
 }: {
   config = lib.mkIf osConfig.modules.de.hyprland.enable {
     programs.hyprlock = {
@@ -44,24 +43,24 @@
         label = [
           # Time
           {
-              text = ''cmd[update:1000] echo "<span>$(date +"%H:%M")</span>"'';
-              color = "rgba(216, 222, 233, 0.70)";
-              font_size = 130;
-              font_family = "Inter";
-              position = "0, 240";
-              halign = "center";
-              valign = "center";
+            text = ''cmd[update:1000] echo "<span>$(date +"%H:%M")</span>"'';
+            color = "rgba(216, 222, 233, 0.70)";
+            font_size = 130;
+            font_family = "Inter";
+            position = "0, 240";
+            halign = "center";
+            valign = "center";
           }
 
           # Day-Month-Date
           {
-              text = ''cmd[update:1000] echo -e "$(date +"%A, %d %B")"'';
-              color = "rgba(216, 222, 233, 0.70)";
-              font_size = 30;
-              font_family = "Inter";
-              position = "0, 105";
-              halign = "center";
-              valign = "center";
+            text = ''cmd[update:1000] echo -e "$(date +"%A, %d %B")"'';
+            color = "rgba(216, 222, 233, 0.70)";
+            font_size = 30;
+            font_family = "Inter";
+            position = "0, 105";
+            halign = "center";
+            valign = "center";
           }
         ];
       };

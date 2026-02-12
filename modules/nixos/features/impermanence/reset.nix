@@ -1,4 +1,4 @@
-{lib, ...}: {
+{ lib, ... }: {
   #Deleting Root method
   boot.initrd.postDeviceCommands = lib.mkAfter ''
     mkdir /btrfs_tmp

@@ -1,4 +1,4 @@
-{pkgs, config, lib, ...}: {
+{ pkgs, config, lib, ... }: {
   home-manager.users.${config.vars.user} = lib.mkIf config.hardware.logitech.enable {
     systemd.user.services.solaar = {
       Unit = {

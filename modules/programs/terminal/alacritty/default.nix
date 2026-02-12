@@ -1,4 +1,4 @@
-{ lib, ... }:{
+{ lib, ... }: {
   options.programs.terminal.alacritty = {
     enable = lib.mkEnableOption "Enable Alacritty terminal emulator";
   };

@@ -1,7 +1,6 @@
-{
-  lib,
-  config,
-  ...
+{ lib
+, config
+, ...
 }: {
   home-manager.users.${config.vars.user} = lib.mkIf config.programs.multimedia.vlc.enable {
     home.packages = with pkgs; [

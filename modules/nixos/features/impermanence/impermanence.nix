@@ -2,7 +2,8 @@
 
 let
   cfg = config.modules.system.impermanence;
-in {
+in
+{
   options.modules.system.impermanence = {
     enable = lib.mkOption {
       type = lib.types.bool;
@@ -12,7 +13,7 @@ in {
   };
 
   imports = [
-      ./reset.nix
+    ./reset.nix
   ];
 
   config = lib.mkIf cfg.enable {

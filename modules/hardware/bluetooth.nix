@@ -1,5 +1,5 @@
-{pkgs, ...}: {
-  environment.systemPackages = with pkgs; [bluez];
+{ pkgs, ... }: {
+  environment.systemPackages = with pkgs; [ bluez ];
   hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;

@@ -1,4 +1,4 @@
-{ lib, ... }:{
+{ lib, ... }: {
   options.programs.editors.helix = {
     enable = lib.mkEnableOption "Enable Helix editor";
   };

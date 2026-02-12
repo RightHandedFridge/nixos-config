@@ -1,7 +1,6 @@
-{
-  lib,
-  osConfig,
-  ...
+{ lib
+, osConfig
+, ...
 }: {
   config = lib.mkIf osConfig.modules.de.kde.enable {
     home.file.".config/powerdevilrc".text = ''

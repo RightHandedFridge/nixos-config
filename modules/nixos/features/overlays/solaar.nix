@@ -3,7 +3,7 @@
 self: super: {
   solaar = super.solaar.overridePythonAttrs (old: {
     patches =
-      (old.patches or [])
+      (old.patches or [ ])
       ++ [
         (super.fetchpatch {
           url = "https://github.com/pwr-Solaar/Solaar/pull/3000.patch";

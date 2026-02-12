@@ -1,13 +1,14 @@
-{
-  pkgs,
-  lib,
-  config,
-  osConfig,
-  ...
-}: let
+{ pkgs
+, lib
+, config
+, osConfig
+, ...
+}:
+let
   cfg = osConfig.modules.de.hyprland;
   swayosd-client = "${pkgs.swayosd}/bin/swayosd-client";
-in {
+in
+{
   config = lib.mkIf cfg.enable {
     home.packages = with pkgs; [
       # Make sure you have base-packages imported!
@@ -37,7 +38,7 @@ in {
       enable = true;
       systemd = {
         enable = true;
-        variables = ["--all"];
+        variables = [ "--all" ];
       };
 
       settings = {

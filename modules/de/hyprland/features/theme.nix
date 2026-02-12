@@ -1,8 +1,7 @@
-{
-  pkgs,
-  lib,
-  config,
-  ...
+{ pkgs
+, lib
+, config
+, ...
 }: {
   config = lib.mkIf config.modules.de.hyprland.enable {
     home-manager.users.${config.vars.user} = {

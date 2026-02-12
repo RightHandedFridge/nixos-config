@@ -1,12 +1,13 @@
-{
-  config,
-  pkgs,
-  lib,
-  inputs,
-  ...
-}: let
+{ config
+, pkgs
+, lib
+, inputs
+, ...
+}:
+let
   cfg = config.modules.de.hyprland;
-in {
+in
+{
   options.modules.de.hyprland = {
     enable = lib.mkOption {
       type = lib.types.bool;
@@ -49,8 +50,8 @@ in {
     };
 
     systemd.user.services.xdg-desktop-portal = {
-      after = ["xdg-desktop-portal-hyprland.service"];
-      requires = ["xdg-desktop-portal-hyprland.service"];
+      after = [ "xdg-desktop-portal-hyprland.service" ];
+      requires = [ "xdg-desktop-portal-hyprland.service" ];
     };
 
     environment.sessionVariables.NIXOS_OZONE_WL = "1";

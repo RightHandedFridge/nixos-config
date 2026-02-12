@@ -1,7 +1,6 @@
-{
-  lib,
-  config,
-  ...
+{ lib
+, config
+, ...
 }: {
   home-manager.users.${config.vars.user} = lib.mkIf config.programs.terminal.alacritty.enable {
     programs.alacritty.settings = lib.mkForce {

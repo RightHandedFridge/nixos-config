@@ -1,4 +1,4 @@
-{...}: {
+{ ... }: {
   imports = [
     ../features/defaults/defaultpkgs.nix
     ../features/defaults/default.nix

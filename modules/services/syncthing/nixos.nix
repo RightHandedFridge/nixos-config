@@ -1,19 +1,5 @@
-{
-  lib,
-  config,
-  ...
-}: let
-  cfg = config.modules.system.syncthing;
-in {
-  options.modules.system = {
-    syncthing.enable = lib.mkOption {
-      type = lib.types.bool;
-      default = false;
-      description = "Enable Syncthing";
-    };
-  };
-
-  config = lib.mkIf cfg.enable {
+{ ... }: {
+  config = lib.mkIf config.options.services.syncthing.enable {
     services.syncthing = {
       enable = true;
       user = config.vars.user;
@@ -35,19 +21,19 @@ in {
         folders = {
           "Personal" = {
             path = "~/KeePass/Personal";
-            devices = ["HomeServer"];
+            devices = [ "HomeServer" ];
             ignorePerms = true;
           };
 
           "Home" = {
             path = "~/KeePass/Home";
-            devices = ["HomeServer"];
+            devices = [ "HomeServer" ];
             ignorePerms = true;
           };
 
           "Sops" = {
             path = "~/.config/sops/age/";
-            devices = ["HomeServer"];
+            devices = [ "HomeServer" ];
             ignorePerms = true;
           };
         };

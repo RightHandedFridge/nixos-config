@@ -1,4 +1,4 @@
-{ lib, ... }:{
+{ lib, ... }: {
   options.programs.multimedia.imagemagick = {
     enable = lib.mkEnableOption "Enable ImageMagick multimedia application";
   };

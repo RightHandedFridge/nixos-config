@@ -1,4 +1,4 @@
-{...}: {
+{ ... }: {
   config = lib.mkIf config.programs.filemanager.nautilus.enable {
     environment.systemPackages = with pkgs; [
       nautilus
@@ -10,7 +10,7 @@
 
     services.gvfs.enable = true; #Fix Trash not showing up
     services.udisks2.enable = true; #Automount USB Devices
-    
+
     #Fix audio/video properties menu
     nixpkgs.overlays = [
       (final: prev: {

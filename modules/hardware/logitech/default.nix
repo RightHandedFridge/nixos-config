@@ -1,4 +1,4 @@
-{ lib, ... }:{
+{ lib, ... }: {
   options.hardware.logitech = {
     enable = lib.mkEnableOption "Enable Logitech hardware support";
   };

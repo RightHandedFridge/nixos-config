@@ -1,4 +1,4 @@
-{...}: {
+{ ... }: {
   imports = [
     ./hyprland/bundles/hyprland-nixos.nix
     ./kde/bundles/kde-nixos.nix
