@@ -3,9 +3,9 @@
 , ...
 }: {
   home-manager.users.${config.vars.user} = lib.mkIf config.modules.programs.terminal.alacritty.enable {
-    programs.alacritty.settings = lib.mkForce {
+    programs.alacritty = lib.mkForce {
       enable = true;
-      font.size = 16;
+      settings.font.size = 16;
     };
 
     xdg.mimeApps = {
