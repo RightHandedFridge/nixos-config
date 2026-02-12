@@ -1,5 +1,5 @@
-{ ... }: {
-  config = lib.mkIf options.programs.games.steam.enable {
+{ lib, config, ... }: {
+  config = lib.mkIf config.modules.programs.games.steam.enable {
     programs.steam = {
       enable = true;
       gamescopeSession.enable = true;

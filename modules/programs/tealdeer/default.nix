@@ -1,5 +1,5 @@
 { lib, ... }: {
-  options.programs.tealdeer = {
+  options.modules.programs.tealdeer = {
     enable = lib.mkEnableOption "Enable Tealdeer";
   };
 

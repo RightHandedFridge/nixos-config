@@ -1,5 +1,5 @@
 { pkgs, lib, config, osConfig, ... }: {
-  home-manager.users.${config.vars.user} = lib.mkIf config.programs.tealdeer.enable {
+  home-manager.users.${config.vars.user} = lib.mkIf config.modules.programs.tealdeer.enable {
     home.packages = with pkgs; [
       tealdeer
     ];
@@ -26,7 +26,7 @@
       auto_update = true
     '';
 
-    home.persistence."/persist/home/${config.vars.user}" = lib.mkIf osConfig.modules.system.impermanence.enable {
+    home.persistence."/persist/home/${config.vars.user}" = lib.mkIf config.modules.system.impermanence.enable {
       directories = [
         ".cache/tealdeer"
       ];

@@ -1,5 +1,5 @@
-{ ... }: {
-  config = lib.mkIf config.options.services.syncthing.enable {
+{ lib, config, ... }: {
+  config = lib.mkIf config.modules.services.syncthing.enable {
     services.syncthing = {
       enable = true;
       user = config.vars.user;

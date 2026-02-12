@@ -5,17 +5,8 @@
   imports = [
     ./vars.nix
 
-    #Hardware
-    ../../modules/hardware/microphone.nix
-
     #Desktop Enviroment
     ../../modules/de/default-hm.nix
-
-    #Packages
-    ../../modules/home-manager/bundles/base-packages.nix
-    ../../modules/home-manager/bundles/creative-packages.nix
-    ../../modules/home-manager/bundles/music-packages.nix
-    ../../modules/home-manager/bundles/work-packages.nix
   ];
 
   nixpkgs.config.allowUnfree = true;

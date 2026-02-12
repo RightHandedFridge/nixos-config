@@ -1,5 +1,5 @@
 { lib, ... }: {
-  options.services.nfs = {
+  options.modules.services.nfs = {
     enable = lib.mkEnableOption "Enable NFS service";
   };
 

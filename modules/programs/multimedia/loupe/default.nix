@@ -1,5 +1,5 @@
 { lib, ... }: {
-  options.programs.multimedia.loupe = {
+  options.modules.programs.multimedia.loupe = {
     enable = lib.mkEnableOption "Enable Loupe multimedia application";
   };
 

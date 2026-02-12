@@ -1,5 +1,5 @@
 { lib, ... }: {
-  options.services.android = {
+  options.modules.services.android = {
     enable = lib.mkEnableOption "Enable Android service";
   };
 

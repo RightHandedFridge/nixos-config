@@ -1,5 +1,5 @@
 { lib, ... }: {
-  options.services.distrobox = {
+  options.modules.services.distrobox = {
     enable = lib.mkEnableOption "Enable Distrobox service";
   };
 

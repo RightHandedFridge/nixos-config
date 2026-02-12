@@ -1,18 +1,20 @@
 { pkgs
 , config
 , osConfig
+, lib
 , ...
 }: {
   #TODO: Fix this, use Home Manager options instead
-  home-manager.users.${config.vars.user} = lib.mkIf config.hardware.microphone {
+  home-manager.users.${config.vars.user} = lib.mkIf config.modules.hardware.microphone.enable {
     home.packages = with pkgs; [
       easyeffects
     ];
 
-    home.file.".config/easyeffects/input/lpxw.json" = {
-      source = config.lib.file.mkOutOfStoreSymlink "/home/${osConfig.vars.user}/nixos-config/dotfiles/easyeffects/lpxw.json";
-      force = true;
-    };
+   home.file.".config/easyeffects/input/lpxw.json" = {
+    source = "/home/${config.vars.user}/nixos-config/dotfiles/easyeffects/lpxw.json";
+    force = true;
+  };
+
 
     systemd.user.services.easyeffects = {
       Install.WantedBy = [ "graphical-session.target" ];

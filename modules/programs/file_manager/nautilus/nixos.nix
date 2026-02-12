@@ -1,5 +1,5 @@
-{ ... }: {
-  config = lib.mkIf config.programs.filemanager.nautilus.enable {
+{ config, lib, pkgs, ... }: {
+  config = lib.mkIf config.modules.programs.filemanager.nautilus.enable {
     environment.systemPackages = with pkgs; [
       nautilus
       libheif

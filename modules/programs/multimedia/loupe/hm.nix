@@ -3,7 +3,7 @@
 , pkgs
 , ...
 }: {
-  home-manager.users.${config.vars.user} = lib.mkIf config.programs.multimedia.loupe.enable {
+  home-manager.users.${config.vars.user} = lib.mkIf config.modules.programs.multimedia.loupe.enable {
     home.packages = with pkgs; [
       loupe
     ];

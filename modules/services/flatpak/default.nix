@@ -1,5 +1,5 @@
 { lib, ... }: {
-  options.services.flatpak = {
+  options.modules.services.flatpak = {
     enable = lib.mkEnableOption "Enable Flatpak service";
   };
 

@@ -1,5 +1,5 @@
 { lib, ... }: {
-  options.hardware.microphone = {
+  options.modules.hardware.microphone = {
     enable = lib.mkEnableOption "Enable Microphone Settings";
   };
 

@@ -1,5 +1,5 @@
 { pkgs, config, lib, ... }: {
-  home-manager.users.${config.vars.user} = lib.mkIf config.hardware.logitech.enable {
+  home-manager.users.${config.vars.user} = lib.mkIf config.modules.hardware.logitech.enable {
     systemd.user.services.solaar = {
       Unit = {
         Description = "Solaar (start after graphical session)";

@@ -1,5 +1,5 @@
 { lib, ... }: {
-  options.programs.multimedia.ffmpeg = {
+  options.modules.programs.multimedia.ffmpeg = {
     enable = lib.mkEnableOption "Enable FFmpeg multimedia application";
   };
 

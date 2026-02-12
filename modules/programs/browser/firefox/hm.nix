@@ -5,8 +5,8 @@
 , pkgs
 , ...
 }: {
-  home-manager.users.${config.vars.user} = lib.mkIf config.programs.browser.firefox.enable {
-    home.persistence."/persist/home/${config.vars.user}" = lib.mkIf osConfig.modules.system.impermanence.enable {
+  home-manager.users.${config.vars.user} = lib.mkIf config.modules.programs.browser.firefox.enable {
+    home.persistence."/persist/home/${config.vars.user}" = lib.mkIf config.modules.system.impermanence.enable {
       directories = [
         ".mozilla/firefox/rhf/"
       ];

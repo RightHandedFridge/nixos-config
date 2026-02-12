@@ -1,5 +1,5 @@
-{ pkgs, ... }: {
-  home-manager.users.${config.vars.user} = lib.mkIf config.programs.editors.helix.enable {
+{ pkgs, config, lib, ... }: {
+  home-manager.users.${config.vars.user} = lib.mkIf config.modules.programs.editors.helix.enable {
     programs.helix = {
       enable = true;
       defaultEditor = true;

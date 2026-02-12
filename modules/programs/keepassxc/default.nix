@@ -1,5 +1,5 @@
 { lib, ... }: {
-  options.programs.keepassxc.enable = {
+  options.modules.programs.keepassxc = {
     enable = lib.mkEnableOption "Enable KeePassXC";
   };
 

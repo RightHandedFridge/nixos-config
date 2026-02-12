@@ -12,13 +12,16 @@
     "/etc/nixos/hardware-configuration.nix"
     ../../modules/hardware/gpu/amd.nix
     ../../modules/hardware/printing.nix
-    ../../modules/hardware/logitech.nix
     ../../modules/hardware/bluetooth.nix
     ../../modules/hardware/display.nix
+    ../../modules/hardware/logitech/default.nix
+    ../../modules/hardware/microphone/default.nix
 
     #Modules
     ../../modules/nixos/bundles/system.nix
     ../../modules/nixos/bundles/user-sys-packages.nix
+    ../../modules/programs
+    ../../modules/services
 
     #Desktop Enviroment
     ../../modules/de/default-nixos.nix
@@ -29,51 +32,6 @@
     #Home-Manager
     inputs.home-manager.nixosModules.default
   ];
-
-  modules = {
-    system = {
-      hm = {
-        enable = true;
-      };
-      impermanence = {
-        enable = false;
-      };
-      games = {
-        enable = true;
-      };
-
-      syncthing = {
-        enable = true;
-      };
-
-      virtualisation = {
-        enable = false;
-      };
-
-      vpn = {
-        mullvad = {
-          enable = true;
-        };
-        proton = {
-          enable = true;
-        };
-      };
-    };
-
-    de = {
-      kde = {
-        enable = false;
-      };
-
-      hyprland = {
-        enable = true;
-      };
-
-      niri = {
-        enable = false;
-      };
-    };
-  };
 
   # Set hostname
   networking.hostName = config.vars.host;
@@ -89,4 +47,77 @@
 
   # Set the system state version
   system.stateVersion = "24.11"; # Make sure this matches your installed version of NixOS
+
+  modules = {
+    de.hyprland.enable = true;
+    system.hm.enable = true;
+    system.impermanence.enable = false;
+    hardware = {
+      logitech.enable = true;
+      microphone.enable = true;
+    };
+
+    programs = {
+      browser = {
+        firefox.enable = true;
+        tor.enable = true;
+      };
+
+      discord = {
+        vesktop.enable = true;
+      };
+
+      editors = {
+        helix.enable = true;
+        vscode.enable = true;
+      };
+
+      filemanager = {
+        nautilus.enable = true;
+      };
+
+      games = {
+        steam.enable = true;
+        heroic.enable = true;
+      };
+
+      keepassxc = {
+        enable = true;
+      };
+
+      multimedia = {
+        ffmpeg.enable = true;
+        imagemagick.enable = true;
+        kdenlive.enable = true;
+        kid3.enable = true;
+        krita.enable = true;
+        loupe.enable = true;
+        obs-studio.enable = true;
+        vlc.enable = true;
+      };
+
+      tealdeer = {
+        enable = true;
+      };
+
+      terminal = {
+        alacritty.enable = true;
+      };
+
+      vpn = {
+        proton.enable = true;
+        mullvad.enable = true;
+      };
+    };
+
+    services = {
+      android.enable = true;
+      distrobox.enable = true;
+      flatpak.enable = true;
+      nfs.enable = true;
+      syncthing.enable = true;
+    };
+  };
+
+  
 }

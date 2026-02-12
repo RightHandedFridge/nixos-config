@@ -1,5 +1,5 @@
 { lib, ... }: {
-  options.programs.browser.tor.enable = {
+  options.modules.programs.browser.tor = {
     enable = lib.mkEnableOption "Enable Tor Browser";
   };
 

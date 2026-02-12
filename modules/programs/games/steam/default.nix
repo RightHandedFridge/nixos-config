@@ -1,5 +1,5 @@
 { lib, ... }: {
-  options.programs.games.steam = {
+  options.modules.programs.games.steam = {
     enable = lib.mkEnableOption "Enable Steam";
   };
 

@@ -1,5 +1,5 @@
 { lib, ... }: {
-  options.programs.browser.firefox = {
+  options.modules.programs.browser.firefox = {
     enable = lib.mkEnableOption "Enable Firefox browser";
   };
 

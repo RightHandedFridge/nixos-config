@@ -1,5 +1,5 @@
 { lib, ... }: {
-  options.programs.vpn.mullvad = {
+  options.modules.programs.vpn.mullvad = {
     enable = lib.mkEnableOption "Enable Mullvad VPN";
   };
 

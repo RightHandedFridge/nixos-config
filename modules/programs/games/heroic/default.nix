@@ -1,5 +1,5 @@
 { lib, ... }: {
-  options.programs.games.heroic = {
+  options.modules.programs.games.heroic = {
     enable = lib.mkEnableOption "Enable Heroic Games Launcher";
   };
 

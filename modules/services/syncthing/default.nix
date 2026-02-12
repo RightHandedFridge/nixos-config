@@ -1,5 +1,5 @@
 { lib, ... }: {
-  options.services.syncthing = {
+  options.modules.services.syncthing = {
     enable = lib.mkEnableOption "Enable Syncthing service";
   };
 

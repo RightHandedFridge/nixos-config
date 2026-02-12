@@ -2,7 +2,7 @@
 , config
 , ...
 }: {
-  home-manager.users.${config.vars.user} = lib.mkIf config.programs.terminal.alacritty.enable {
+  home-manager.users.${config.vars.user} = lib.mkIf config.modules.programs.terminal.alacritty.enable {
     programs.alacritty.settings = lib.mkForce {
       enable = true;
       font.size = 16;

@@ -1,8 +1,9 @@
 { config
 , lib
+, pkgs
 , ...
 }: {
-  config = lib.mkIf config.services.distrobox.enable {
+  config = lib.mkIf config.modules.services.distrobox.enable {
     environment.systemPackages = with pkgs; [
       distrobox
     ];

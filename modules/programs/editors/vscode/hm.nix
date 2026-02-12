@@ -4,8 +4,8 @@
 , osConfig
 , ...
 }: {
-  home-manager.users.${config.vars.user} = lib.mkIf config.programs.editors.vscode.enable {
-    home.persistence."/persist/home/${config.vars.user}" = lib.mkIf osConfig.modules.system.impermanence.enable {
+  home-manager.users.${config.vars.user} = lib.mkIf config.modules.programs.editors.vscode.enable {
+    home.persistence."/persist/home/${config.vars.user}" = lib.mkIf config.modules.system.impermanence.enable {
       directories = [
         ".config/Code/" #Persist user session files so things stay open
       ];

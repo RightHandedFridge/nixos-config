@@ -1,5 +1,5 @@
 { lib, ... }: {
-  options.programs.editors.vscode = {
+  options.modules.programs.editors.vscode = {
     enable = lib.mkEnableOption "Enable VSCode";
   };
 
