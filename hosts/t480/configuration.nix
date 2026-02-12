@@ -11,10 +11,8 @@
 
     #Hardware
     "/etc/nixos/hardware-configuration.nix"
-    ../../modules/hardware/gpu/amd.nix
-    ../../modules/hardware/printing.nix
     ../../modules/hardware/bluetooth.nix
-    ../../modules/hardware/display.nix
+    ../../modules/hardware/battery.nix
     ../../modules/hardware/logitech/default.nix
     ../../modules/hardware/microphone/default.nix
 
