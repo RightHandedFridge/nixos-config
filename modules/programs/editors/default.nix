@@ -2,5 +2,6 @@
   imports = [
     ./vscode
     ./helix
+    ./lf
   ];
 }

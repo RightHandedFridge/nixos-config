@@ -1,9 +1,10 @@
 # Edit this configuration file to define what should be installed on
 # your system. Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{ inputs
-, config
-, ...
+{
+  inputs,
+  config,
+  ...
 }: {
   imports = [
     ./vars.nix
@@ -42,7 +43,7 @@
     description = config.vars.user;
     initialPassword = "5600";
     hashedPasswordFile = config.sops.secrets.qpcpass.path;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
   };
 
   # Set the system state version
@@ -70,6 +71,7 @@
       editors = {
         helix.enable = true;
         vscode.enable = true;
+        lf.enable = true;
       };
 
       filemanager = {
