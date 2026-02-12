@@ -4,11 +4,8 @@
 , ...
 }:
 let
-  plasmaManagerModule = inputs.plasma-manager.homeManagerModules.plasma-manager;
-
   # Define a mapping from hostnames to their respective paths
   homeNixPath = host: builtins.toString ../../../hosts/${host}/home.nix;
-
   cfg = config.modules.system.hm;
 in
 {
@@ -23,7 +20,6 @@ in
       extraSpecialArgs = { inherit inputs; };
       backupFileExtension = "hbk";
       useGlobalPkgs = true;
-      sharedModules = [ plasmaManagerModule ];
       users.${config.vars.user} = {
         imports = [
           (homeNixPath config.vars.host) #Take hosts from global vars

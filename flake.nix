@@ -16,11 +16,6 @@
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
-    plasma-manager = {
-      url = "github:nix-community/plasma-manager";
-      inputs.nixpkgs.follows = "nixpkgs-stable";
-      inputs.home-manager.follows = "home-manager";
-    };
 
     # Hardware support
     nixos-hardware = {
