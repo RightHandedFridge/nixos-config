@@ -1,4 +1,4 @@
-{ inputs, ... }: {
+{ inputs, pkgs, ... }: {
   #Enable Unfree packages
   nixpkgs.config.allowUnfree = true;
   nixpkgs.overlays = [
@@ -54,6 +54,10 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
+  
+  environment.systemPackages = with pkgs; [
+    pavucontrol
+  ];
 
   #Experimental Features
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

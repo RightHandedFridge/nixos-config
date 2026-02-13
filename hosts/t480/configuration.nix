@@ -54,6 +54,7 @@
     hardware = {
       logitech.enable = false;
       microphone.enable = false;
+      bluetooth.enable = true;
     };
 
     programs = {

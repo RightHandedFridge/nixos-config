@@ -1,15 +1,17 @@
-{ pkgs, ... }: {
-  # Enable OpenGL
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-  };
+{ pkgs, lib, config, ... }: {
+  config = lib.mkIf config.modules.hardware.gpu.amd.enable {
+    # Enable OpenGL
+    hardware.graphics = {
+      enable = true;
+      enable32Bit = true;
+    };
 
-  nixpkgs.overlays = [
-    (final: prev: {
-      btop = prev.btop.override {
-        rocmSupport = true;
-      };
-    })
-  ];
+    nixpkgs.overlays = [
+      (final: prev: {
+        btop = prev.btop.override {
+          rocmSupport = true;
+        };
+      })
+    ];
+  };
 }

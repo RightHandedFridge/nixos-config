@@ -6,12 +6,6 @@
 , ...
 }: {
   home-manager.users.${config.vars.user} = lib.mkIf config.modules.programs.browser.firefox.enable {
-    home.persistence."/persist/home/${config.vars.user}" = lib.mkIf config.modules.system.impermanence.enable {
-      directories = [
-        ".mozilla/firefox/rhf/"
-      ];
-    };
-
     xdg.mimeApps = {
       enable = true;
       defaultApplications = {

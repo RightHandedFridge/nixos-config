@@ -25,11 +25,5 @@
       [updates]
       auto_update = true
     '';
-
-    home.persistence."/persist/home/${config.vars.user}" = lib.mkIf config.modules.system.impermanence.enable {
-      directories = [
-        ".cache/tealdeer"
-      ];
-    };
   };
 }

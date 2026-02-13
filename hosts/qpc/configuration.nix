@@ -11,21 +11,14 @@
 
     #Hardware
     "/etc/nixos/hardware-configuration.nix"
-    ../../modules/hardware/gpu/amd.nix
-    ../../modules/hardware/printing.nix
-    ../../modules/hardware/bluetooth.nix
-    ../../modules/hardware/display.nix
-    ../../modules/hardware/logitech/default.nix
-    ../../modules/hardware/microphone/default.nix
+    ../../modules/hardware
 
     #Modules
     ../../modules/nixos/bundles/system.nix
     ../../modules/nixos/bundles/user-sys-packages.nix
     ../../modules/programs
     ../../modules/services
-
-    #Desktop Enviroment
-    ../../modules/de/default-nixos.nix
+    ../../modules/desktop
 
     #Secrets
     ../../modules/sops/sops.nix
@@ -50,12 +43,23 @@
   system.stateVersion = "24.11"; # Make sure this matches your installed version of NixOS
 
   modules = {
-    de.hyprland.enable = true;
     system.hm.enable = true;
-    system.impermanence.enable = false;
     hardware = {
       logitech.enable = true;
       microphone.enable = true;
+      bluetooth.enable = true;
+      gpu.amd.enable = true;
+      printing.enable = true;
+    };
+
+    desktop = {
+      shells.noctalia.enable = true;
+      hyprland.enable = true;
+      framework = {
+        gnome-keyring.enable = true;
+        stylix.enable = true;
+        sunsetr.enable = true;
+      };
     };
 
     programs = {

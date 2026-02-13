@@ -5,12 +5,6 @@
 , ...
 }: {
   home-manager.users.${config.vars.user} = lib.mkIf config.modules.programs.editors.vscode.enable {
-    home.persistence."/persist/home/${config.vars.user}" = lib.mkIf config.modules.system.impermanence.enable {
-      directories = [
-        ".config/Code/" #Persist user session files so things stay open
-      ];
-    };
-
     #VSCode
     programs.vscode = {
       enable = true;
