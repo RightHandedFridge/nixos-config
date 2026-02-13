@@ -1,31 +1,60 @@
-{ pkgs
-, config
-, osConfig
-, lib
-, ...
+{
+  pkgs,
+  config,
+  osConfig,
+  lib,
+  ...
 }: {
-  #TODO: Fix this, use Home Manager options instead
   home-manager.users.${config.vars.user} = lib.mkIf config.modules.hardware.microphone.enable {
-    home.packages = with pkgs; [
-      easyeffects
-    ];
-
-   home.file.".config/easyeffects/input/lpxw.json" = {
-    source = "/home/${config.vars.user}/nixos-config/dotfiles/easyeffects/lpxw.json";
-    force = true;
-  };
-
-
-    systemd.user.services.easyeffects = {
-      Install.WantedBy = [ "graphical-session.target" ];
-      Unit = {
-        Description = "Easyeffects preset loader";
-        Requires = [ "dbus.service" ];
-        After = [ "graphical-session-pre.target" "pipewire.service" ];
-      };
-      Service = {
-        Type = "simple";
-        ExecStart = "${pkgs.easyeffects}/bin/easyeffects --gapplication-service -l lpxw";
+    services.easyeffects = {
+      enable = true;
+      preset = "lpxw";
+      extraPresets = {
+        lpxw = {
+          input = {
+            blocklist = [
+            ];
+            plugins_order = [
+              "speex#0"
+              "stereo_tools#0"
+            ];
+            "speex#0" = {
+              bypass = false;
+              "enable-agc" = false;
+              "enable-denoise" = true;
+              "enable-dereverb" = false;
+              "input-gain" = 0.0;
+              "noise-suppression" = -70.0;
+              "output-gain" = 5.5;
+              vad = {
+                enable = true;
+                "probability-continue" = 90.0;
+                "probability-start" = 85.0;
+              };
+            };
+            "stereo_tools#0" = {
+              bypass = false;
+              "balance-in" = 0.0;
+              "balance-out" = 0.0;
+              delay = 0.0;
+              "input-gain" = 0.0;
+              "middle-level" = 0.0;
+              "middle-panorama" = 0.0;
+              mode = "LR > L+R (Mono Sum L+R)";
+              mutel = false;
+              muter = false;
+              "output-gain" = 0.0;
+              phasel = false;
+              phaser = false;
+              "sc-level" = 1.0;
+              "side-balance" = 0.0;
+              "side-level" = 0.0;
+              softclip = false;
+              "stereo-base" = 0.0;
+              "stereo-phase" = 0.0;
+            };
+          };
+        };
       };
     };
   };
