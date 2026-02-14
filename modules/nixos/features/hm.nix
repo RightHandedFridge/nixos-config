@@ -24,6 +24,7 @@ in
         imports = [
           (homeNixPath config.vars.host) #Take hosts from global vars
         ];
+        programs.bash.enable = true;
       };
     };
   };
