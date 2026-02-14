@@ -11,19 +11,14 @@
 
     #Hardware
     "/etc/nixos/hardware-configuration.nix"
-    ../../modules/hardware/bluetooth.nix
-    ../../modules/hardware/battery.nix
-    ../../modules/hardware/logitech/default.nix
-    ../../modules/hardware/microphone/default.nix
+    ../../modules/hardware
 
     #Modules
     ../../modules/nixos/bundles/system.nix
     ../../modules/nixos/bundles/user-sys-packages.nix
     ../../modules/programs
     ../../modules/services
-
-    #Desktop Enviroment
-    ../../modules/de/default-nixos.nix
+    ../../modules/desktop
 
     #Secrets
     ../../modules/sops/sops.nix
@@ -40,7 +35,7 @@
     isNormalUser = true;
     description = config.vars.user;
     initialPassword = "5600";
-    hashedPasswordFile = config.sops.secrets.qpcpass.path;
+    hashedPasswordFile = config.sops.secrets.x280pass.path;
     extraGroups = ["networkmanager" "wheel"];
   };
 
@@ -48,13 +43,22 @@
   system.stateVersion = "24.11"; # Make sure this matches your installed version of NixOS
 
   modules = {
-    de.hyprland.enable = true;
     system.hm.enable = true;
-    system.impermanence.enable = false;
     hardware = {
       logitech.enable = false;
       microphone.enable = false;
       bluetooth.enable = true;
+      printing.enable = false;
+    };
+
+    desktop = {
+      shells.noctalia.enable = true;
+      hyprland.enable = true;
+      framework = {
+        gnome-keyring.enable = true;
+        stylix.enable = true;
+        sunsetr.enable = true;
+      };
     };
 
     programs = {
@@ -113,7 +117,7 @@
 
     services = {
       android.enable = false;
-      distrobox.enable = false;
+      distrobox.enable = true;
       flatpak.enable = true;
       nfs.enable = true;
       syncthing.enable = true;

@@ -1,12 +1,10 @@
-{ config
-, inputs
-, ...
+{
+  config,
+  inputs,
+  ...
 }: {
   imports = [
     ./vars.nix
-    #Desktop Enviroment
-    ../../modules/de/default-hm.nix
-
   ];
 
   nixpkgs.config.allowUnfree = true;
