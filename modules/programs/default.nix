@@ -1,4 +1,4 @@
-{ ... }:{
+{...}: {
   imports = [
     ./browser
     ./discord
@@ -10,5 +10,6 @@
     ./tealdeer
     ./terminal
     ./vpn
+    ./shell
   ];
 }

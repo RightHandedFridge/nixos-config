@@ -62,6 +62,9 @@
     };
 
     programs = {
+      shell = {
+        bash.enable = true;
+      };
       browser = {
         firefox.enable = true;
         tor.enable = true;
