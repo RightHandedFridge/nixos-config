@@ -122,7 +122,7 @@
         location = {
           name = "Tokyo";
           weatherEnabled = true;
-          weatherShowEffects = false;
+          weatherShowEffects = true;
           useFahrenheit = false;
           use12hourFormat = false;
           showWeekNumberInCalendar = true;
