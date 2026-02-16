@@ -1,7 +1,8 @@
-{ config
-, pkgs
-, inputs
-, ...
+{
+  config,
+  pkgs,
+  inputs,
+  ...
 }: {
   imports = [
     inputs.sops-nix.nixosModules.sops
@@ -20,10 +21,15 @@
       x280pass.neededForUsers = true;
       qpcpass.neededForUsers = true;
       hspass.neededForUsers = true;
-      "t480/syncthing/key" = { };
-      "t480/syncthing/cert" = { };
-      "qpc/syncthing/key" = { };
-      "qpc/syncthing/cert" = { };
+      "t480/syncthing/key" = {};
+      "t480/syncthing/cert" = {};
+      "qpc/syncthing/key" = {};
+      "qpc/syncthing/cert" = {};
+      "city" = {
+        mode = "0440";
+        owner = config.users.users.${config.vars.user}.name;
+        group = config.users.users.${config.vars.user}.group;
+      };
     };
   };
 }

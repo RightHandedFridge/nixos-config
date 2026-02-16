@@ -1,9 +1,11 @@
-{ pkgs
-, inputs
-, lib
-, osConfig
-, config
-, ...
+{
+  pkgs,
+  inputs,
+  lib,
+  osConfig,
+  config,
+  pkgs-unstable,
+  ...
 }: {
   home-manager.users.${config.vars.user} = lib.mkIf config.modules.desktop.shells.noctalia.enable {
     imports = [
@@ -17,13 +19,29 @@
     programs.noctalia-shell = lib.mkForce {
       enable = true;
       systemd.enable = true;
+      package = let
+        noctalia-package = "${pkgs-unstable.noctalia-shell}/bin/noctalia-shell";
+      in
+        pkgs.writeShellScriptBin "noctalia-shell" ''
+          if [ "$1" = "kill" ]; then
+            ${noctalia-package} "$@"
+            exit 0
+          fi
+          ${noctalia-package} "$@" &
+          pid="$!"
+
+          sleep 3 # set location doesn't seem to work immediately
+          ${noctalia-package} ipc call location set "$(cat ${config.sops.secrets.city.path})"
+
+          wait $pid
+        '';
 
       settings = {
         settingsVersion = 0;
 
         bar = {
           position = "top";
-          monitors = [ ];
+          monitors = [];
           density = "default";
           showOutline = false;
           showCapsule = true;
@@ -39,22 +57,22 @@
 
           widgets = {
             left = [
-              { id = "Launcher"; }
-              { id = "Clock"; }
-              { id = "SystemMonitor"; }
-              { id = "ActiveWindow"; }
-              { id = "MediaMini"; }
+              {id = "Launcher";}
+              {id = "Clock";}
+              {id = "SystemMonitor";}
+              {id = "ActiveWindow";}
+              {id = "MediaMini";}
             ];
             center = [
-              { id = "Workspace"; }
+              {id = "Workspace";}
             ];
             right = [
-              { id = "Tray"; }
-              { id = "NotificationHistory"; }
-              { id = "Battery"; }
-              { id = "Volume"; }
-              { id = "Brightness"; }
-              { id = "ControlCenter"; }
+              {id = "Tray";}
+              {id = "NotificationHistory";}
+              {id = "Battery";}
+              {id = "Volume";}
+              {id = "Brightness";}
+              {id = "ControlCenter";}
             ];
           };
         };
@@ -103,7 +121,7 @@
 
         location = {
           name = "Tokyo";
-          weatherEnabled = false;
+          weatherEnabled = true;
           weatherShowEffects = false;
           useFahrenheit = false;
           use12hourFormat = false;
@@ -137,7 +155,7 @@
           enabled = true;
           overviewEnabled = false;
           directory = "";
-          monitorDirectories = [ ];
+          monitorDirectories = [];
           enableMultiMonitorDirectories = false;
           recursiveSearch = false;
           setWallpaperOnAllMonitors = true;
@@ -172,7 +190,7 @@
           enableClipPreview = true;
           clipboardWrapText = true;
           position = "center";
-          pinnedApps = [ ];
+          pinnedApps = [];
           useApp2Unit = false;
           sortByMostUsed = true;
           terminalCommand = "alacritty -e";
@@ -191,15 +209,15 @@
           diskPath = "/";
           shortcuts = {
             left = [
-              { id = "Network"; }
-              { id = "Bluetooth"; }
-              { id = "WallpaperSelector"; }
+              {id = "Network";}
+              {id = "Bluetooth";}
+              {id = "WallpaperSelector";}
             ];
             right = [
-              { id = "Notifications"; }
-              { id = "PowerProfile"; }
-              { id = "KeepAwake"; }
-              { id = "NightLight"; }
+              {id = "Notifications";}
+              {id = "PowerProfile";}
+              {id = "KeepAwake";}
+              {id = "NightLight";}
             ];
           };
           cards = [
@@ -263,8 +281,8 @@
           floatingRatio = 1;
           size = 1;
           onlySameOutput = true;
-          monitors = [ ];
-          pinnedApps = [ ];
+          monitors = [];
+          pinnedApps = [];
           colorizeIcons = false;
           pinnedStatic = false;
           inactiveIndicators = false;
@@ -319,7 +337,7 @@
 
         notifications = {
           enabled = true;
-          monitors = [ ];
+          monitors = [];
           location = "top_right";
           overlayLayer = true;
           backgroundOpacity = 1;
@@ -350,8 +368,8 @@
           autoHideMs = 2000;
           overlayLayer = true;
           backgroundOpacity = 1;
-          enabledTypes = [ 0 1 2 ];
-          monitors = [ ];
+          enabledTypes = [0 1 2];
+          monitors = [];
         };
 
         audio = {
@@ -359,7 +377,7 @@
           volumeOverdrive = false;
           cavaFrameRate = 30;
           visualizerType = "linear";
-          mprisBlacklist = [ ];
+          mprisBlacklist = [];
           preferredPlayer = "";
         };
 
@@ -431,7 +449,7 @@
         desktopWidgets = {
           enabled = false;
           gridSnap = false;
-          monitorWidgets = [ ];
+          monitorWidgets = [];
         };
       };
 
