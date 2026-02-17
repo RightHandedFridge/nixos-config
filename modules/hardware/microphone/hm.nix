@@ -24,12 +24,12 @@
               "enable-denoise" = true;
               "enable-dereverb" = false;
               "input-gain" = 0.0;
-              "noise-suppression" = -70.0;
+              "noise-suppression" = -50.0;
               "output-gain" = 5.5;
               vad = {
                 enable = true;
-                "probability-continue" = 90.0;
-                "probability-start" = 85.0;
+                "probability-continue" = 80.0;
+                "probability-start" = 80.0;
               };
             };
             "stereo_tools#0" = {
