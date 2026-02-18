@@ -1,7 +1,7 @@
 {...}: {
   imports = [
     ./browser
-    ./discord
+    ./comms
     ./editors
     ./file_manager
     ./games

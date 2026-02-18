@@ -70,8 +70,9 @@
         tor.enable = true;
       };
 
-      discord = {
+      comms = {
         vesktop.enable = true;
+        element.enable = true;
       };
 
       editors = {

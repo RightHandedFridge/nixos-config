@@ -1,5 +1,5 @@
-{ lib, ... }: {
-  options.modules.programs.discord.vesktop = {
+{lib, ...}: {
+  options.modules.programs.comms.vesktop = {
     enable = lib.mkEnableOption "Enable Vesktop";
   };
 
