@@ -1,4 +1,8 @@
-{ inputs, pkgs, ... }: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   #Enable Unfree packages
   nixpkgs.config.allowUnfree = true;
   nixpkgs.overlays = [
@@ -9,9 +13,10 @@
   documentation.enable = false;
 
   nix.settings = {
-    substituters = [ "https://hyprland.cachix.org" ];
+    substituters = ["https://hyprland.cachix.org" "https://nix-gaming.cachix.org"];
     trusted-public-keys = [
       "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+      "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
     ];
   };
 
@@ -54,13 +59,13 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
-  
+
   environment.systemPackages = with pkgs; [
     pavucontrol
   ];
 
   #Experimental Features
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # Bootloader
   boot.loader.systemd-boot.enable = true;
