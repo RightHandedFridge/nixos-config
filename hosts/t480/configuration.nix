@@ -87,7 +87,7 @@
       };
 
       games = {
-        steam.enable = false;
+        steam.enable = true;
         heroic.enable = false;
       };
 
@@ -121,7 +121,7 @@
     };
 
     services = {
-      android.enable = false;
+      android.enable = true;
       distrobox.enable = true;
       flatpak.enable = true;
       nfs.enable = true;
