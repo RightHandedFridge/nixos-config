@@ -1,9 +1,9 @@
 { lib, config, ... }: {
-  options.modules.programs.games.heroic = {
+  options.modules.programs.games.prism-launcher = {
     enable = lib.mkOption {
       type = lib.types.bool;
       default = config.modules.programs.games.enable;
-      description = "Enable Heroic Games Launcher.";
+      description = "Enable Prism Launcher.";
     };
   };
 

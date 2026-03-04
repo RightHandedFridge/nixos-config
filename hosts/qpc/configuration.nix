@@ -88,8 +88,7 @@
       };
 
       games = {
-        steam.enable = true;
-        heroic.enable = true;
+        enable = true;
       };
 
       keepassxc = {
