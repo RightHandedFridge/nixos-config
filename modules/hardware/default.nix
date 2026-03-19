@@ -7,5 +7,6 @@
     ./printing
     ./battery.nix
     ./display.nix
+    ./scanner
   ];
 }

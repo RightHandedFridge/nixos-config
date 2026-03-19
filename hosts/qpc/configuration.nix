@@ -50,6 +50,7 @@
       bluetooth.enable = true;
       gpu.amd.enable = true;
       printing.enable = true;
+      scanner.enable = true;
     };
 
     desktop = {
