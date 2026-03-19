@@ -1,6 +1,10 @@
-{ lib, ... }: {
+{ config, lib, ... }: {
   options.modules.programs.multimedia.krita = {
-    enable = lib.mkEnableOption "Enable Krita multimedia application";
+      enable = lib.mkOption {
+        type = lib.types.bool;
+        default = config.modules.programs.multimedia.enable;
+        description = "Enable Krita";
+      };
   };
 
   imports = [

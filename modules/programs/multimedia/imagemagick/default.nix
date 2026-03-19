@@ -1,6 +1,10 @@
-{ lib, ... }: {
+{ config, lib, ... }: {
   options.modules.programs.multimedia.imagemagick = {
-    enable = lib.mkEnableOption "Enable ImageMagick multimedia application";
+      enable = lib.mkOption {
+        type = lib.types.bool;
+        default = config.modules.programs.multimedia.enable;
+        description = "Enable ImageMagick";
+      };
   };
 
   imports = [

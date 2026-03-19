@@ -1,6 +1,10 @@
-{ lib, ... }: {
+{ config, lib, ... }: {
   options.modules.programs.multimedia.loupe = {
-    enable = lib.mkEnableOption "Enable Loupe multimedia application";
+      enable = lib.mkOption {
+        type = lib.types.bool;
+        default = config.modules.programs.multimedia.enable;
+        description = "Enable Loupe";
+      };
   };
 
   imports = [

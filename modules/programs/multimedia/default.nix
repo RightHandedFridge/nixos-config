@@ -1,4 +1,8 @@
-{...}: {
+{ lib, ...}: {
+  options.modules.programs.multimedia = {
+    enable = lib.mkEnableOption "Enable Multimedia Programs";
+  };
+
   imports = [
     ./loupe
     ./imagemagick
@@ -8,5 +12,6 @@
     ./vlc
     ./krita
     ./kid3
+    ./audacity
   ];
 }
