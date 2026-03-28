@@ -36,6 +36,7 @@
           ", XF86AudioRaiseVolume, exec, noctalia-shell ipc call volume increase"
           ", XF86AudioLowerVolume, exec, noctalia-shell ipc call volume decrease"
           ", XF86AudioMute, exec, noctalia-shell ipc call volume muteOutput"
+          
 
           # Brightness
           ", XF86MonBrightnessUp, exec, noctalia-shell ipc call brightness increase"
@@ -43,6 +44,7 @@
 
           # Microphone
           ", XF86AudioMicMute, exec, noctalia-shell ipc call volume muteInput"
+          "$mod SHIFT, M, exec, noctalia-shell ipc call volume muteInput"
 
           # Cursor Zoom In/Out
           ''$mod, mouse_down, exec, hyprctl keyword cursor:zoom_factor "$(hyprctl getoption cursor:zoom_factor | grep float | awk '{print $2 + 0.5}')"''

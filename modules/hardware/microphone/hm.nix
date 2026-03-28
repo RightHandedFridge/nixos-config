@@ -6,52 +6,52 @@
   ...
 }: {
   home-manager.users.${config.vars.user} = lib.mkIf config.modules.hardware.microphone.enable {
+    home.packages = with pkgs; [
+      rnnoise-plugin
+    ];
     services.easyeffects = {
       enable = true;
-      preset = "lpxw";
+      preset = "mic";
       extraPresets = {
-        lpxw = {
+        mic = {
           input = {
             blocklist = [
             ];
+
             plugins_order = [
-              "speex#0"
+              "gate#0"
+              "rnnoise#0"
               "stereo_tools#0"
             ];
-            "speex#0" = {
+
+            "gate#0" = {
               bypass = false;
-              "enable-agc" = false;
-              "enable-denoise" = true;
-              "enable-dereverb" = false;
-              "input-gain" = 0.0;
-              "noise-suppression" = -10.0;
-              "output-gain" = 5.5;
-              vad = {
-                enable = true;
-                "probability-continue" = 80.0;
-                "probability-start" = 90.0;
-              };
+              attack = 5.0;
+              release = 120.0;
+              threshold = -40.0; # slightly more aggressive
+              ratio = 10.0;
             };
+
+            "rnnoise#0" = {
+              bypass = false;
+              input-gain = 2.0; # small boost for voice
+              output-gain = 0.0;
+              vad-thres = 50.0;
+              wet = 1.0; # max suppression
+              enable-vad = true;
+              "use-standard-model" = true;
+              "model-name" = "\"\"";
+              release = 20.0;
+            };
+
             "stereo_tools#0" = {
               bypass = false;
+              mode = "LR > L+R (Mono Sum L+R)";
               "balance-in" = 0.0;
               "balance-out" = 0.0;
               delay = 0.0;
               "input-gain" = 0.0;
-              "middle-level" = 0.0;
-              "middle-panorama" = 0.0;
-              mode = "LR > L+R (Mono Sum L+R)";
-              mutel = false;
-              muter = false;
               "output-gain" = 0.0;
-              phasel = false;
-              phaser = false;
-              "sc-level" = 1.0;
-              "side-balance" = 0.0;
-              "side-level" = 0.0;
-              softclip = false;
-              "stereo-base" = 0.0;
-              "stereo-phase" = 0.0;
             };
           };
         };
