@@ -73,7 +73,7 @@
       comms = {
         vesktop.enable = true;
         element.enable = true;
-        stoat.enable = true;
+        stoat.enable = false;
       };
 
       editors = {
