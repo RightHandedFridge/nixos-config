@@ -87,7 +87,7 @@
       };
 
       games = {
-        steam.enable = true;
+        steam.enable = false;
         heroic.enable = false;
       };
 
@@ -96,14 +96,8 @@
       };
 
       multimedia = {
-        ffmpeg.enable = true;
-        imagemagick.enable = true;
-        kdenlive.enable = true;
-        kid3.enable = true;
-        krita.enable = true;
-        loupe.enable = true;
-        obs-studio.enable = true;
-        vlc.enable = true;
+        enable = true;
+        kdenlive.enable = false;
       };
 
       tealdeer = {
