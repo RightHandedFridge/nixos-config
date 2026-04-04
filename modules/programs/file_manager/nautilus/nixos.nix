@@ -7,6 +7,7 @@
     ];
 
     environment.pathsToLink = [ "share/thumbnailers" ];
+    xdg.mime.defaultApplications."inode/directory" = "nautilus.desktop";
 
     services.gvfs.enable = true; #Fix Trash not showing up
     services.udisks2.enable = true; #Automount USB Devices
