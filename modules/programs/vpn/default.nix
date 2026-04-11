@@ -2,5 +2,6 @@
   imports = [
     ./proton
     ./mullvad
+    ./wireguard
   ];
 }

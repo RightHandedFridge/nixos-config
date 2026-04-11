@@ -111,6 +111,7 @@
       vpn = {
         proton.enable = true;
         mullvad.enable = true;
+        wireguard.enable = true;
       };
     };
 
