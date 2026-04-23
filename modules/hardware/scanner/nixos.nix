@@ -3,7 +3,7 @@
 , pkgs
 , ...
 }: {
-  config = lib.mkIf config.modules.hardware.printing.enable {
+  config = lib.mkIf config.modules.hardware.scanner.enable {
     hardware.sane = {
       enable = true;
       extraBackends = [

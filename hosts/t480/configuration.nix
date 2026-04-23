@@ -49,6 +49,7 @@
       microphone.enable = false;
       bluetooth.enable = true;
       printing.enable = false;
+      thunderbolt.enable = true;
     };
 
     desktop = {

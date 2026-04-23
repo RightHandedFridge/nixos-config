@@ -8,5 +8,6 @@
     ./battery.nix
     ./display.nix
     ./scanner
+    ./thunderbolt
   ];
 }
