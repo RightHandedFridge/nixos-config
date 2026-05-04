@@ -90,6 +90,7 @@
       games = {
         steam.enable = false;
         heroic.enable = false;
+        prism-launcher.enable = true;
       };
 
       keepassxc = {
