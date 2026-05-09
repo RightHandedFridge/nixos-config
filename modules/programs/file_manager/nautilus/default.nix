@@ -5,5 +5,6 @@
 
   imports = [
     ./nixos.nix
+    ./hm.nix
   ];
 }
