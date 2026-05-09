@@ -108,7 +108,7 @@
           "$mod ALT, j, swapwindow, d"
 
           #Global Hotkeys
-          "$mod, F8, pass, class^(com\.obsproject\.Studio)$"
+          "$mod, F8, pass, class:^(com\.obsproject\.Studio)$"
         ];
 
         bindm = [
