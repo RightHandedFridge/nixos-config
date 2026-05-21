@@ -94,8 +94,14 @@
       pkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs;
-          pkgs-stable = nixpkgs-stable.legacyPackages.${system};
-          pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
+          pkgs-stable = import nixpkgs-stable {
+            inherit system;
+            config.allowUnfree = true;
+          };
+          pkgs-unstable = import nixpkgs-unstable {
+            inherit system;
+            config.allowUnfree = true;
+          };
         };
         modules = pkgs.lib.concatLists [
           [configuration]
