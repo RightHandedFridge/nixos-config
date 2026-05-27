@@ -8,12 +8,16 @@
     };
 
     nixpkgs-stable = {
+      url = "github:nixos/nixpkgs/nixos-26.05";
+    };
+
+    nixpkgs-oldstable = {
       url = "github:nixos/nixpkgs/nixos-25.11";
     };
 
     # Configuration managers
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.11";
+      url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
 
@@ -21,14 +25,10 @@
     nixos-hardware = {
       url = "github:nixos/nixos-hardware/master";
     };
-    nixos-06cb-009a-fingerprint-sensor = {
-      url = "github:ahbnr/nixos-06cb-009a-fingerprint-sensor?ref=25.05";
-      inputs.nixpkgs.follows = "nixpkgs-stable";
-    };
 
     # Theming
     stylix = {
-      url = "github:danth/stylix/release-25.11";
+      url = "github:danth/stylix/master";
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
 
@@ -70,7 +70,6 @@
     nixpkgs-stable,
     home-manager,
     nixos-hardware,
-    nixos-06cb-009a-fingerprint-sensor,
     disko,
     stylix,
     sops-nix,
@@ -123,7 +122,6 @@
         configuration = ./hosts/t480/configuration.nix;
         extraModules = [
           nixos-hardware.nixosModules.lenovo-thinkpad-t480
-          nixos-06cb-009a-fingerprint-sensor.nixosModules."06cb-009a-fingerprint-sensor"
         ];
       };
     };

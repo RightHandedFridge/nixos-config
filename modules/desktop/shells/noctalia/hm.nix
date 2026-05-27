@@ -4,7 +4,6 @@
   lib,
   osConfig,
   config,
-  pkgs-unstable,
   ...
 }: {
   home-manager.users.${config.vars.user} = lib.mkIf config.modules.desktop.shells.noctalia.enable {
@@ -18,9 +17,8 @@
 
     programs.noctalia-shell = lib.mkForce {
       enable = true;
-      systemd.enable = true;
       package = let
-        noctalia-package = "${pkgs-unstable.noctalia-shell}/bin/noctalia-shell";
+        noctalia-package = "${pkgs.noctalia-shell}/bin/noctalia-shell";
       in
         pkgs.writeShellScriptBin "noctalia-shell" ''
           if [ "$1" = "kill" ]; then

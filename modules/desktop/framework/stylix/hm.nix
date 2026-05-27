@@ -64,7 +64,7 @@
       };
     };
 
-    iconTheme = {
+    icons = {
       enable = true;
       package = pkgs.whitesur-icon-theme;
       dark = "WhiteSur-dark";
@@ -77,5 +77,7 @@
     GTK_USE_PORTAL = "1";
     GTK_CSD = "0";
   };
+
+  gtk.gtk4.theme = null;
   };
 }

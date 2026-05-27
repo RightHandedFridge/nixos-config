@@ -1,6 +1,15 @@
-{ config, lib, ... }:{
+{
+  config,
+  lib,
+  ...
+}: {
   home-manager.users.${config.vars.user} = lib.mkIf config.modules.desktop.hyprland.enable {
-    wayland.windowManager.hyprland.settings = {
+    wayland.windowManager.hyprland = {
+      configType = "hyprlang";
+      settings = {
+        exec-once = [
+          "noctalia-shell"
+        ];
         "monitor" = ",highrr,auto,1";
         "$mod" = "SUPER";
         "$menu" = "rofi -show drun";
@@ -36,7 +45,6 @@
           ", XF86AudioRaiseVolume, exec, noctalia-shell ipc call volume increase"
           ", XF86AudioLowerVolume, exec, noctalia-shell ipc call volume decrease"
           ", XF86AudioMute, exec, noctalia-shell ipc call volume muteOutput"
-          
 
           # Brightness
           ", XF86MonBrightnessUp, exec, noctalia-shell ipc call brightness increase"
@@ -91,7 +99,7 @@
           "$mod, F, fullscreen, 0" # Set Window to true fullscreen (above everything)
           "$mod, T, togglefloating"
           "$mod SHIFT, T, workspaceopt, allfloat"
-          "$mod, U, togglesplit" # Switch between types of split (horizontal/vertical)
+          "$mod, U, layoutmsg, togglesplit" # Switch between types of split (horizontal/vertical)
 
           # Resize active window with arrow keys
           "$mod SHIFT, h, resizeactive, -100 0"
@@ -100,7 +108,7 @@
           "$mod SHIFT, j, resizeactive, 0 100"
 
           # Splits
-          "$mod, I, swapsplit" # Swap window positions easy peasy
+          "$mod, I, layoutmsg, swapsplit" # Swap window positions easy peasy
 
           "$mod ALT, h, swapwindow, l"
           "$mod ALT, l, swapwindow, r"
@@ -133,12 +141,12 @@
         ];
 
         windowrule = [
-          "bordersize 0, floating:0, onworkspace:w[tv1]"
-          "rounding 0, floating:0, onworkspace:w[tv1]"
-          "bordersize 0, floating:0, onworkspace:f[1]"
-          "rounding 0, floating:0, onworkspace:f[1]"
-        ];
+          "border_size 0, match:float 0, match:workspace w[tv1]"
+          "rounding 0, match:float 0, match:workspace w[tv1]"
 
+          "border_size 0, match:float 0, match:workspace f[1]"
+          "rounding 0, match:float 0, match:workspace f[1]"
+        ];
         animations = {
           enabled = 0;
         };
@@ -146,6 +154,7 @@
         misc = {
           vrr = 1;
         };
+      };
     };
   };
 }

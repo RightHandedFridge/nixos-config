@@ -7,7 +7,6 @@
   nixpkgs.config.allowUnfree = true;
   nixpkgs.overlays = [
     inputs.nur.overlays.default
-    (import ../overlays/solaar.nix)
   ];
 
   documentation.enable = false;
