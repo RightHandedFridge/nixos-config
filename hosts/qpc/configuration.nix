@@ -40,7 +40,7 @@
   };
 
   # Set the system state version
-  system.stateVersion = "24.11"; # Make sure this matches your installed version of NixOS
+  system.stateVersion = "25.11"; # Make sure this matches your installed version of NixOS
 
   modules = {
     system.hm.enable = true;
