@@ -18,7 +18,7 @@
 
     environment.systemPackages = [
       pkgs.r2modman
-      pkgs-unstable.deadlock-mod-manage
+      pkgs-unstable.deadlock-mod-manager
     ];
   };
 }
