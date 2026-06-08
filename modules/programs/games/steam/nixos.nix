@@ -1,4 +1,10 @@
-{ lib, config, pkgs, ... }: {
+{
+  lib,
+  config,
+  pkgs,
+  pkgs-unstable,
+  ...
+}: {
   config = lib.mkIf config.modules.programs.games.steam.enable {
     programs.steam = {
       enable = true;
@@ -10,9 +16,9 @@
       enable = true;
     };
 
-    environment.systemPackages = with pkgs; [
-      r2modman
-      deadlock-mod-manager
+    environment.systemPackages = [
+      pkgs.r2modman
+      pkgs-unstable.deadlock-mod-manager
     ];
   };
 }
