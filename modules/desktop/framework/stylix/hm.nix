@@ -77,6 +77,14 @@
       };
     };
 
+    gtk = {
+      enable = true;
+      theme = lib.mkForce {
+        package = pkgs.whitesur-gtk-theme;
+        name = "WhiteSur-Dark";
+      };
+    };
+
     #Use my decorations damn you!
     home.sessionVariables = {
       GTK_USE_PORTAL = "1";
