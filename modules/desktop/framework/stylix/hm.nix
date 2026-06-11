@@ -7,14 +7,15 @@
   home-manager.users.${config.vars.user} = lib.mkIf config.modules.desktop.framework.stylix.enable {
     stylix = {
       enable = true;
-      autoEnable = true;
+      autoEnable = false;
+
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/hardcore.yaml";
+      
       cursor = {
         size = 24;
         package = pkgs.whitesur-cursors;
         name = "WhiteSur-cursors";
       };
-
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/hardcore.yaml";
 
       polarity = "dark";
 
@@ -46,49 +47,12 @@
           popups = 10;
         };
       };
-
-      targets = {
-        qt = {
-          platform = "qtct";
-        };
-
-        vscode = {
-          profileNames = ["default"];
-        };
-
-        librewolf = {
-          profileNames = ["rhf"];
-        };
-
-        firefox = {
-          profileNames = ["rhf"];
-        };
-
-        rofi = {
-          enable = false;
-        };
-      };
-
       icons = {
         enable = true;
         package = pkgs.whitesur-icon-theme;
         dark = "WhiteSur-dark";
         light = "WhiteSur-light";
       };
-    };
-
-    gtk = {
-      enable = true;
-      theme = lib.mkForce {
-        package = pkgs.whitesur-gtk-theme;
-        name = "WhiteSur-Dark";
-      };
-    };
-
-    #Use my decorations damn you!
-    home.sessionVariables = {
-      GTK_USE_PORTAL = "1";
-      GTK_CSD = "0";
     };
   };
 }

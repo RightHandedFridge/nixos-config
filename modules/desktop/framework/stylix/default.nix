@@ -4,7 +4,9 @@
   };
 
   imports = [
-    ./nixos.nix
+    ./gtk.nix
+    ./qt.nix
     ./hm.nix
+    ./nixos.nix
   ];
 }

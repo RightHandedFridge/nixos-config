@@ -2,7 +2,7 @@
   config = lib.mkIf config.modules.desktop.framework.stylix.enable {
     stylix = {
       enable = true;
-      image = ./wallpaper.png;
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/hardcore.yaml";
       targets = {
         console = {
           enable = false;

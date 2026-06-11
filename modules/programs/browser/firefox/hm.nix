@@ -19,7 +19,7 @@
     };
 
     programs.firefox = {
-      configPath = "/home/${config.vars.user}/.config/mozilla/firefox";
+      configPath = "/home/${config.vars.user}/.mozilla/firefox";
       enable = true;
       profiles.rhf = {
         name = "rhf";
