@@ -47,6 +47,15 @@
           popups = 10;
         };
       };
+
+      targets = {
+        font-packages = {
+          enable = true;
+          fonts = {
+            enable = true;
+          };
+        };
+      };
       icons = {
         enable = true;
         package = pkgs.whitesur-icon-theme;
