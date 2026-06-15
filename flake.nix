@@ -42,10 +42,8 @@
     };
 
     noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-      #https://docs.noctalia.dev/getting-started/nixos/#nix-flakes
-      #Noctalia requires unstable since it depends on the latest quickshell
+      url = "github:noctalia-dev/noctalia/legacy-v4";
+      inputs.nixpkgs.follows = "nixpkgs-stable";
     };
 
     # Secrets and filesystem
