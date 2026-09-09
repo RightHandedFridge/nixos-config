@@ -48,9 +48,10 @@
       logitech.enable = true;
       microphone.enable = true;
       bluetooth.enable = true;
-      gpu.amd.enable = true;
+      gpu.nvidia.enable = true;
       printing.enable = true;
       scanner.enable = true;
+      rgb.enable = true;
     };
 
     desktop = {

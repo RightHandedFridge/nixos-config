@@ -9,5 +9,6 @@
     ./display.nix
     ./scanner
     ./thunderbolt
+    ./rgb
   ];
 }
