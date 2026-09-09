@@ -21,8 +21,8 @@
       x280pass.neededForUsers = true;
       qpcpass.neededForUsers = true;
       hspass.neededForUsers = true;
-      "t480/syncthing/key" = {};
-      "t480/syncthing/cert" = {};
+      "hp255/syncthing/key" = {};
+      "hp255/syncthing/cert" = {};
       "qpc/syncthing/key" = {};
       "qpc/syncthing/cert" = {};
       "city" = {

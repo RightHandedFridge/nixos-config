@@ -122,6 +122,12 @@
           nixos-hardware.nixosModules.lenovo-thinkpad-t480
         ];
       };
+
+      hp255 = mkSystem {
+        system = "x86_64-linux";
+        pkgs = nixpkgs-stable;
+        configuration = ./hosts/hp255/configuration.nix;
+      };
     };
   };
 }
