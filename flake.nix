@@ -4,15 +4,11 @@
   inputs = {
     # Nixpkgs channels
     nixpkgs-unstable = {
-      url = "github:nixos/nixpkgs/nixos-unstable";
+      url = "https://channels.nixos.org/nixos-unstable/nixexprs.tar.zst";
     };
 
     nixpkgs-stable = {
-      url = "github:nixos/nixpkgs/nixos-26.05";
-    };
-
-    nixpkgs-oldstable = {
-      url = "github:nixos/nixpkgs/nixos-25.11";
+      url = "https://channels.nixos.org/nixos-26.05/nixexprs.tar.zst";
     };
 
     # Configuration managers
