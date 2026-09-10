@@ -8,9 +8,8 @@
     stylix = {
       enable = true;
       autoEnable = false;
+      base16Scheme = "${pkgs.base16-schemes}/share/themes/silk-dark.yaml";
 
-      base16Scheme = "${pkgs.base16-schemes}/share/themes/hardcore.yaml";
-      
       cursor = {
         size = 24;
         package = pkgs.whitesur-cursors;
@@ -34,7 +33,6 @@
           package = pkgs.dejavu_fonts;
           name = "DejaVu Sans Mono";
         };
-
         emoji = {
           package = pkgs.noto-fonts-color-emoji;
           name = "Noto Color Emoji";
@@ -54,6 +52,9 @@
           fonts = {
             enable = true;
           };
+        };
+        alacritty = {
+          enable = true;
         };
       };
       icons = {
