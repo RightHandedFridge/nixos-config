@@ -1,5 +1,6 @@
 {
   pkgs,
+  pkgs-unstable,
   inputs,
   lib,
   osConfig,
@@ -18,7 +19,7 @@
     programs.noctalia-shell = lib.mkForce {
       enable = true;
       package = let
-        noctalia-package = "${pkgs.noctalia-shell}/bin/noctalia-shell";
+        noctalia-package = "${pkgs-unstable.noctalia-shell}/bin/noctalia-shell";
       in
         pkgs.writeShellScriptBin "noctalia-shell" ''
           if [ "$1" = "kill" ]; then
