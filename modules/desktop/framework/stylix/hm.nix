@@ -53,9 +53,6 @@
             enable = true;
           };
         };
-        alacritty = {
-          enable = true;
-        };
       };
       icons = {
         enable = true;

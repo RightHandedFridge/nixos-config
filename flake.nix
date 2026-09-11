@@ -37,11 +37,6 @@
       inputs.hyprland.follows = "hyprland";
     };
 
-    noctalia = {
-      url = "github:noctalia-dev/noctalia/legacy-v4";
-      inputs.nixpkgs.follows = "nixpkgs-stable";
-    };
-
     # Secrets and filesystem
     sops-nix = {
       url = "github:Mic92/sops-nix";

@@ -616,11 +616,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1788942796,
-        "narHash": "sha256-CLoJCCRi9sogsyGXYn8rOCWBLKAntfKUB9Rli/YXgEY=",
+        "lastModified": 1789127271,
+        "narHash": "sha256-vL/Fpo7Zxa7wvO8V5FAToUBvP+K3XsMB1wUglTtd/J0=",
         "owner": "nixos",
         "repo": "nixos-hardware",
-        "rev": "83bbc895120516d6e86885a188c04beced6535d9",
+        "rev": "24cfdc1f9344b90a1eee329a3906e2f39f4d0f1e",
         "type": "github"
       },
       "original": {
@@ -733,62 +733,17 @@
         "type": "github"
       }
     },
-    "noctalia": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs-stable"
-        ],
-        "noctalia-qs": "noctalia-qs"
-      },
-      "locked": {
-        "lastModified": 1788016978,
-        "narHash": "sha256-kq3bbBPa5803bLv55bNFztx2YryJl5a/VfUWvvdaZjI=",
-        "owner": "noctalia-dev",
-        "repo": "noctalia",
-        "rev": "a08ff3619ed4c1e1cd8b7691438cea34ccecd6c5",
-        "type": "github"
-      },
-      "original": {
-        "owner": "noctalia-dev",
-        "ref": "legacy-v4",
-        "repo": "noctalia",
-        "type": "github"
-      }
-    },
-    "noctalia-qs": {
-      "inputs": {
-        "nixpkgs": [
-          "noctalia",
-          "nixpkgs"
-        ],
-        "systems": "systems_2",
-        "treefmt-nix": "treefmt-nix"
-      },
-      "locked": {
-        "lastModified": 1780799499,
-        "narHash": "sha256-YloRtLqJabzYUWvdLyh67zH4DZrR3kQj+dlQJwLPmPM=",
-        "owner": "noctalia-dev",
-        "repo": "noctalia-qs",
-        "rev": "f308426239665e3bc3d624014e9295b2ae2f58ff",
-        "type": "github"
-      },
-      "original": {
-        "owner": "noctalia-dev",
-        "repo": "noctalia-qs",
-        "type": "github"
-      }
-    },
     "nur": {
       "inputs": {
         "flake-parts": "flake-parts",
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1789058273,
-        "narHash": "sha256-hrFgw2Mgq/52qvW61515kjNcW7wHbXIXAoYApPGc8h4=",
+        "lastModified": 1789130986,
+        "narHash": "sha256-HRR+HOE5Wxuu2AYR/I3A4z/Up2tktegeAiSuKZ3BBzM=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "8901caff16dfc75b73fee71e08ca7374aa573a38",
+        "rev": "cef6dc12683ed4d7a062e5894b6ac69b33d23843",
         "type": "github"
       },
       "original": {
@@ -854,7 +809,6 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs-stable": "nixpkgs-stable",
         "nixpkgs-unstable": "nixpkgs-unstable",
-        "noctalia": "noctalia",
         "nur": "nur",
         "sops-nix": "sops-nix",
         "stylix": "stylix"
@@ -891,7 +845,7 @@
           "nixpkgs-stable"
         ],
         "nur": "nur_2",
-        "systems": "systems_3",
+        "systems": "systems_2",
         "tinted-kitty": "tinted-kitty",
         "tinted-schemes": "tinted-schemes",
         "tinted-tmux": "tinted-tmux",
@@ -928,21 +882,6 @@
       }
     },
     "systems_2": {
-      "locked": {
-        "lastModified": 1689347949,
-        "narHash": "sha256-12tWmuL2zgBgZkdoB6qXZsgJEH9LR3oUgpaQq2RbI80=",
-        "owner": "nix-systems",
-        "repo": "default-linux",
-        "rev": "31732fcf5e8fea42e59c2488ad31a0e651500f68",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nix-systems",
-        "repo": "default-linux",
-        "type": "github"
-      }
-    },
-    "systems_3": {
       "locked": {
         "lastModified": 1681028828,
         "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
@@ -1018,28 +957,6 @@
       "original": {
         "owner": "tinted-theming",
         "repo": "base16-zed",
-        "type": "github"
-      }
-    },
-    "treefmt-nix": {
-      "inputs": {
-        "nixpkgs": [
-          "noctalia",
-          "noctalia-qs",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1780220602,
-        "narHash": "sha256-eynAfOmbmxJnkp7YewvCEbShNnnYJ9gLLqkzsYtBPeM=",
-        "owner": "numtide",
-        "repo": "treefmt-nix",
-        "rev": "db947814a175b7ca6ded66e21383d938df01c227",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "treefmt-nix",
         "type": "github"
       }
     },
