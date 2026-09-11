@@ -37,6 +37,11 @@
       inputs.hyprland.follows = "hyprland";
     };
 
+    noctalia-greeter = {
+      url = "github:noctalia-dev/noctalia-greeter";
+      inputs.nixpkgs.follows = "nixpkgs-stable";
+    };
+
     # Secrets and filesystem
     sops-nix = {
       url = "github:Mic92/sops-nix";
@@ -62,6 +67,7 @@
     disko,
     stylix,
     sops-nix,
+    noctalia-greeter,
     ...
   } @ inputs: let
     commonModules = [
