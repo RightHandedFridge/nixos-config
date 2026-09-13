@@ -15,6 +15,6 @@
     ];
 
     #Noctalia Settings
-    xdg.configFile."noctalia/settings.toml".source = ./settings.toml;
+    xdg.configFile."noctalia/settings.toml".text = builtins.readFile ./settings.toml;
   };
 }
