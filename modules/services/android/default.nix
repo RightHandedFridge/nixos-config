@@ -1,6 +1,10 @@
-{ lib, ... }: {
+{ lib, config, ... }: {
   options.modules.services.android = {
-    enable = lib.mkEnableOption "Enable Android service";
+    enable = lib.mkOption {
+      type = lib.types.bool;
+      default = config.modules.services.enable;
+      description = "Enable Android service.";
+    };
   };
 
   imports = [

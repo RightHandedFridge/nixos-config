@@ -1,6 +1,10 @@
-{lib, ...}: {
+{ lib, config, ... }: {
   options.modules.programs.comms.vesktop = {
-    enable = lib.mkEnableOption "Enable Vesktop";
+    enable = lib.mkOption {
+      type = lib.types.bool;
+      default = config.modules.programs.comms.enable;
+      description = "Enable Vesktop.";
+    };
   };
 
   imports = [

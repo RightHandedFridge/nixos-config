@@ -1,6 +1,10 @@
-{ lib, ... }: {
+{ lib, config, ... }: {
   options.modules.services.flatpak = {
-    enable = lib.mkEnableOption "Enable Flatpak service";
+    enable = lib.mkOption {
+      type = lib.types.bool;
+      default = config.modules.services.enable;
+      description = "Enable Flatpak service.";
+    };
   };
 
   imports = [

@@ -1,6 +1,10 @@
-{ lib, ... }: {
+{ lib, config, ... }: {
   options.modules.programs.terminal.alacritty = {
-    enable = lib.mkEnableOption "Enable Alacritty terminal emulator";
+    enable = lib.mkOption {
+      type = lib.types.bool;
+      default = config.modules.programs.terminal.enable;
+      description = "Enable Alacritty terminal emulator.";
+    };
   };
 
   imports = [

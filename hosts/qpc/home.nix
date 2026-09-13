@@ -6,8 +6,6 @@
     ./vars.nix
   ];
 
-  nixpkgs.config.allowUnfree = true;
-
   home.username = config.vars.user;
   home.homeDirectory = "/home/${config.vars.user}";
 

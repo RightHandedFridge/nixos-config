@@ -64,7 +64,6 @@
     nixpkgs-stable,
     home-manager,
     nixos-hardware,
-    disko,
     stylix,
     sops-nix,
     noctalia-greeter,
@@ -73,7 +72,6 @@
     commonModules = [
       home-manager.nixosModules.default
       stylix.nixosModules.stylix
-      disko.nixosModules.default
       sops-nix.nixosModules.sops
     ];
 

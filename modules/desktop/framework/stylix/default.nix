@@ -1,6 +1,10 @@
-{ lib, ... }:{
+{ lib, config, ... }: {
   options.modules.desktop.framework.stylix = {
-    enable = lib.mkEnableOption "Enable Stylix";
+    enable = lib.mkOption {
+      type = lib.types.bool;
+      default = config.modules.desktop.framework.enable;
+      description = "Enable Stylix.";
+    };
   };
 
   imports = [

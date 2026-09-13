@@ -1,6 +1,10 @@
-{ lib, ... }:{
+{ lib, config, ... }: {
   options.modules.desktop.framework.sunsetr = {
-    enable = lib.mkEnableOption "Enable Sunsetr";
+    enable = lib.mkOption {
+      type = lib.types.bool;
+      default = config.modules.desktop.framework.enable;
+      description = "Enable Sunsetr.";
+    };
   };
 
   imports = [

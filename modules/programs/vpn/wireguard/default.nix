@@ -1,6 +1,10 @@
-{ lib, ... }: {
+{ lib, config, ... }: {
   options.modules.programs.vpn.wireguard = {
-    enable = lib.mkEnableOption "Enable Wireguard VPN client";
+    enable = lib.mkOption {
+      type = lib.types.bool;
+      default = config.modules.programs.vpn.enable;
+      description = "Enable Wireguard VPN client.";
+    };
   };
 
   imports = [

@@ -1,6 +1,10 @@
-{ lib, ... }: {
+{ lib, config, ... }: {
   options.modules.programs.vpn.proton = {
-    enable = lib.mkEnableOption "Enable Proton VPN";
+    enable = lib.mkOption {
+      type = lib.types.bool;
+      default = config.modules.programs.vpn.enable;
+      description = "Enable Proton VPN.";
+    };
   };
 
   imports = [

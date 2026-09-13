@@ -1,6 +1,10 @@
-{ lib, ... }: {
+{ lib, config, ... }: {
   options.modules.programs.vpn.mullvad = {
-    enable = lib.mkEnableOption "Enable Mullvad VPN";
+    enable = lib.mkOption {
+      type = lib.types.bool;
+      default = config.modules.programs.vpn.enable;
+      description = "Enable Mullvad VPN.";
+    };
   };
 
   imports = [

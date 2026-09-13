@@ -25,7 +25,10 @@ in
           (homeNixPath config.vars.host) #Take hosts from global vars
         ];
         programs.bash.enable = true;
-        xdg.userDirs.enable = true;
+        xdg.userDirs = {
+          enable = true;
+          setSessionVariables = false;
+        };
       };
     };
   };

@@ -1,6 +1,10 @@
-{ lib, ... }:{
+{ lib, config, ... }: {
   options.modules.desktop.shells.noctalia = {
-    enable = lib.mkEnableOption "Enable Noctalia desktop shell";
+    enable = lib.mkOption {
+      type = lib.types.bool;
+      default = config.modules.desktop.shells.enable;
+      description = "Enable Noctalia desktop shell.";
+    };
   };
 
   imports = [

@@ -53,75 +53,46 @@
     };
 
     desktop = {
-      shells.noctalia.enable = true;
+      shells.enable = true;
       hyprland.enable = true;
-      framework = {
-        gnome-keyring.enable = true;
-        stylix.enable = true;
-        sunsetr.enable = true;
-      };
+      framework.enable = true;
     };
 
     programs = {
-      shell = {
-        bash.enable = true;
-      };
-      browser = {
-        firefox.enable = true;
-        tor.enable = true;
-      };
+      shell.enable = true;
+
+      browser.enable = true;
 
       comms = {
-        vesktop.enable = true;
-        element.enable = true;
+        enable = true;
         stoat.enable = false;
       };
 
-      editors = {
-        helix.enable = true;
-        vscode.enable = true;
-        lf.enable = true;
-      };
+      editors.enable = true;
 
-      filemanager = {
-        nautilus.enable = true;
-      };
+      filemanager.enable = true;
 
       games = {
-        steam.enable = false;
-        heroic.enable = false;
         prism-launcher.enable = true;
       };
 
-      keepassxc = {
-        enable = true;
-      };
+      keepassxc.enable = true;
 
       multimedia = {
         enable = true;
         kdenlive.enable = false;
       };
 
-      tealdeer = {
-        enable = true;
-      };
+      tealdeer.enable = true;
 
-      terminal = {
-        alacritty.enable = true;
-      };
+      terminal.enable = true;
 
       vpn = {
-        proton.enable = true;
-        mullvad.enable = true;
+        enable = true;
+        wireguard.enable = false;
       };
     };
 
-    services = {
-      android.enable = true;
-      distrobox.enable = true;
-      flatpak.enable = true;
-      nfs.enable = true;
-      syncthing.enable = true;
-    };
+    services.enable = true;
   };
 }
