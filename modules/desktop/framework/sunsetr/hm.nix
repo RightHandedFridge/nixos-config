@@ -16,7 +16,7 @@
       adaptive_interval = 1
 
       #[Time-based config]
-      night_temp = 3000
+      night_temp = 2000
       day_temp = 6500
       night_gamma = 100
       day_gamma = 100
