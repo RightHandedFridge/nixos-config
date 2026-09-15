@@ -3,7 +3,7 @@
     environment.systemPackages = with pkgs; [ bluez ];
     hardware.bluetooth = {
       enable = true;
-      powerOnBoot = true;
+      powerOnBoot = false;
       settings = {
         General = {
           Experimental = true;
