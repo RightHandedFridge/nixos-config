@@ -41,7 +41,7 @@
 
       Service = {
         Type = "simple";
-        ExecStart = "${pkgs.sunsetr}/bin/sunsetr -b";
+        ExecStart = "${pkgs.sunsetr}/bin/sunsetr";
         Restart = "on-failure";
         RestartSec = 1;
       };
